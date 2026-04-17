@@ -1,0 +1,59 @@
+format = """$directory$git_branch$git_status$cmd_duration$character"""
+
+add_newline = true
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+style = "bold yellow"
+
+format = "[$path/]($style)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style))'
+stashed = "≡"
+ahead = "⇡"
+
+behind = "⇣"
+up_to_date = ""
+diverged = "⇕"
+conflicted = "✘"
+deleted = "🗑"
+renamed = "»"
+modified = "!"
+
+staged = "+"
+untracked = "?"
+
+[git_branch]
+symbol = ""
+style = "bold purple"
+format = "[$symbol$branch]($style)"
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style)"
+
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = "󰍛"
+style = "bold dimmed white"
+
+[cmd_duration]
+disabled = true
+
+
+[git_commit]
+tag_disabled = false
+only_detached = true
+style = "bold white"
+format = "[ $hash$tag]($style) "
+commit_hash_length = 7

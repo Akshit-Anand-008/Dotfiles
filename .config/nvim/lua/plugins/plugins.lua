@@ -1,0 +1,33 @@
+return {
+    { "voldikss/vim-floaterm" },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = { indent = { char = "│" } } },
+    { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { names = false } } },
+    { "nvim-tree/nvim-web-devicons", opts = {} },
+    { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
+    { "numToStr/Comment.nvim", opts = {} },
+    { "kylechui/nvim-surround", version = "*", event = "VeryLazy", opts = {} },
+    { "lewis6991/gitsigns.nvim", opts = {} },
+
+    { "echasnovski/mini.move", version = false, opts = {} },
+    { "mbbill/undotree" },
+    { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
+    { "christoomey/vim-tmux-navigator" },
+    { "rust-lang/rust.vim" },
+    { "HiPhish/rainbow-delimiters.nvim" },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        cmd = "Neotree",
+        branch = "v3.x",
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
+        opts = { filesystem = { follow_current_file = { enabled = true } } },
+    },
+    {
+        "ThePrimeagen/harpoon",
+        dependencies = { "nvim-lua/plenary.nvim" },
+
+        config = function()
+            require("harpoon").setup()
+
+        end,
+    },
+}
