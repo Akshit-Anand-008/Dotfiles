@@ -4,9 +4,7 @@
 
 # --- INTERNAL ZSH SETTINGS ---
 
-# setopt AUTO_CD              # Just type a dir name to go there
 setopt GLOB_STAR_SHORT      # Allows **/*.js
-
 unsetopt FLOW_CONTROL       # Replaces stty -ixon
 
 # --- ENVIRONMENT ---
@@ -28,7 +26,7 @@ setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
 # LS_COLORS Setup
-export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=00:*.c=00:*.lua=00:*.md=00:*.rs=00"
+export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=35:*.c=00:*.lua=00:*.md=00:*.rs=00:*.tex=00"
 
 # --- ALIASES ---
 # --- FILE SYSTEM ---
@@ -46,6 +44,7 @@ alias -- -='cd -'
 alias q='exit'
 alias v='nvim'
 alias vim='nvim'
+alias z='zathura'
 alias clr='clear && figlet "AKSHIT_ANAND" | lolcat'
 alias rd='batcat'
 alias t='task'
