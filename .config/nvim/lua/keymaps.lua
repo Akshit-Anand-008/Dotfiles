@@ -33,7 +33,7 @@ keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 -- Toggle plugins
 keymap("n", "<leader>e", ":Neotree toggle<CR>")
 keymap("n", "<leader>u", ":UndotreeToggle<CR>")
-keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
+keymap("n", "<C-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 
 -- UNIVERSAL TERMINAL & SPLIT NAVIGATION
 local modes = { "n", "t" }
@@ -57,9 +57,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 -- Buffers
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
-keymap("n", "<C-n>", ":e")
-keymap("n", "<A-d>", "<cmd>bdelete<CR>")
-keymap("n", "<A-x>", ":bp|bd #<CR>", { desc = "Close Buffer, Keep Split" })
+keymap("n", "<C-n>", ":e ")
+keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
 
 -- Save and run
 keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
@@ -113,8 +112,6 @@ keymap("n", "<leader>yp", function()
 end, { desc = "Copy absolute path" })
 
 -- Unified Telescope Finder
--- This version won't even look for Telescope until you press <leader>ff
-
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
