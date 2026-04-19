@@ -5,7 +5,7 @@ return {
         startinsert = true,
         term = { position = "vert", size = 50 },
         filetype = {
-            tex = "pdflatex $fileName && rm $fileNameWithoutExt.aux $fileNameWithoutExt.log"
+            tex = "pdflatex $fileName"
         },
     },
 }

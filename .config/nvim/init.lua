@@ -1,7 +1,7 @@
 --  Basic Settings & Globals --
-require("keymaps")
 require("options")
 require("autocommands")
+require("keymaps")
 
 --  Lazy.nvim Bootstrap ]] --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

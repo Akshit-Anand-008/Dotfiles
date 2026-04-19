@@ -3,7 +3,7 @@ return {
 
     build = ":TSUpdate",
     opts = {
-        ensure_installed = { "c", "cpp", "python", "rust", "lua", "vim", "vimdoc", "query" },
+        ensure_installed = { "c", "cpp", "python", "rust", "lua", "vim", "vimdoc", "query", "latex" },
         highlight = { enable = true },
         indent = { enable = true },
     },
