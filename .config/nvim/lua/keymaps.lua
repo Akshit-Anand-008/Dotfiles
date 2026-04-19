@@ -33,7 +33,7 @@ keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 -- Toggle plugins
 keymap("n", "<leader>e", ":Neotree toggle<CR>")
 keymap("n", "<leader>u", ":UndotreeToggle<CR>")
-keymap("n", "<C-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
+keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 
 -- UNIVERSAL TERMINAL & SPLIT NAVIGATION
 local modes = { "n", "t" }
@@ -55,13 +55,14 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 
 -- Buffers
-keymap("n", "<S-l>", "<cmd>bnext<CR>")
-keymap("n", "<S-h>", "<cmd>bprev<CR>")
+keymap("n", "<S-l>", "<cmd>w | bnext<CR>")
+keymap("n", "<S-h>", "<cmd>w | bprev<CR>")
 keymap("n", "<C-n>", ":e ")
 keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
 
 -- Save and run
 keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
+keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
 
 keymap("n", "<leader>r", function()
     if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
