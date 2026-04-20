@@ -5,13 +5,6 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 -- Utility
-keymap("n", "j", function()
-    return vim.v.count == 0 and "gj" or "j"
-end, { expr = true, silent = true, desc = "Down (wrap-aware)" })
-keymap("n", "k", function()
-    return vim.v.count == 0 and "gk" or "k"
-end, { expr = true, silent = true, desc = "Up (wrap-aware)" })
-
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -22,11 +15,9 @@ keymap("v", "<", "<gv", { desc = "Indent left and reselect" })
 keymap("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 keymap("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
-
 keymap({ "n", "v" }, "<leader>x", '"_x', { desc = "Delete without yanking" })
-keymap("n", "<leader>v", "^vg_", { desc = "Select current line text" })
 
-keymap("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
+keymap("n", "<leader>v", "^vg_", { desc = "Select current line text" })
 keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 
 
