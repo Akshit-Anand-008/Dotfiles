@@ -73,7 +73,6 @@ keymap("n", "<leader>sl", function()
 end, { desc = "Restore Last" })
 
 -- Diagnostics
-
 keymap("n", "]d", function()
     vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Next Diagnostic" })
@@ -96,7 +95,6 @@ keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 
 -- Functions
 -- Copy full path file
-
 keymap("n", "<leader>yp", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
@@ -107,6 +105,8 @@ end, { desc = "Copy absolute path" })
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
+keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/vimwiki" }) end)
+
 keymap("n", "<leader>fm", function()
     local pickers = require("telescope.pickers")
     local finders = require("telescope.finders")

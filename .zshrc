@@ -142,7 +142,7 @@ n() {
     fi
 }
 
-fn() {
+fw() {
   local file=$(find ~/vimwiki -type f | fzf --prompt="Select Note > " --height=40% --reverse)
   if [ -n "$file" ]; then
     nvim "$file"

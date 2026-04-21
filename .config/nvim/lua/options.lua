@@ -65,8 +65,8 @@ opt.listchars = {
 vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff", fg = "black" })
 vim.api.nvim_set_hl(0, "Cursor", { bg = "white", fg = "black" })
 opt.guicursor = {
-    "n-c:block-Cursor",    -- Normal & Command: White block
+    "n-c:block-Cursor",       -- Normal & Command: White block
     "v-r:block-VisualCursor", -- Visual & Replace: Purple block
-    "i-ci-ve:ver25-Cursor", -- Insert: Thin vertical line
-    "a:blinkon0",          -- Disable blinking
+    "i-ci-ve:ver25-Cursor",   -- Insert: Thin vertical line
+    "a:blinkon0",             -- Disable blinking
 }
