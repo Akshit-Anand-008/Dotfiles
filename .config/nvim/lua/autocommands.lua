@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "python", "cpp", "c", "rust", "tex" },
+    pattern = { "md", "markdown", "python", "cpp", "c", "rust", "tex", "javascript", "html", "css", "vim", "vimdoc" },
     callback = function(args)
         local lang = vim.bo[args.buf].filetype
         local is_installed = pcall(vim.treesitter.get_parser, args.buf, lang)
