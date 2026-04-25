@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufNewFile" }, {
         if has_parser then
             vim.schedule(function()
                 if vim.api.nvim_buf_is_valid(args.buf) then
-                    vim.treesitter.start(args.buf, lang)
+                    pcall(vim.treesitter.start, args.buf, lang)
                 end
             end)
         end
