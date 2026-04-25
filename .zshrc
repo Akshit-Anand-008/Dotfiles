@@ -90,7 +90,6 @@ alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen
 
 # --- FUNCTIONS ---
 ex() {
-
   if [ -f "$1" ] ; then
     case "$1" in
       *.tar.bz2)   tar xjf "$1"    ;;
@@ -102,13 +101,10 @@ ex() {
       *.tar)       tar xf "$1"     ;;
       *.tbz2)      tar xjf "$1"    ;;
       *.tgz)       tar xzf "$1"    ;;
-
       *.zip)       unzip "$1"      ;;
       *.Z)         uncompress "$1" ;;
       *.7z)        7z x "$1"       ;;
-
       *)           echo "'$1' cannot be extracted via ex()" ;;
-
     esac
   else
     echo "'$1' is not a valid file"
@@ -123,7 +119,6 @@ mkcd() {
 source ~/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_KEYTIMEOUT=0.01
 
-
 n() {
     if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
         echo "nnn is already running"
@@ -131,7 +126,6 @@ n() {
     fi
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config/nnn}/.lastd"
     mkdir -p "$(dirname "$NNN_TMPFILE")"
-
     command nnn -e "$@"
     if [ -f "$NNN_TMPFILE" ]; then
             . "$NNN_TMPFILE"
@@ -144,7 +138,6 @@ fw() {
   if [ -n "$file" ]; then
     nvim "$file"
   fi
-
 }
 
 jot() {
@@ -157,7 +150,6 @@ ff() {
     local cmd
     if command -v fdfind &> /dev/null; then
         cmd="fdfind --type f --hidden --exclude .git"
-
     elif command -v fd &> /dev/null; then
         cmd="fd --type f --hidden --exclude .git"
     else
@@ -191,7 +183,3 @@ add-zsh-hook chpwd load-venv
 load-venv
 cl
 eval "$(starship init zsh)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

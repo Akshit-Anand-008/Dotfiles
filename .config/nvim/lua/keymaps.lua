@@ -29,11 +29,11 @@ keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" }
 -- UNIVERSAL TERMINAL & SPLIT NAVIGATION
 local modes = { "n", "t" }
 for _, mode in ipairs(modes) do
-    keymap(mode, "<C-h>", [[<C-\><C-n><C-w>h]])
-    keymap(mode, "<C-j>", [[<C-\><C-n><C-w>j]])
-    keymap(mode, "<C-k>", [[<C-\><C-n><C-w>k]])
-    keymap(mode, "<C-l>", [[<C-\><C-n><C-w>l]])
-    keymap(mode, "<C-z>", [[<C-\><C-n><C-w>q]])
+	keymap(mode, "<C-h>", [[<C-\><C-n><C-w>h]])
+	keymap(mode, "<C-j>", [[<C-\><C-n><C-w>j]])
+	keymap(mode, "<C-k>", [[<C-\><C-n><C-w>k]])
+	keymap(mode, "<C-l>", [[<C-\><C-n><C-w>l]])
+	keymap(mode, "<C-z>", [[<C-\><C-n><C-w>q]])
 end
 
 keymap("n", "<leader>sv", "<cmd>vsplit<CR>")
@@ -56,28 +56,28 @@ keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell com
 keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
 
 keymap("n", "<leader>r", function()
-    if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
-        print("Not a executable file")
-        return
-    end
-    vim.cmd("write")
-    vim.cmd("RunCode")
+	if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
+		print("Not a executable file")
+		return
+	end
+	vim.cmd("write")
+	vim.cmd("RunCode")
 end, { desc = "Save and Run Code" })
 
 -- Persistence
 keymap("n", "<leader>ss", function()
-    require("persistence").load()
+	require("persistence").load()
 end, { desc = "Restore Session" })
 keymap("n", "<leader>sl", function()
-    require("persistence").load({ last = true })
+	require("persistence").load({ last = true })
 end, { desc = "Restore Last" })
 
 -- Diagnostics
 keymap("n", "]d", function()
-    vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Next Diagnostic" })
 keymap("n", "[d", function()
-    vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Prev Diagnostic" })
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
@@ -96,9 +96,9 @@ keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 -- Functions
 -- Copy full path file
 keymap("n", "<leader>yp", function()
-    local path = vim.fn.expand("%:~")
-    vim.fn.setreg("+", path)
-    vim.notify('Yanked: "' .. path .. '"')
+	local path = vim.fn.expand("%:~")
+	vim.fn.setreg("+", path)
+	vim.notify('Yanked: "' .. path .. '"')
 end, { desc = "Copy absolute path" })
 
 -- Unified Telescope Finder
@@ -108,50 +108,50 @@ keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() en
 keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/vimwiki" }) end)
 
 keymap("n", "<leader>fm", function()
-    local pickers = require("telescope.pickers")
-    local finders = require("telescope.finders")
-    local conf = require("telescope.config").values
-    local actions = require("telescope.actions")
-    local action_state = require("telescope.actions.state")
-    local options = {
-        "1. Open Buffers",
-        "2. Recent Files",
-        "3. Find Files (Current Dir)",
-        "4. Find Files (From Home Directory)",
-        "5. Find Wiki File (By Name)",
-        "6. Search inside Wiki (Text Grep)",
-    }
-    pickers
-        .new({}, {
-            prompt_title = "Select Finder",
-            finder = finders.new_table({
+	local pickers = require("telescope.pickers")
+	local finders = require("telescope.finders")
+	local conf = require("telescope.config").values
+	local actions = require("telescope.actions")
+	local action_state = require("telescope.actions.state")
+	local options = {
+		"1. Open Buffers",
+		"2. Recent Files",
+		"3. Find Files (Current Dir)",
+		"4. Find Files (From Home Directory)",
+		"5. Find Wiki File (By Name)",
+		"6. Search inside Wiki (Text Grep)",
+	}
+	pickers
+		.new({}, {
+			prompt_title = "Select Finder",
+			finder = finders.new_table({
 
-                results = options,
+				results = options,
 
-            }),
-            sorter = conf.generic_sorter({}),
-            attach_mappings = function(prompt_bufnr, _)
-                actions.select_default:replace(function()
-                    actions.close(prompt_bufnr)
+			}),
+			sorter = conf.generic_sorter({}),
+			attach_mappings = function(prompt_bufnr, _)
+				actions.select_default:replace(function()
+					actions.close(prompt_bufnr)
 
-                    local selection = action_state.get_selected_entry()
-                    local choice = selection[1]
-                    if choice == options[1] then
-                        require("telescope.builtin").buffers()
-                    elseif choice == options[2] then
-                        require("telescope.builtin").oldfiles()
-                    elseif choice == options[3] then
-                        require("telescope.builtin").find_files()
-                    elseif choice == options[4] then
-                        require("telescope.builtin").find_files({ cwd = vim.fn.expand("$HOME") })
-                    elseif choice == options[5] then
-                        require("telescope.builtin").find_files({ cwd = "~/vimwiki" })
-                    elseif choice == options[6] then
-                        require("telescope.builtin").live_grep({ cwd = "~/vimwiki" })
-                    end
-                end)
-                return true
-            end,
-        })
-        :find()
+					local selection = action_state.get_selected_entry()
+					local choice = selection[1]
+					if choice == options[1] then
+						require("telescope.builtin").buffers()
+					elseif choice == options[2] then
+						require("telescope.builtin").oldfiles()
+					elseif choice == options[3] then
+						require("telescope.builtin").find_files()
+					elseif choice == options[4] then
+						require("telescope.builtin").find_files({ cwd = vim.fn.expand("$HOME") })
+					elseif choice == options[5] then
+						require("telescope.builtin").find_files({ cwd = "~/vimwiki" })
+					elseif choice == options[6] then
+						require("telescope.builtin").live_grep({ cwd = "~/vimwiki" })
+					end
+				end)
+				return true
+			end,
+		})
+		:find()
 end, { desc = "Telescope Hub" })
