@@ -5,13 +5,14 @@ return {
         style = "night",
         on_highlights = function(hl, c)
             hl.MatchParen = {
-                bg = "#647fcb",
-                fg = "#ff9e64",
+                bg = "#2a4a6b",
+                fg = c.orange,
                 bold = true,
             }
         end,
     },
-    init = function()
-        vim.cmd.colorscheme("tokyonight-night")
+    config = function(_, opts)
+        require("tokyonight").setup(opts)
+        vim.cmd.colorscheme("tokyonight")
     end,
 }
