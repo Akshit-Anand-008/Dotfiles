@@ -1,0 +1,15 @@
+[python]
+format = 'via [($virtualenv )]($style)'
+[lua]
+disabled = true
+[cmd_duration]
+disabled = true
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+style = "bold yellow"
+
+[character]
+success_symbol = "[ ❯](bold green)"
+error_symbol = "[ ❯](bold red)"

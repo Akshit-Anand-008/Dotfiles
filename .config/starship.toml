@@ -12,7 +12,7 @@ success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
 
 [git_status]
-style = "bold red"
+style = "red"
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [git_branch]
@@ -29,4 +29,3 @@ disabled = true
 
 [git_commit]
 format = "[ $hash$tag]($style) "
-
