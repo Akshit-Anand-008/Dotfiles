@@ -38,8 +38,8 @@ opt.inccommand = "split" -- Preview search/replace in a split window
 
 -- Configure ripgrep for global searching
 if vim.fn.executable("rg") == 1 then
-	opt.grepprg = "rg --vimgrep"
-	opt.grepformat = "%f:%l:%c:%m"
+    opt.grepprg = "rg --vimgrep"
+    opt.grepformat = "%f:%l:%c:%m"
 end
 
 -- SECTION 4: File Handling & Performance
@@ -54,17 +54,17 @@ opt.shada = "!,'100,<50,s10,h" -- What info to save between sessions
 opt.formatoptions = "jqlron" -- Modern text wrapping/formatting logic
 opt.list = true              -- Show invisible characters
 opt.listchars = {
-	tab = "» ",
-	trail = "·",
-	nbsp = "␣",
+    tab = "» ",
+    trail = "·",
+    nbsp = "␣",
 }
 
 -- SECTION 6: Cursor Customization (Your Colors)
 vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff", fg = "black" })
 vim.api.nvim_set_hl(0, "Cursor", { bg = "white", fg = "black" })
 opt.guicursor = {
-	"n-c:block-Cursor",    -- Normal & Command: White block
-	"v-r:block-VisualCursor", -- Visual & Replace: Purple block
-	"i-ci-ve:ver25-Cursor", -- Insert: Thin vertical line
-	"a:blinkon0",          -- Disable blinking
+    "n-c:block-Cursor",       -- Normal & Command: White block
+    "v-r:block-VisualCursor", -- Visual & Replace: Purple block
+    "i-ci-ve:ver25-Cursor",   -- Insert: Thin vertical line
+    "a:blinkon0",             -- Disable blinking
 }
