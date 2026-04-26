@@ -23,11 +23,11 @@ setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
 # LS_COLORS Setup
-export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=35:*.c=00:*.lua=00:*.md=00:*.rs=00:*.tex=00:*.js=00:*.css=00"
+export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=35:*.c=00:*.lua=00:*.md=00:*.rs=00:*.tex=00:*.js=00:*.css=00:*.html=00:*.awk=00"
 
 # --- ALIASES ---
 # --- FILE SYSTEM ---
-alias ls='eza --group-directories-first --color=always --no-quotes --icons'
+alias ls='eza --group-directories-first --color=automatic --no-quotes --icons'
 alias l='eza -h1 --group-directories-first --icons'
 alias ll='eza -lh --group-directories-first --grid --git --icons'
 alias la='eza -ah1 --group-directories-first --icons'
@@ -36,6 +36,7 @@ alias tree='eza -T --icons'
 alias tr='eza -T --level=2 --icons'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias -- -='cd -'
 # --- SAFETY & UTILS ---
 alias q='exit'
@@ -52,7 +53,6 @@ alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
 alias id='nvim ~/vimwiki/index.md'
-alias commands='nvim ~/vimwiki/commands.md'
 alias diary='nvim ~/vimwiki/diary/diary.md'
 alias td='nvim -c VimwikiMakeDiaryNote'
 alias rm='rm -Iv'
