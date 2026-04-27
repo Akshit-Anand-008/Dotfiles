@@ -5,7 +5,7 @@ return {
         style = "night",
         on_highlights = function(hl, c)
             hl.MatchParen = {
-                bg = "#394b70",
+                bg = "#3b4261",
                 fg = c.orange,
                 bold = true,
             }
