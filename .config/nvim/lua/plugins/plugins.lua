@@ -7,7 +7,6 @@ return {
     { "numToStr/Comment.nvim", opts = {} },
     { "kylechui/nvim-surround", version = "*", event = "VeryLazy", opts = {} },
     { "lewis6991/gitsigns.nvim", opts = {} },
-
     { "echasnovski/mini.move", version = false, opts = {} },
     { "mbbill/undotree" },
     { "folke/persistence.nvim", event = "BufReadPre", opts = {} },

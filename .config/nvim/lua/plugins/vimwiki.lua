@@ -6,12 +6,9 @@ return {
                 {
                     path = "~/vimwiki/",
                     syntax = "markdown",
-
                     ext = ".md",
                 },
-
             }
         end,
     },
-
 }
