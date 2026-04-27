@@ -4,17 +4,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-local cpp_group = vim.api.nvim_create_augroup("CppTemplates", { clear = true })
+local template_group = vim.api.nvim_create_augroup("CodeTemplates", { clear = true })
 vim.api.nvim_create_autocmd("BufNewFile", {
-    group = cpp_group,
-    pattern = "*.cpp",
+    group = template_group,
+    pattern = { "*.cpp", "*.c" },
     callback = function()
-        local snippet = vim.fn.expand("~/Snippets/snippet.cpp")
+        local ext = vim.fn.expand("%:e")
+        local snippet = vim.fn.expand("~/Snippets/snippet." .. ext)
         if vim.fn.filereadable(snippet) == 1 then
             vim.cmd("0r " .. snippet)
+            vim.cmd("normal! G")
         end
     end,
-    desc = "Auto-load template for new C++ files",
+    desc = "Auto-load template for new files",
 })
 
 local habit_group = vim.api.nvim_create_augroup("HabitSortGroup", { clear = true })
