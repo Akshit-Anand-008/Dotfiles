@@ -63,8 +63,8 @@ vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff", fg = "black" })
 vim.api.nvim_set_hl(0, "Cursor", { bg = "white", fg = "black" })
 opt.guicursor = {
     "a:blinkon0",           -- Disable blinking
-    "n-c:block-Cursor",     -- Normal & Command: White block
+    "n:block-Cursor",       -- Normal: White block
     "v:block-VisualCursor", -- Visual: Purple block
-    "i-ci-ve:ver25-Cursor", -- Insert: Thin vertical line
+    "i-c-ci:ver25-Cursor",  -- Insert: Thin vertical line
     "r-cr:hor20-Cursor",    -- Replace: Horizontal bar
 }
