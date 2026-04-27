@@ -21,7 +21,6 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- SECTION 2: Indentation & Tabs
-
 opt.expandtab = true   -- Use spaces instead of tabs
 opt.tabstop = 4        -- 1 tab = 4 spaces
 opt.softtabstop = 4    -- Number of spaces for editing tabs
@@ -59,12 +58,13 @@ opt.listchars = {
     nbsp = "␣",
 }
 
--- SECTION 6: Cursor Customization (Your Colors)
+-- SECTION 6: Cursor Customization
 vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff", fg = "black" })
 vim.api.nvim_set_hl(0, "Cursor", { bg = "white", fg = "black" })
 opt.guicursor = {
-    "n-c:block-Cursor",       -- Normal & Command: White block
-    "v-r:block-VisualCursor", -- Visual & Replace: Purple block
-    "i-ci-ve:ver25-Cursor",   -- Insert: Thin vertical line
-    "a:blinkon0",             -- Disable blinking
+    "a:blinkon0",           -- Disable blinking
+    "n-c:block-Cursor",     -- Normal & Command: White block
+    "v:block-VisualCursor", -- Visual: Purple block
+    "i-ci-ve:ver25-Cursor", -- Insert: Thin vertical line
+    "r-cr:hor20-Cursor",    -- Replace: Horizontal bar
 }
