@@ -66,5 +66,5 @@ opt.guicursor = {
     "n:block-Cursor",       -- Normal: White block
     "v:block-VisualCursor", -- Visual: Purple block
     "i-c-ci:ver25-Cursor",  -- Insert: Thin vertical line
-    "r-cr:hor20-Cursor",    -- Replace: Horizontal bar
+    "r-cr-ve:hor20-Cursor", -- Replace: Horizontal bar
 }

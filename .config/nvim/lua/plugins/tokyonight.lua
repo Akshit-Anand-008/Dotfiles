@@ -3,13 +3,13 @@ return {
     priority = 1000,
     opts = {
         style = "night",
-        on_highlights = function(hl, c)
-            hl.MatchParen = {
-                bg = "#444b6a",
-                fg = c.orange,
-                bold = true,
-            }
-        end,
+        -- on_highlights = function(hl, c)
+        --     hl.MatchParen = {
+        --         bg = "#444b6a",
+        --         fg = c.orange,
+        --         bold = true,
+        --     }
+        -- end,
     },
     config = function(_, opts)
         require("tokyonight").setup(opts)
