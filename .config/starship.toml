@@ -17,6 +17,7 @@ format = "[$branch]($style)"
 
 [git_commit]
 style = "purple"
+format = '[\($hash\)]($style)'
 
 [git_status]
 style = "red"

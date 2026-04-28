@@ -4,7 +4,7 @@ return {
 
     config = function()
         require("lualine").setup({
-            options = { theme = "auto", icons_enabled = vim.g.have_nerd_font },
+            options = { theme = "tokyonight", icons_enabled = vim.g.have_nerd_font },
             sections = {
                 lualine_b = { "branch", "diff", "diagnostics" },
                 lualine_c = {
