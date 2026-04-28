@@ -1,5 +1,9 @@
-format = """$directory$git_branch$git_status$cmd_duration$character"""
+format = """$hostname$directory$git_branch$git_commit$git_status$character"""
 add_newline = true
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style)"
 
 [directory]
 truncation_length = 10
@@ -7,25 +11,20 @@ truncate_to_repo = false
 style = "underline bold yellow"
 format = "[$path/]($style)"
 
-[character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+[git_branch]
+style = "purple"
+format = "[$branch]($style)"
+only_attached = true
+
+[git_commit]
+style = "purple"
+format = '[$hash]($style)'
+only_detached = true
 
 [git_status]
 style = "red"
 format = '([\[$all_status$ahead_behind\]]($style))'
 
-[git_branch]
-symbol = ""
-style = "purple"
-format = "[$symbol$branch]($style)"
-
-[hostname]
-ssh_only = true
-format = "[$hostname]($style)"
-
-[cmd_duration]
-disabled = true
-
-[git_commit]
-format = "[ $hash$tag]($style) "
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"

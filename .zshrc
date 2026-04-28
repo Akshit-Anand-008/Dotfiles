@@ -168,12 +168,13 @@ ff() {
 # Auto-activate Python venv
 autoload -U add-zsh-hook
 load-venv() {
-  if [[ -d .venv ]]; then
-    if [[ "$VIRTUAL_ENV" != "$PWD/.venv" ]]; then
-      source .venv/bin/activate
+  local venv_path="${PWD:A}/.venv"
+  if [[ -d "$venv_path" ]]; then
+    if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
+      source "$venv_path/bin/activate"
     fi
   elif [[ -n "$VIRTUAL_ENV" ]]; then
-    if [[ "$PWD" != "${VIRTUAL_ENV%/*}"* ]]; then
+    if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
       deactivate
     fi
   fi

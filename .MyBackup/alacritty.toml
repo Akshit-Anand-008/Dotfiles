@@ -4,7 +4,7 @@ args = ["~", "-d", "FedoraLinux-43"]
 
 [window]
 decorations_theme_variant = "Dark"
-padding = { x = 8, y = 5 }
+#padding = { x = 8, y = 5 }
 dynamic_padding = true
 
 [font]
