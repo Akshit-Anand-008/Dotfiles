@@ -14,11 +14,9 @@ format = "[$path/]($style)"
 [git_branch]
 style = "purple"
 format = "[$branch]($style)"
-only_attached = true
 
 [git_commit]
 style = "purple"
-format = '[$hash]($style)'
 only_detached = true
 
 [git_status]
