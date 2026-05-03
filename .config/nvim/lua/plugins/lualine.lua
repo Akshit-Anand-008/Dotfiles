@@ -7,7 +7,7 @@ return {
             options = { theme = "carbonfox", icons_enabled = vim.g.have_nerd_font },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "filename", "diagnostics" },
+                lualine_b = { "filename" },
                 lualine_c = {
                     {
                         function()
@@ -21,21 +21,15 @@ return {
                                 return a.severity < b.severity
                             end)
                             local msg = diagnostics[1].message or "Unknown error"
-                            local max_width = 80
                             msg = msg:gsub("\n", " ")
-                            if #msg > max_width then
-                                return "  " .. string.sub(msg, 1, max_width) .. "..."
-                            end
-                            return "  " .. msg
+                            return msg
                         end,
-                        color = { fg = "#f7768e" },
                     },
                 },
-                lualine_x = {},
+                lualine_x = { "diagnostics" },
                 lualine_y = { "filetype" },
                 lualine_z = { "location" },
             },
-
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = { "filename" },
@@ -44,7 +38,6 @@ return {
                 lualine_y = { "filetype" },
                 lualine_z = {},
             }
-
         })
     end,
 }
