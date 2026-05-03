@@ -26,8 +26,8 @@ opt.tabstop = 4        -- 1 tab = 4 spaces
 opt.softtabstop = 4    -- Number of spaces for editing tabs
 opt.shiftwidth = 4     -- Size of an indent
 opt.autoindent = true  -- Copy indent from current line
-opt.smartindent = true -- Insert indents automatically
 opt.breakindent = true -- Wrapped lines keep indentation
+opt.shiftround = true  -- Round indent to multiple of shiftwidth
 
 -- SECTION 3: Search Behavior
 opt.ignorecase = true    -- Case-insensitive search...
