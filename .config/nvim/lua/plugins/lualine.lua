@@ -7,7 +7,7 @@ return {
             options = { theme = "carbonfox", icons_enabled = vim.g.have_nerd_font },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "filename" },
+                lualine_b = { "filename", "diagnostics" },
                 lualine_c = {
                     {
                         function()
@@ -32,7 +32,7 @@ return {
                     },
                 },
                 lualine_x = {},
-                lualine_y = { "diagnostics", "filetype" },
+                lualine_y = { "filetype" },
                 lualine_z = { "location" },
             },
 
