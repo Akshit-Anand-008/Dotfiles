@@ -44,8 +44,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 
 -- Buffers
-keymap("n", "<S-l>", "<cmd>w | bnext<CR>")
-keymap("n", "<S-h>", "<cmd>w | bprev<CR>")
+keymap("n", "<S-l>", "<cmd>bnext<CR>")
+keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<C-n>", ":e ")
 keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
 

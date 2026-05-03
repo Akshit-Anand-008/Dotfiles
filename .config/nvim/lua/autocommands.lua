@@ -1,9 +1,11 @@
+-- Higlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.hl.on_yank()
     end,
 })
 
+--Auto loading templates
 local template_group = vim.api.nvim_create_augroup("CodeTemplates", { clear = true })
 vim.api.nvim_create_autocmd("BufNewFile", {
     group = template_group,
@@ -20,6 +22,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     desc = "Auto-load template for new files",
 })
 
+--Sorting completed and not completed tasks in vimwiki
 local habit_group = vim.api.nvim_create_augroup("HabitSortGroup", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = habit_group,
@@ -33,20 +36,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "Auto-sort tasks in todos.md on save",
 })
 
+-- AutoFormat on save
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
-    callback = function()
-        local clients = vim.lsp.get_clients({ bufnr = 0 })
-        for _, client in pairs(clients) do
-            if client:supports_method("textDocument/formatting") then
-                vim.lsp.buf.format({ async = false })
-                return
-            end
-        end
+    callback = function(args)
+        vim.lsp.buf.format({ bufnr = args.buf, async = false })
     end,
     desc = "Format on save via LSP",
 })
 
+-- Tab key default behaviour for some files
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "make", "tsv" },
     callback = function()
@@ -56,6 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- Calling treesitter
 vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufNewFile" }, {
     group = vim.api.nvim_create_augroup("TreesitterForceStart", { clear = true }),
     pattern = "*",
@@ -69,5 +69,15 @@ vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufNewFile" }, {
                 end
             end)
         end
+    end,
+})
+
+--Force options
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+        vim.schedule(function()
+            vim.opt_local.formatoptions:remove({ "o", "c" })
+        end)
     end,
 })
