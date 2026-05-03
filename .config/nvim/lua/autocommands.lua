@@ -74,10 +74,8 @@ vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufNewFile" }, {
 
 --Force options
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp" },
+    pattern = "*",
     callback = function()
-        vim.schedule(function()
-            vim.opt_local.formatoptions:remove({ "o", "c" })
-        end)
+        vim.opt_local.formatoptions:remove({ "o", "c" })
     end,
 })

@@ -50,8 +50,8 @@ opt.fileformats = "unix,dos"   -- Line ending preferences
 opt.shada = "!,'100,<50,s10,h" -- What info to save between sessions
 
 -- SECTION 5: Formatting & Visuals
-opt.formatoptions = "jqlron" -- Modern text wrapping/formatting logic
-opt.list = true              -- Show invisible characters
+opt.formatoptions = "jqlrn" -- Modern text wrapping/formatting logic
+opt.list = true             -- Show invisible characters
 opt.listchars = {
     tab = "» ",
     trail = "·",

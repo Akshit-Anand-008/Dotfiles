@@ -166,20 +166,20 @@ ff() {
 }
 
 # Auto-activate Python venv
-#autoload -U add-zsh-hook
-#load-venv() {
-  #local venv_path="${PWD:A}/.venv"
-  #if [[ -d "$venv_path" ]]; then
-    #if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
-      #source "$venv_path/bin/activate"
-    #fi
-  #elif [[ -n "$VIRTUAL_ENV" ]]; then
-    #if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
-      #deactivate
-    #fi
-  #fi
-#}
-#add-zsh-hook chpwd load-venv
-#load-venv
+autoload -U add-zsh-hook
+load-venv() {
+  local venv_path="${PWD:A}/.venv"
+  if [[ -d "$venv_path" ]]; then
+    if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
+      source "$venv_path/bin/activate"
+    fi
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
+      deactivate
+    fi
+  fi
+}
+add-zsh-hook chpwd load-venv
+load-venv
 cl
 eval "$(starship init zsh)"
