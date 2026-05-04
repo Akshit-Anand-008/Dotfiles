@@ -8,8 +8,8 @@ local keymap = vim.keymap.set
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-keymap("n", "s", "o<Esc>", { noremap = true, silent = true })
-keymap("n", "S", "O<Esc>", { noremap = true, silent = true })
+keymap("n", "s", "o<Esc>k", { noremap = true, silent = true })
+keymap("n", "S", "O<Esc>j", { noremap = true, silent = true })
 
 keymap("v", "<", "<gv", { desc = "Indent left and reselect" })
 keymap("v", ">", ">gv", { desc = "Indent right and reselect" })
@@ -103,5 +103,5 @@ end, { desc = "Copy absolute path" })
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
-keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/vimwiki" }) end)
+keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
 keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)

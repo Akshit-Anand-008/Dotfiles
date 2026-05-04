@@ -22,20 +22,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     desc = "Auto-load template for new files",
 })
 
---Sorting completed and not completed tasks in vimwiki
-local habit_group = vim.api.nvim_create_augroup("HabitSortGroup", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = habit_group,
-    pattern = "*/todos.md",
-    callback = function()
-        local line_count = vim.api.nvim_buf_line_count(0)
-        if line_count > 0 then
-            vim.cmd("silent! %sort")
-        end
-    end,
-    desc = "Auto-sort tasks in todos.md on save",
-})
-
 -- AutoFormat on save
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
@@ -70,6 +56,20 @@ vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufNewFile" }, {
             end)
         end
     end,
+})
+
+--Sorting completed and not completed tasks in vimwiki
+local habit_group = vim.api.nvim_create_augroup("HabitSortGroup", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = habit_group,
+    pattern = "*/todos.md",
+    callback = function()
+        local line_count = vim.api.nvim_buf_line_count(0)
+        if line_count > 0 then
+            vim.cmd("silent! %sort")
+        end
+    end,
+    desc = "Auto-sort tasks in todos.md on save",
 })
 
 --Force options

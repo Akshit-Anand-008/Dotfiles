@@ -13,6 +13,7 @@ export VISUAL=nvim
 export MANPAGER="nvim +Man!"
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPTS="Ee"
+export WIKI_PATH="~/.nb/home"
 
 # History
 HISTSIZE=1000
@@ -52,8 +53,8 @@ alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
-alias id='nvim ~/vimwiki/index.md'
-alias diary='nvim ~/vimwiki/diary/diary.md'
+alias id="nvim $WIKI_PATH/index.md"
+alias diary="nvim $WIKI_PATH/diary/diary.md"
 alias td='nvim -c VimwikiMakeDiaryNote'
 alias rm='rm -Iv'
 alias cp='cp -iv'
@@ -133,7 +134,7 @@ n() {
 }
 
 fw() {
-  local file=$(find ~/vimwiki -type f | fzf --prompt="Select Note > " --height=40% --reverse)
+  local file=$(find ~/.nb -type f | fzf --prompt="Select Note > " --height=40% --reverse)
   if [ -n "$file" ]; then
     nvim "$file"
   fi
