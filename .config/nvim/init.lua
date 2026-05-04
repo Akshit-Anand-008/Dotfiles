@@ -31,8 +31,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx,
     notify_handler(err, result, ctx, config)
 end
 vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
+    virtual_text = { severity = vim.diagnostic.severity.ERROR, wrap = true },
     underline = true,
     update_in_insert = false,
     severity_sort = true,

@@ -4,13 +4,13 @@ return {
 
     config = function()
         require("lualine").setup({
-            options = { theme = "carbonfox", icons_enabled = vim.g.have_nerd_font },
+            options = { theme = "auto", icons_enabled = vim.g.have_nerd_font },
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "filename" },
                 lualine_c = { "diagnostics" },
-                lualine_x = {},
-                lualine_y = { "filetype" },
+                lualine_y = {},
+                lualine_x = { "filetype" },
                 lualine_z = { "location" },
             },
             inactive_sections = {
