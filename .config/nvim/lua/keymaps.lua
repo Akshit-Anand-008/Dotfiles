@@ -32,12 +32,12 @@ keymap({ "n", "t" }, "<C-j>", [[<C-\><C-n><C-w>j]])
 keymap({ "n", "t" }, "<C-k>", [[<C-\><C-n><C-w>k]])
 keymap({ "n", "t" }, "<C-l>", [[<C-\><C-n><C-w>l]])
 keymap({ "n", "t" }, "<C-z>", [[<C-\><C-n><C-w>q]])
+keymap("t", "<C-x>", [[<C-\><C-n>]])
 
 keymap("n", "<leader>sv", "<cmd>vsplit<CR>")
 keymap("n", "<leader>sh", "<cmd>split<CR>")
 keymap("n", "<leader>st", "<cmd>vsplit | term<CR>")
 
-keymap("t", "<C-x>", [[<C-\><C-n>]])
 keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true })
 keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true })
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
@@ -79,12 +79,6 @@ keymap("n", "[d", function()
 end, { desc = "Prev Diagnostic" })
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
--- Move lines (Alt + j/k)
-keymap("n", "<A-j>", ":m .+1<CR>==")
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
-keymap("n", "<A-k>", ":m .-2<CR>==")
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
-
 -- Quickfix
 keymap("n", "]q", "<cmd>cnext<CR>")
 keymap("n", "[q", "<cmd>cprev<CR>")
@@ -99,9 +93,15 @@ keymap("n", "<leader>yp", function()
     vim.notify('Yanked: "' .. path .. '"')
 end, { desc = "Copy absolute path" })
 
+-- Move lines (Alt + j/k)
+keymap("n", "<A-j>", ":m .+1<CR>==")
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
+keymap("n", "<A-k>", ":m .-2<CR>==")
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
 -- Unified Telescope Finder
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
-keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
+keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
 keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)

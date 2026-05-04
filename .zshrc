@@ -41,6 +41,7 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 # --- SAFETY & UTILS ---
 alias q='exit'
+alias b='nb ls'
 alias v='nvim'
 alias c='clear'
 alias z='zathura'
@@ -49,6 +50,8 @@ alias rd='bat'
 alias t='task'
 alias tt='task done'
 alias ta='task add'
+alias nu='nb use'
+alias ne='nb edit'
 alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua'
@@ -133,7 +136,7 @@ n() {
     fi
 }
 
-fw() {
+fn() {
   local file=$(find ~/.nb -type f | fzf --prompt="Select Note > " --height=40% --reverse)
   if [ -n "$file" ]; then
     nvim "$file"
@@ -182,5 +185,16 @@ load-venv() {
 }
 add-zsh-hook chpwd load-venv
 load-venv
+
+nn() {
+  local name="$1"
+  if [ -z "$name" ]; then
+    echo "Usage: nn <notebook>"
+    return 1
+  fi
+  nb notebook add "$name"
+  nvim "$HOME/.nb/$name/index.md"
+}
+
 cl
 eval "$(starship init zsh)"
