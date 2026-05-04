@@ -137,7 +137,7 @@ n() {
 }
 
 fn() {
-  local file=$(find ~/.nb -type f | fzf --prompt="Select Note > " --height=40% --reverse)
+  local file=$(find ~/.nb -not -path '*/.git*' -type f | fzf --prompt="Select Note > " --height=40% --reverse)
   if [ -n "$file" ]; then
     nvim "$file"
   fi

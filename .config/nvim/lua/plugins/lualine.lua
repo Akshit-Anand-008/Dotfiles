@@ -8,25 +8,8 @@ return {
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "filename" },
-                lualine_c = {
-                    {
-                        function()
-                            local bufnr = 0
-                            local line = vim.api.nvim_win_get_cursor(0)[1] - 1
-                            local diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
-                            if #diagnostics == 0 then
-                                return ""
-                            end
-                            table.sort(diagnostics, function(a, b)
-                                return a.severity < b.severity
-                            end)
-                            local msg = diagnostics[1].message or "Unknown error"
-                            msg = msg:gsub("\n", " ")
-                            return msg
-                        end,
-                    },
-                },
-                lualine_x = { "diagnostics" },
+                lualine_c = { "diagnostics" },
+                lualine_x = {},
                 lualine_y = { "filetype" },
                 lualine_z = { "location" },
             },
