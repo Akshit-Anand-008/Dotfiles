@@ -3,8 +3,7 @@ BasedOnStyle: Google
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
-ColumnLimit: 0
-AllowAllParametersOfDeclarationOnNextLine: true
+ColumnLimit: 120
 AllowShortBlocksOnASingleLine: Always
 BreakBeforeBraces: Attach
 PointerAlignment: Left

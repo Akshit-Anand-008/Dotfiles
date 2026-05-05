@@ -9,8 +9,8 @@ return {
                 lualine_a = { "mode" },
                 lualine_b = { "filename" },
                 lualine_c = { "diagnostics" },
-                lualine_y = {},
-                lualine_x = { "filetype" },
+                lualine_x = { { "filename", path = 3 } },
+                lualine_y = { "filetype" },
                 lualine_z = { "location" },
             },
             inactive_sections = {

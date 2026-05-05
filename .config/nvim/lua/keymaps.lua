@@ -77,7 +77,7 @@ end, { desc = "Next Diagnostic" })
 keymap("n", "[d", function()
     vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Prev Diagnostic" })
-keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- Quickfix
 keymap("n", "]q", "<cmd>cnext<CR>")

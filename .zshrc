@@ -13,7 +13,9 @@ export VISUAL=nvim
 export MANPAGER="nvim +Man!"
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPTS="Ee"
-export WIKI_PATH="~/.nb/home"
+# export NNN_OPENER="xdg-open"
+# export NNN_PLUG='o:!zathura $nnn'
+export WIKI_PATH="$HOME/.nb/home"
 
 # History
 HISTSIZE=1000
@@ -41,7 +43,6 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 # --- SAFETY & UTILS ---
 alias q='exit'
-alias b='nb ls'
 alias v='nvim'
 alias c='clear'
 alias z='zathura'
@@ -144,9 +145,9 @@ fn() {
 }
 
 jot() {
-  local target="$HOME/vimwiki/journals.md"
+  local target="$WIKI_PATH/journals.md"
   mkdir -p "$(dirname "$target")"
-  echo "- [ ] $(date "+%Y-%m-%d %H:%M"): $*" >> "$target"
+  echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
 }
 
 ff() {
