@@ -5,7 +5,6 @@ local opt = vim.opt
 -- Global Variables
 
 vim.g.have_nerd_font = true -- Flag for plugins to use icons
-vim.g.rustfmt_autosave = 1  -- Auto-format Rust files on save
 
 -- SECTION 1: Interface & UI
 opt.number = true         -- Show line numbers

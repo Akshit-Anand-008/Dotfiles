@@ -99,6 +99,8 @@ keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
 keymap("n", "<A-k>", ":m .-2<CR>==")
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
+-- Example keybind for Rust-specific code actions
+vim.keymap.set("n", "<Leader>ca", function() vim.cmd.RustLsp('codeAction') end, { desc = "Rust Code Action" })
 -- Unified Telescope Finder
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })

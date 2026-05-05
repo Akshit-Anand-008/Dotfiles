@@ -1,14 +1,7 @@
 return {
     {
         "williamboman/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = {
-                "lua_ls",
-                "clangd",
-                "pyright",
-                "rust_analyzer",
-            },
-        },
+        opts = {},
         dependencies = {
             { "williamboman/mason.nvim", opts = {}, },
             { "neovim/nvim-lspconfig" },

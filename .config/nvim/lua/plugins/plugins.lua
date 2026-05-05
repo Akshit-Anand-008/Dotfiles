@@ -11,13 +11,25 @@ return {
     { "mbbill/undotree" },
     { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
     { "christoomey/vim-tmux-navigator" },
-    { "rust-lang/rust.vim" },
     { "HiPhish/rainbow-delimiters.nvim" },
+    { "nvim-lua/plenary.nvim" },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^9',
+        lazy = false,
+    },
+    {
+        'rust-lang/rust.vim',
+        ft = "rust",
+        init = function()
+            vim.g.rustfmt_autosave = 1
+        end
+    },
     {
         "nvim-neo-tree/neo-tree.nvim",
         cmd = "Neotree",
         branch = "v3.x",
-        dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
+        dependencies = { "MunifTanjim/nui.nvim" },
         opts = { filesystem = { follow_current_file = { enabled = true } } },
     },
     {
