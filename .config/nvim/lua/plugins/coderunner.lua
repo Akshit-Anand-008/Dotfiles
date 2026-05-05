@@ -3,7 +3,8 @@ return {
     opts = {
         focus = true,
         startinsert = true,
-        term = { position = "vert", size = 50 },
+        term = { position = "horizontal", size = 50 },
+        -- term = { position = "vertical", size = 50 },
         filetype = {
             tex = "pdflatex $fileName"
         },

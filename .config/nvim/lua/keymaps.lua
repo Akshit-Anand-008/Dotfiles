@@ -86,24 +86,23 @@ keymap("n", "<leader>qo", "<cmd>copen<CR>")
 keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 
 -- Functions
--- Copy full path file
-keymap("n", "<leader>yp", function()
-    local path = vim.fn.expand("%:~")
-    vim.fn.setreg("+", path)
-    vim.notify('Yanked: "' .. path .. '"')
-end, { desc = "Copy absolute path" })
-
 -- Move lines (Alt + j/k)
 keymap("n", "<A-j>", ":m .+1<CR>==")
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
 keymap("n", "<A-k>", ":m .-2<CR>==")
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
--- Example keybind for Rust-specific code actions
-vim.keymap.set("n", "<Leader>ca", function() vim.cmd.RustLsp('codeAction') end, { desc = "Rust Code Action" })
 -- Unified Telescope Finder
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
 keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
 keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
+
+--Useless Shit
+keymap("n", "<leader>yp", function()
+    local path = vim.fn.expand("%:~")
+    vim.fn.setreg("+", path)
+    vim.notify('Yanked: "' .. path .. '"')
+end, { desc = "Copy absolute path" })
+keymap("n", "<A-c>", "<cmd>e ~/dotfiles/.config/nvim/lua/plugins/coderunner.lua<CR>")

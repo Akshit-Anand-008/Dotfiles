@@ -14,18 +14,6 @@ return {
     { "HiPhish/rainbow-delimiters.nvim" },
     { "nvim-lua/plenary.nvim" },
     {
-        'mrcjkb/rustaceanvim',
-        version = '^9',
-        lazy = false,
-    },
-    {
-        'rust-lang/rust.vim',
-        ft = "rust",
-        init = function()
-            vim.g.rustfmt_autosave = 1
-        end
-    },
-    {
         "nvim-neo-tree/neo-tree.nvim",
         cmd = "Neotree",
         branch = "v3.x",
@@ -35,7 +23,6 @@ return {
     {
         "ThePrimeagen/harpoon",
         dependencies = { "nvim-lua/plenary.nvim" },
-
         config = function()
             require("harpoon").setup()
         end,
