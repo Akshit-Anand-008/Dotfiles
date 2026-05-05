@@ -52,6 +52,7 @@ keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
 -- Save and run
 keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
 keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
+keymap("n", "<leader>w", ":wa<CR>", { desc = "Run last macro" })
 
 keymap("n", "<leader>r", function()
     if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
@@ -100,9 +101,30 @@ keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ c
 keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
 
 --Useless Shit
-keymap("n", "<leader>yp", function()
+keymap("n", "<A-p>", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
     vim.notify('Yanked: "' .. path .. '"')
 end, { desc = "Copy absolute path" })
 keymap("n", "<A-c>", "<cmd>e ~/dotfiles/.config/nvim/lua/plugins/coderunner.lua<CR>")
+
+local function smart_print()
+    local ft = vim.bo.filetype
+    if ft == "rust" then
+        return 'println!("");<Left><Left><Left>'
+    elseif ft == "python" or ft == "lua" then
+        return 'print()<Left>'
+    elseif ft == "javascript" then
+        return 'console.log()<Left>'
+    elseif ft == "go" then
+        return 'fmt.Println()<Left>'
+    elseif ft == "c" then
+        return 'printf("");<Left><Left><Left>'
+    elseif ft == "cpp" then
+        return 'cout << ;<Left>'
+    else
+        return 'print()<Left>'
+    end
+end
+
+vim.keymap.set("i", "<C-l>", smart_print, { expr = true, desc = "Smart Print Statement" })
