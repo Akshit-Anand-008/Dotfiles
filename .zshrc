@@ -26,7 +26,7 @@ setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
 # LS_COLORS Setup
-export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=35:*.c=00:*.lua=00:*.md=00:*.rs=00:*.tex=00:*.js=00:*.css=00:*.html=00:*.awk=00"
+export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=35:*.c=00:*.lua=00:*.md=00:*.rs=00:*.tex=00:*.js=00:*.css=00:*.html=00:*.awk=00:*.go=00"
 
 # --- ALIASES ---
 # --- FILE SYSTEM ---

@@ -3,11 +3,13 @@ return {
     opts = {
         focus = true,
         startinsert = true,
-        term = { position = "horizontal", size = 10 },
-        -- term = { position = "vertical", size = 50 },
+        -- term = { position = "horizontal", size = 10 },
+        term = { position = "vertical", size = 50 },
         filetype = {
-            tex = "pdflatex $fileName",
-            rust = "cargo run"
+            tex = "cd $dir && pdflatex $fileName",
+            lua = "cd $dir && lua $fileName",
+            rust = "cd $dir && cargo run",
+            go = "cd $dir && go run $fileName",
         },
     },
 }

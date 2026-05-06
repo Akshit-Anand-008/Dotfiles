@@ -1,5 +1,6 @@
 return {
     { "voldikss/vim-floaterm" },
+    { "nvim-lua/plenary.nvim" },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = { indent = { char = "│" } } },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { names = false } } },
     { "nvim-tree/nvim-web-devicons", opts = {} },
@@ -12,7 +13,7 @@ return {
     { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
     { "christoomey/vim-tmux-navigator" },
     { "HiPhish/rainbow-delimiters.nvim" },
-    { "nvim-lua/plenary.nvim" },
+    { 'mrcjkb/rustaceanvim', lazy = false, },
     {
         "nvim-neo-tree/neo-tree.nvim",
         cmd = "Neotree",
