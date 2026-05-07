@@ -24,9 +24,8 @@ keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 -- Toggle plugins
 keymap("n", "<leader>e", ":Neotree toggle<CR>")
 keymap("n", "<leader>u", ":UndotreeToggle<CR>")
-keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 
--- UNIVERSAL TERMINAL & SPLIT NAVIGATION
+-- Split navigation
 keymap({ "n", "t" }, "<C-h>", [[<C-\><C-n><C-w>h]])
 keymap({ "n", "t" }, "<C-j>", [[<C-\><C-n><C-w>j]])
 keymap({ "n", "t" }, "<C-k>", [[<C-\><C-n><C-w>k]])
@@ -85,13 +84,7 @@ keymap("n", "[q", "<cmd>cprev<CR>")
 keymap("n", "<leader>qo", "<cmd>copen<CR>")
 keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 
--- Functions
--- Move lines (Alt + j/k)
-keymap("n", "<A-j>", ":m .+1<CR>==")
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
-keymap("n", "<A-k>", ":m .-2<CR>==")
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
-
+-- Functions --
 -- Unified Telescope Finder
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
@@ -115,7 +108,7 @@ local function smart_print()
 end
 vim.keymap.set('i', '<C-k>', smart_print, { expr = true })
 
---Useless Shit
+-- Useless Shit --
 keymap("n", "<A-p>", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
@@ -124,3 +117,10 @@ end, { desc = "Copy absolute path" })
 
 keymap("n", "<A-c>", "<cmd>e ~/dotfiles/.config/nvim/lua/plugins/coderunner.lua<CR>", { desc = "open code_runner" })
 keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "toggle auto-save" })
+keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
+
+-- Move lines
+keymap("n", "<A-j>", ":m .+1<CR>==")
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
+keymap("n", "<A-k>", ":m .-2<CR>==")
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
