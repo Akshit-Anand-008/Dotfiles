@@ -4,10 +4,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
--- Utility
+---- Utilities ----
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 keymap("n", "<C-i>", "<cmd>b#<CR>")
+keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
+keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
+keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 
 keymap("n", "s", "o<Esc>k", { noremap = true, silent = true })
 keymap("n", "S", "O<Esc>j", { noremap = true, silent = true })
@@ -17,9 +20,7 @@ keymap("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 keymap("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
 keymap({ "n", "v" }, "<leader>x", '"_x', { desc = "Delete without yanking" })
-
 keymap("n", "<leader>v", "^vg_", { desc = "Select current line text" })
-keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 
 -- Split navigation
 keymap({ "n", "t" }, "<C-h>", [[<C-\><C-n><C-w>h]])
@@ -44,56 +45,6 @@ keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<C-n>", ":e ")
 keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
 
--- Save and run
-keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
-keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
-
-keymap("n", "<leader>r", function()
-    if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
-        print("Not a executable file")
-        return
-    end
-    vim.cmd("write")
-    vim.cmd("RunCode")
-end, { desc = "Save and Run Code" })
-
--- Persistence
-keymap("n", "<leader>ss", function()
-    require("persistence").load()
-end, { desc = "Restore Session" })
-keymap("n", "<leader>sl", function()
-    require("persistence").load({ last = true })
-end, { desc = "Restore Last" })
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
-keymap("n", "<C-a>", ":lua require('harpoon.mark').add_file()<CR>")
-keymap("n", "<leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-for i = 1, 9 do
-    keymap("n", "<leader>" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
-end
-
--- Diagnostics
-keymap("n", "]d", function()
-    vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
-end, { desc = "Next Diagnostic" })
-keymap("n", "[d", function()
-    vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
-end, { desc = "Prev Diagnostic" })
-keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-
--- Quickfix
-keymap("n", "]q", "<cmd>cnext<CR>")
-keymap("n", "[q", "<cmd>cprev<CR>")
-keymap("n", "<leader>qo", "<cmd>copen<CR>")
-keymap("n", "<leader>qc", "<cmd>cclose<CR>")
-
--- Functions --
--- Unified Telescope Finder
-keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
-keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
-keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
-keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
-keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
-
 -- Smart print
 local function smart_print()
     local ft = vim.bo.filetype
@@ -110,7 +61,58 @@ local function smart_print()
 end
 vim.keymap.set('i', '<C-k>', smart_print, { expr = true })
 
--- -- -- --
+-- Diagnostics
+keymap("n", "]d", function()
+    vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Next Diagnostic" })
+keymap("n", "[d", function()
+    vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Prev Diagnostic" })
+keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+-- Quickfix
+keymap("n", "]q", "<cmd>cnext<CR>")
+keymap("n", "[q", "<cmd>cprev<CR>")
+keymap("n", "<leader>qo", "<cmd>copen<CR>")
+keymap("n", "<leader>qc", "<cmd>cclose<CR>")
+
+---- Plugins ----
+-- CodeRunner
+keymap("n", "<leader>r", function()
+    if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
+        print("Not a executable file")
+        return
+    end
+    vim.cmd("write")
+    vim.cmd("RunCode")
+end, { desc = "Save and Run Code" })
+
+-- Telescope
+keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
+keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
+keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
+keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
+keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
+
+-- Persistence
+keymap("n", "<leader>ss", function()
+    require("persistence").load()
+end, { desc = "Restore Session" })
+keymap("n", "<leader>sl", function()
+    require("persistence").load({ last = true })
+end, { desc = "Restore Last" })
+
+-- UndoTree
+keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
+
+-- Harpoon
+keymap("n", "<C-a>", ":lua require('harpoon.mark').add_file()<CR>")
+keymap("n", "<leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+for i = 1, 9 do
+    keymap("n", "<leader>" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
+end
+
+---- Shortcuts ----
 keymap("n", "<A-p>", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
