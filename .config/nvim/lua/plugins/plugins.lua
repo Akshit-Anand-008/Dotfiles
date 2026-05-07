@@ -12,6 +12,7 @@ return {
     { "mbbill/undotree" },
     { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
     { "HiPhish/rainbow-delimiters.nvim" },
-    { 'mrcjkb/rustaceanvim', lazy = false, },
-    { "ThePrimeagen/harpoon", opts = {}, }
+    { 'mrcjkb/rustaceanvim', lazy = false },
+    { "ThePrimeagen/harpoon", opts = {} },
+    { "folke/lazydev.nvim", opts = {} },
 }
