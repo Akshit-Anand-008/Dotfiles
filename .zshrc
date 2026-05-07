@@ -55,7 +55,6 @@ alias nu='nb use'
 alias ne='nb edit'
 alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
-alias cnvim='cd ~/.config/nvim/lua'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
 alias id="nvim $WIKI_PATH/index.md"
 alias diary="nvim $WIKI_PATH/diary/diary.md"
