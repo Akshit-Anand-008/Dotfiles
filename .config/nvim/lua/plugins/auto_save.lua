@@ -2,6 +2,7 @@ return {
     "pocco81/auto-save.nvim",
     cmd = "ASToggle",
     lazy = true,
+    keys = {},
     opts = {
         enabled = false,
         execution_message = {
