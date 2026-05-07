@@ -13,4 +13,5 @@ return {
     { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
     { "HiPhish/rainbow-delimiters.nvim" },
     { 'mrcjkb/rustaceanvim', lazy = false, },
+    { "ThePrimeagen/harpoon", opts = {}, }
 }

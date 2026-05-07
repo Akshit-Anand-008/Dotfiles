@@ -65,6 +65,11 @@ keymap("n", "<leader>sl", function()
     require("persistence").load({ last = true })
 end, { desc = "Restore Last" })
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
+keymap("n", "<C-a>", ":lua require('harpoon.mark').add_file()<CR>")
+keymap("n", "<leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+for i = 1, 9 do
+    keymap("n", "<leader>" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
+end
 
 -- Diagnostics
 keymap("n", "]d", function()
