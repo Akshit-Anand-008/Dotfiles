@@ -6,7 +6,6 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
 
-
     config = function()
         local telescope = require("telescope")
         telescope.setup({})
@@ -22,13 +21,13 @@ return {
 
             -- Map the display strings to actual functions
             local commands = {
-                ["1. Files (Parent directory)"] = function() builtin.find_files({ cwd = ".." }) end,
-                ["2. Files (Open Buffers)"]     = function() builtin.buffers() end,
-                ["3. Files (Recent Files)"]     = function() builtin.oldfiles() end,
-                ["4. Files (Current Dir)"]      = function() builtin.find_files() end,
-                ["5. Files (Home)"]             = function() builtin.find_files({ cwd = "~" }) end,
-                ["6. Files (Wiki)"]             = function() builtin.find_files({ cwd = "~/.nb/home" }) end,
-                ["7. Grep (Wiki)"]              = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
+                ["1. Parent directory (Files)"] = function() builtin.find_files({ cwd = vim.fn.expand("%:p:h:h") }) end,
+                ["2. Open Buffers (Files)"]     = function() builtin.buffers() end,
+                ["3. Recent Files (Files)"]     = function() builtin.oldfiles() end,
+                ["4. Current Dir (Files)"]      = function() builtin.find_files() end,
+                ["5. Home (Files)"]             = function() builtin.find_files({ cwd = vim.fn.expand("$HOME") }) end,
+                ["6. Wiki (Files)"]             = function() builtin.find_files({ cwd = "~/.nb/home" }) end,
+                ["7. Wiki (Grep)"]              = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
             }
 
 
