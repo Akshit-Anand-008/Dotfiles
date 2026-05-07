@@ -41,12 +41,13 @@ if vim.fn.executable("rg") == 1 then
 end
 
 -- SECTION 4: File Handling & Performance
-opt.undofile = true            -- Save undo history to a file
-opt.clipboard = "unnamedplus"  -- Sync with system clipboard
-opt.updatetime = 250           -- Faster updates (useful for diagnostics)
-opt.timeoutlen = 500           -- Wait time for mapped sequences
-opt.fileformats = "unix,dos"   -- Line ending preferences
-opt.shada = "!,'100,<50,s10,h" -- What info to save between sessions
+opt.undofile = true           -- Save undo history to a file
+opt.clipboard = "unnamedplus" -- Sync with system clipboard
+opt.updatetime = 250          -- Faster updates (useful for diagnostics)
+opt.timeoutlen = 500          -- Wait time for mapped sequences
+opt.fileformats = "unix,dos"  -- Line ending preferences
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opt.shada = "!,'20,<50,s10,h" -- What info to save between sessions
 
 -- SECTION 5: Formatting & Visuals
 opt.formatoptions = "jqlrn" -- Modern text wrapping/formatting logic

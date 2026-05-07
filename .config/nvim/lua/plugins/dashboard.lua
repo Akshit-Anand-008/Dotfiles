@@ -1,21 +1,22 @@
 return {
-    "goolord/alpha-nvim",
-    config = function()
-        local dashboard = require("alpha.themes.startify")
-        dashboard.section.header.val = {
-            [[                                __                ]],
-            [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-            [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-            [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-            [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ ]],
-            [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ ]],
-        }
-        dashboard.section.top_buttons.val = {
-            dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-            dashboard.button("f", "󰍉  Find file", ":Telescope find_files<CR>"),
-            dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
-            dashboard.button("q", "󰅚  Quit", ":qa<CR>"),
-        }
-        require("alpha").setup(dashboard.config)
-    end,
+    -- "goolord/alpha-nvim",
+    -- event = "VeryLazy",
+    -- config = function()
+    --     local dashboard = require("alpha.themes.startify")
+    --     dashboard.section.header.val = {
+    --         [[                                __                ]],
+    --         [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+    --         [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+    --         [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+    --         [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ ]],
+    --         [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ ]],
+    --     }
+    --     dashboard.section.top_buttons.val = {
+    --         dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+    --         dashboard.button("f", "󰍉  Find file", ":Telescope find_files<CR>"),
+    --         dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
+    --         dashboard.button("q", "󰅚  Quit", ":qa<CR>"),
+    --     }
+    --     require("alpha").setup(dashboard.config)
+    -- end,
 }

@@ -1,7 +1,7 @@
 return {
     {
         "vimwiki/vimwiki",
-        ft = { "vimwiki", "markdown" },
+        event = "VeryLazy",
         init = function()
             vim.g.vimwiki_list = {
                 {

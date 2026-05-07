@@ -8,7 +8,7 @@ return {
             lualine_b = { "filename" },
             lualine_c = { { "filename", path = 3 } },
             lualine_x = { "diagnostics", "filetype" },
-            lualine_y = {},
+            lualine_y = { function() return require("auto-session.lib").current_session_name(true) end, },
             lualine_z = { "location" },
         },
         inactive_sections = {

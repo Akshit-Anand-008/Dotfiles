@@ -10,9 +10,9 @@ return {
     { "lewis6991/gitsigns.nvim", opts = {} },
     { "echasnovski/mini.move", opts = {} },
     { "mbbill/undotree" },
-    { "folke/persistence.nvim", opts = {} },
     { "HiPhish/rainbow-delimiters.nvim" },
     { "mrcjkb/rustaceanvim", ft = { "rust" } },
     { "ThePrimeagen/harpoon", keys = {}, opts = {} },
     { "folke/lazydev.nvim", event = "VeryLazy", opts = {} },
+    { "folke/persistence.nvim", event = "BufReadPre", opts = {} }
 }
