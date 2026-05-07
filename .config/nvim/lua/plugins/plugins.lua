@@ -21,11 +21,4 @@ return {
         dependencies = { "MunifTanjim/nui.nvim" },
         opts = { filesystem = { follow_current_file = { enabled = true } } },
     },
-    {
-        "ThePrimeagen/harpoon",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("harpoon").setup()
-        end,
-    },
 }

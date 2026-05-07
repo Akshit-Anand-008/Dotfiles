@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 local template_group = vim.api.nvim_create_augroup("CodeTemplates", { clear = true })
 vim.api.nvim_create_autocmd("BufNewFile", {
     group = template_group,
-    pattern = { "*.cpp", "*.c" },
+    pattern = { "*.cpp", "*.c", "*.rs" },
     callback = function()
         local ext = vim.fn.expand("%:e")
         local snippet = vim.fn.expand("~/Snippets/snippet." .. ext)

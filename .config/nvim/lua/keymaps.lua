@@ -7,6 +7,7 @@ local keymap = vim.keymap.set
 -- Utility
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
+keymap("n", "<C-i>", "<cmd>b#<CR>")
 
 keymap("n", "s", "o<Esc>k", { noremap = true, silent = true })
 keymap("n", "S", "O<Esc>j", { noremap = true, silent = true })
