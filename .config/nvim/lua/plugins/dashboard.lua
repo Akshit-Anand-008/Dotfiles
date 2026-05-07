@@ -1,6 +1,5 @@
 return {
     "goolord/alpha-nvim",
-
     config = function()
         local dashboard = require("alpha.themes.startify")
         dashboard.section.header.val = {
@@ -11,7 +10,6 @@ return {
             [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ ]],
             [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ ]],
         }
-
         dashboard.section.top_buttons.val = {
             dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
             dashboard.button("f", "󰍉  Find file", ":Telescope find_files<CR>"),

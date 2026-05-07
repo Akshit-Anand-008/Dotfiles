@@ -21,11 +21,6 @@ keymap({ "n", "v" }, "<leader>x", '"_x', { desc = "Delete without yanking" })
 keymap("n", "<leader>v", "^vg_", { desc = "Select current line text" })
 keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 
-
--- Toggle plugins
-keymap("n", "<leader>e", ":Neotree toggle<CR>")
-keymap("n", "<leader>u", ":UndotreeToggle<CR>")
-
 -- Split navigation
 keymap({ "n", "t" }, "<C-h>", [[<C-\><C-n><C-w>h]])
 keymap({ "n", "t" }, "<C-j>", [[<C-\><C-n><C-w>j]])
@@ -69,6 +64,7 @@ end, { desc = "Restore Session" })
 keymap("n", "<leader>sl", function()
     require("persistence").load({ last = true })
 end, { desc = "Restore Last" })
+keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
 -- Diagnostics
 keymap("n", "]d", function()
@@ -109,7 +105,7 @@ local function smart_print()
 end
 vim.keymap.set('i', '<C-k>', smart_print, { expr = true })
 
--- Useless Shit --
+-- -- -- --
 keymap("n", "<A-p>", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
@@ -117,11 +113,4 @@ keymap("n", "<A-p>", function()
 end, { desc = "Copy absolute path" })
 
 keymap("n", "<A-c>", "<cmd>e ~/dotfiles/.config/nvim/lua/plugins/coderunner.lua<CR>", { desc = "open code_runner" })
-keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "toggle auto-save" })
 keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
-
--- Move lines
-keymap("n", "<A-j>", ":m .+1<CR>==")
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
-keymap("n", "<A-k>", ":m .-2<CR>==")
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
