@@ -103,12 +103,12 @@ keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ c
 local function smart_print()
     local ft = vim.bo.filetype
     local templates = {
-        rust       = 'println!("");<Esc>3hi',
+        rust       = 'println!("");<Esc>2hi',
         python     = 'print()<Left>',
         lua        = 'print()<Left>',
         javascript = 'console.log()<Left>',
         go         = 'fmt.Println()<Left>',
-        c          = 'printf("");<Esc>3hi',
+        c          = 'printf("");<Esc>2hi',
         cpp        = 'cout <<  << endl;<Esc>8hi',
     }
     return templates[ft] or 'print()<Left>'
