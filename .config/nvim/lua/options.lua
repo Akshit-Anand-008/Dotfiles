@@ -59,8 +59,7 @@ opt.listchars = {
 }
 
 -- SECTION 6: Cursor Customization
-vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff", fg = "black" })
-vim.api.nvim_set_hl(0, "Cursor", { bg = "white", fg = "black" })
+vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff" })
 opt.guicursor = {
     "a:blinkon0",           -- Disable blinking
     "n:block-Cursor",       -- Normal: White block
