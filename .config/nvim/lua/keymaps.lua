@@ -91,7 +91,7 @@ end, { desc = "Save and Run Code" })
 keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
 keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
-keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
+keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
 keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
 
 -- UndoTree

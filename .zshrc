@@ -136,7 +136,7 @@ n() {
     fi
 }
 
-fn() {
+fw() {
   local file=$(find ~/.nb -not -path '*/.git*' -type f | fzf --prompt="Select Note > " --height=40% --reverse)
   if [ -n "$file" ]; then
     nvim "$file"
