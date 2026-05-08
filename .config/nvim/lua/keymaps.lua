@@ -6,8 +6,8 @@ local keymap = vim.keymap.set
 
 ---- Utilities ----
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
-keymap("n", "<C-i>", "<cmd>b#<CR>")
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
+keymap("n", "<C-i>", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
 keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
 keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
 keymap("n", "=", "gg=G``", { buffer = true, silent = true })
@@ -93,14 +93,6 @@ keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end,
 keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
 keymap('n', '<leader>fn', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
 keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
-
--- Persistence
-keymap("n", "<leader>ss", function()
-    require("persistence").load()
-end, { desc = "Restore Session" })
-keymap("n", "<leader>sl", function()
-    require("persistence").load({ last = true })
-end, { desc = "Restore Last" })
 
 -- UndoTree
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })

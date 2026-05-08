@@ -14,5 +14,4 @@ return {
     { "mrcjkb/rustaceanvim", ft = { "rust" } },
     { "ThePrimeagen/harpoon", keys = {}, opts = {} },
     { "folke/lazydev.nvim", event = "VeryLazy", opts = {} },
-    { "folke/persistence.nvim", event = "BufReadPre", opts = {} }
 }
