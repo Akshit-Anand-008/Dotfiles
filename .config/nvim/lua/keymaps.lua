@@ -88,17 +88,12 @@ keymap("n", "<leader>r", function()
 end, { desc = "Save and Run Code" })
 
 -- Telescope
-keymap('n', '<leader>ff', function() require("telescope.builtin").find_files() end, { desc = 'Find Files' })
-keymap('n', '<leader>fb', function() require("telescope.builtin").buffers() end, { desc = 'Find Buffers' })
-keymap('n', '<leader>fg', function() require("telescope.builtin").live_grep() end, { desc = 'Live Grep' })
-keymap('n', '<leader>fw', function() require("telescope.builtin").find_files({ cwd = "~/.nb" }) end)
-keymap('n', '<leader>fh', function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("~") }) end)
 
 -- UndoTree
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
 -- Harpoon
-keymap("n", "<C-a>", ":lua require('harpoon.mark').add_file()<CR>")
+keymap("n", "<leader>a", ":lua require('harpoon.mark').add_file()<CR>")
 keymap("n", "<leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 for i = 1, 9 do
     keymap("n", "<leader>" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
