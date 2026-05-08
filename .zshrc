@@ -13,8 +13,6 @@ export VISUAL=nvim
 export MANPAGER="nvim +Man!"
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPTS="Ee"
-# export NNN_OPENER="xdg-open"
-# export NNN_PLUG='o:!zathura $nnn'
 export WIKI_PATH="$HOME/.nb/home"
 
 # History

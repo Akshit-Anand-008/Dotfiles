@@ -87,8 +87,6 @@ keymap("n", "<leader>r", function()
     vim.cmd("RunCode")
 end, { desc = "Save and Run Code" })
 
--- Telescope
-
 -- UndoTree
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
@@ -108,3 +106,4 @@ end, { desc = "Copy absolute path" })
 
 keymap("n", "<A-c>", "<cmd>e ~/dotfiles/.config/nvim/lua/plugins/coderunner.lua<CR>", { desc = "open code_runner" })
 keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
+keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "toggle auto-save" })

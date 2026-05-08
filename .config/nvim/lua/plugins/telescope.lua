@@ -21,7 +21,6 @@ return {
             local conf = require("telescope.config").values
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
-            local builtin = require("telescope.builtin")
             local commands = {
                 ["1. Current Dir (Grep)"]       = function() builtin.live_grep() end,
                 ["2. Parent Dir (Grep)"]        = function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h:h") }) end,

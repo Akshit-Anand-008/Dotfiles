@@ -22,10 +22,10 @@ return {
         -- end)
         -- vim.g.rainbow_delimiters = { highlight = highlight }
         require("ibl").setup {
-            -- scope = { highlight = highlight, char = "▏" },
-            -- indent = { char = "▏", },
-            scope = { char = "|" },
-            indent = { char = "|", }
+            scope = { char = "▏" },
+            indent = { char = "▏", },
+            -- scope = { highlight = highlight, char = "|" },
+            -- indent = { char = "|", }
         }
         -- hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     end
