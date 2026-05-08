@@ -74,8 +74,6 @@ keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 -- Quickfix
 keymap("n", "]q", "<cmd>cnext<CR>")
 keymap("n", "[q", "<cmd>cprev<CR>")
-keymap("n", "<leader>qo", "<cmd>copen<CR>")
-keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 
 -- CodeRunner
 keymap("n", "<leader>r", function()

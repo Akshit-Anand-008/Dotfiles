@@ -7,14 +7,19 @@ return {
     },
     config = function()
         local telescope = require("telescope")
+        require("custom.smart-grep").setup()
         telescope.setup({})
         telescope.load_extension("fzf")
         local builtin = require("telescope.builtin")
-        vim.keymap.set('n', '<leader>ff', function() builtin.find_files() end, { desc = 'Find Files' })
-        vim.keymap.set('n', '<leader>fb', function() builtin.buffers() end, { desc = 'Find Buffers' })
-        vim.keymap.set('n', '<leader>fg', function() builtin.live_grep() end, { desc = 'Live Grep' })
+
+        vim.keymap.set('n', '<leader>ft', "<cmd>Telescope builtin<CR>")
+        vim.keymap.set('n', '<leader>ff', function() builtin.find_files() end)
+        vim.keymap.set('n', '<leader>fb', function() builtin.buffers() end)
+        vim.keymap.set('n', '<leader>fg', function() builtin.live_grep() end)
         vim.keymap.set('n', '<leader>fw', function() builtin.find_files({ cwd = "~/.nb" }) end)
-        vim.keymap.set('n', '<leader>fh', function() builtin.find_files({ cwd = vim.fn.expand("~") }) end)
+        vim.keymap.set('n', '<leader>fh', function() builtin.help_tags() end)
+        vim.keymap.set("n", "<leader>fr", function() builtin.oldfiles() end)
+
         vim.keymap.set("n", "<leader>fm", function()
             local pickers = require("telescope.pickers")
             local finders = require("telescope.finders")
@@ -22,15 +27,13 @@ return {
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
             local commands = {
-                ["1. Current Dir (Grep)"]       = function() builtin.live_grep() end,
-                ["2. Parent Dir (Grep)"]        = function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h:h") }) end,
-                ["3. Wiki (Grep)"]              = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
-                ["4. Current Dir (Files)"]      = function() builtin.find_files() end,
-                ["5. Parent directory (Files)"] = function() builtin.find_files({ cwd = vim.fn.expand("%:p:h:h") }) end,
-                ["6. Wiki (Files)"]             = function() builtin.find_files({ cwd = "~/.nb/home" }) end,
-                ["7. Home (Files)"]             = function() builtin.find_files({ cwd = vim.fn.expand("$HOME") }) end,
-                ["8. Open Buffers (Files)"]     = function() builtin.buffers() end,
-                ["9. Recent Files (Files)"]     = function() builtin.oldfiles() end,
+                ["1. (Grep)  Current Dir "]      = function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h") }) end,
+                ["2. (Grep)  Parent Dir "]       = function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h:h") }) end,
+                ["3. (Grep)  Home Dir"]          = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
+                ["4. (Grep)  Wiki "]             = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
+                ["5. (Files) Current Dir "]      = function() builtin.find_files({ cwd = vim.fn.expand("%:p:h") }) end,
+                ["6. (Files) Parent directory "] = function() builtin.find_files({ cwd = vim.fn.expand("%:p:h:h") }) end,
+                ["7. (Files) Home "]             = function() builtin.find_files({ cwd = vim.fn.expand("~") }) end,
             }
             local options = {}
             for k, _ in pairs(commands) do table.insert(options, k) end

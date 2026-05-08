@@ -53,6 +53,7 @@ alias nu='nb use'
 alias ne='nb edit'
 alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
+alias cnvim='cd ~/.config/nvim/lua/plugins'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
 alias id="nvim $WIKI_PATH/index.md"
 alias diary="nvim $WIKI_PATH/diary/diary.md"
@@ -116,6 +117,12 @@ mkcd() {
   mkdir -p "$1" && cd "$1"
 }
 
+jot() {
+  local target="$WIKI_PATH/jotted.md"
+  mkdir -p "$(dirname "$target")"
+  echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_KEYTIMEOUT=0.01
@@ -135,32 +142,23 @@ n() {
 }
 
 fw() {
-  local file=$(find ~/.nb -not -path '*/.git*' -type f | fzf --prompt="Select Note > " --height=40% --reverse)
-  if [ -n "$file" ]; then
-    nvim "$file"
-  fi
-}
-
-jot() {
-  local target="$WIKI_PATH/jotted.md"
-  mkdir -p "$(dirname "$target")"
-  echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
-}
-
-ff() {
-    local cmd
-    if command -v fdfind &> /dev/null; then
-        cmd="fdfind --type f --hidden --exclude .git"
-    elif command -v fd &> /dev/null; then
-        cmd="fd --type f --hidden --exclude .git"
-    else
-        cmd="find . -not -path '*/.*' -type f"
-    fi
-    local file=$(eval "$cmd" | fzf \
+    local file=$(fd --type f --hidden --exclude .git --full-path $WIKI_PATH | fzf\
         --prompt=" Find File > " \
         --header "ENTER: nvim | CTRL-Y: copy path" \
         --height=80% --reverse --border \
-        --preview 'batcat --color=always --style=numbers --line-range=:500 {}' \
+        --preview 'bat --color=always --style=numbers --line-range=:500 {}' \
+        --bind 'ctrl-y:execute-silent(echo {} | xclip -sel clip)+abort')
+    if [ -n "$file" ]; then
+        nvim "$file"
+    fi
+}
+
+ff() {
+    local file=$(fd --type f --hidden --exclude .git | fzf\
+        --prompt=" Find File > " \
+        --header "ENTER: nvim | CTRL-Y: copy path" \
+        --height=80% --reverse --border \
+        --preview 'bat --color=always --style=numbers --line-range=:500 {}' \
         --bind 'ctrl-y:execute-silent(echo {} | xclip -sel clip)+abort')
     if [ -n "$file" ]; then
         nvim "$file"
