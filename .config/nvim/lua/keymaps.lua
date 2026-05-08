@@ -7,7 +7,6 @@ local keymap = vim.keymap.set
 -- Utilities
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
-keymap("n", "<C-i>", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
 keymap("n", "<leader>l", ":w<CR>:<Up><CR>", { desc = "Save and repeat last command" })
 keymap("n", "<leader>q", "@@", { desc = "Run last macro" })
 keymap("n", "<leader>m", "<cmd>marks<CR>", { desc = "Open marks" })
@@ -43,6 +42,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 -- Buffers
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
+keymap("n", "<S-m>", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
 keymap("n", "<C-n>", ":e ")
 keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
 
@@ -90,7 +90,7 @@ end, { desc = "Save and Run Code" })
 -- UndoTree
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
----- Shortcuts ----
+-- Shortcuts
 keymap("n", "<A-p>", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
