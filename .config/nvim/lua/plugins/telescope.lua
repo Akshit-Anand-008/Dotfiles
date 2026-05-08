@@ -7,7 +7,6 @@ return {
     },
     config = function()
         local telescope = require("telescope")
-        require("custom.smart-grep").setup()
         telescope.setup({})
         telescope.load_extension("fzf")
         local builtin = require("telescope.builtin")
