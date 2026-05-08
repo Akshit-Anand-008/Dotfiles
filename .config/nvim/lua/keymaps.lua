@@ -104,6 +104,5 @@ keymap("n", "<A-p>", function()
     vim.notify('Yanked: "' .. path .. '"')
 end, { desc = "Copy absolute path" })
 
-keymap("n", "<A-c>", "<cmd>e ~/dotfiles/.config/nvim/lua/plugins/coderunner.lua<CR>", { desc = "open code_runner" })
 keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "toggle auto-save" })
