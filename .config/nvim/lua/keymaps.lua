@@ -4,12 +4,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
----- Utilities ----
+-- Utilities
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap("n", "<C-i>", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
-keymap("n", "<leader>l", ":w | !!<CR>", { desc = "Save and repeat last shell command" })
-keymap("n", "<leader>m", "@@", { desc = "Run last macro" })
+keymap("n", "<leader>l", ":w<CR>:<Up><CR>", { desc = "Save and repeat last command" })
+keymap("n", "<leader>q", "@@", { desc = "Run last macro" })
+keymap("n", "<leader>m", "<cmd>marks<CR>", { desc = "Open marks" })
 keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 
 keymap("n", "s", "o<Esc>k", { noremap = true, silent = true })
@@ -76,7 +77,6 @@ keymap("n", "[q", "<cmd>cprev<CR>")
 keymap("n", "<leader>qo", "<cmd>copen<CR>")
 keymap("n", "<leader>qc", "<cmd>cclose<CR>")
 
----- Plugins ----
 -- CodeRunner
 keymap("n", "<leader>r", function()
     if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
@@ -89,13 +89,6 @@ end, { desc = "Save and Run Code" })
 
 -- UndoTree
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
-
--- Harpoon
-keymap("n", "<leader>a", ":lua require('harpoon.mark').add_file()<CR>")
-keymap("n", "<leader>e", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-for i = 1, 9 do
-    keymap("n", "<leader>" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
-end
 
 ---- Shortcuts ----
 keymap("n", "<A-p>", function()

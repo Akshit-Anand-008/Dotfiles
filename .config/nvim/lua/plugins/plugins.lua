@@ -12,5 +12,4 @@ return {
     { "lewis6991/gitsigns.nvim",            opts = {} },
     { "folke/lazydev.nvim",                 opts = {} },
     { "brenoprata10/nvim-highlight-colors", opts = {} },
-    { "ThePrimeagen/harpoon",               opts = {} },
 }
