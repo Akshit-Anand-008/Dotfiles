@@ -144,7 +144,7 @@ fw() {
 }
 
 jot() {
-  local target="$WIKI_PATH/journals.md"
+  local target="$WIKI_PATH/jotted.md"
   mkdir -p "$(dirname "$target")"
   echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
 }
