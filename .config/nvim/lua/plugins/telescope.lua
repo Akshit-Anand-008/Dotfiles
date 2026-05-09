@@ -5,56 +5,106 @@ return {
         { "nvim-lua/plenary.nvim" },
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
+
     config = function()
-        local telescope = require("telescope")
-        telescope.setup({})
-        telescope.load_extension("fzf")
-        local builtin = require("telescope.builtin")
+        local pickers = require "telescope.pickers"
+        local finders = require "telescope.finders"
+        local make_entry = require "telescope.make_entry"
+        local sorters = require "telescope.sorters"
+        local builtin = require "telescope.builtin"
+        local conf = require("telescope.config").values
+        local home_dir = vim.fn.expand("~")
 
-        vim.keymap.set('n', '<leader>ft', "<cmd>Telescope builtin<CR>")
-        vim.keymap.set('n', '<leader>ff', function() builtin.find_files() end)
-        vim.keymap.set('n', '<leader>fb', function() builtin.buffers() end)
-        vim.keymap.set('n', '<leader>fg', function() builtin.live_grep() end)
-        vim.keymap.set('n', '<leader>fw', function() builtin.find_files({ cwd = "~/.nb" }) end)
-        vim.keymap.set('n', '<leader>fh', function() builtin.help_tags() end)
-        vim.keymap.set("n", "<leader>fr", function() builtin.oldfiles() end)
+        -- Path builder
+        local resolve_path = function(char, len, file_dir, cwd)
+            if char == "h" then
+                return home_dir
+            elseif char == "w" then
+                return vim.fn.expand("$WIKI_PATH")
+            elseif char == "r" then
+                local p = file_dir
+                for _ = 1, len - 1 do p = vim.fn.fnamemodify(p, ":h") end
+                return p
+            elseif char == "." then
+                local p = cwd
+                for _ = 1, len do p = vim.fn.fnamemodify(p, ":h") end
+                return p
+            end
+            return nil
+        end
 
-        vim.keymap.set("n", "<leader>fm", function()
-            local pickers = require("telescope.pickers")
-            local finders = require("telescope.finders")
-            local conf = require("telescope.config").values
-            local actions = require("telescope.actions")
-            local action_state = require("telescope.actions.state")
-            local commands = {
-                ["1. (Grep)  Current Dir "]      = function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h") }) end,
-                ["2. (Grep)  Parent Dir "]       = function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h:h") }) end,
-                ["3. (Grep)  Home Dir"]          = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
-                ["4. (Grep)  Wiki "]             = function() builtin.live_grep({ cwd = "~/.nb/home" }) end,
-                ["5. (Files) Current Dir "]      = function() builtin.find_files({ cwd = vim.fn.expand("%:p:h") }) end,
-                ["6. (Files) Parent directory "] = function() builtin.find_files({ cwd = vim.fn.expand("%:p:h:h") }) end,
-                ["7. (Files) Home "]             = function() builtin.find_files({ cwd = vim.fn.expand("~") }) end,
-            }
-            local options = {}
-            for k, _ in pairs(commands) do table.insert(options, k) end
-            table.sort(options)
-            pickers.new({}, {
-                prompt_title = "Telescope Hub",
-                finder = finders.new_table({
-                    results = options,
-                }),
-                sorter = conf.generic_sorter({}),
-                attach_mappings = function(prompt_bufnr, _)
-                    actions.select_default:replace(function()
-                        local selection = action_state.get_selected_entry()
-                        actions.close(prompt_bufnr)
-                        local choice = selection[1]
-                        if commands[choice] then
-                            commands[choice]()
-                        end
-                    end)
-                    return true
+        -- filessek function
+        local fileseek = function()
+            local f_dir = vim.fn.expand("%:p:h")
+            local f_cwd = vim.fn.getcwd()
+
+            local my_finder = finders.new_async_job {
+                command_generator = function(prompt)
+                    if not prompt or prompt == "" then return nil end
+                    local pieces = vim.split(prompt, "  ")
+                    local args = { "fd", "--type", "f", }
+
+                    if pieces[1] and pieces[1] ~= "" then
+                        table.insert(args, pieces[1])
+                    end
+
+                    if pieces[2] then
+                        local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+                        if path then table.insert(args, path) end
+                    end
+                    vim.print(args)
+                    return args
                 end,
+                entry_maker = make_entry.gen_from_file()
+
+            }
+
+            pickers.new({}, {
+                prompt_title = "Find Files",
+                finder = my_finder,
+                sorter = sorters.empty(),
+                previewer = conf.file_previewer({}),
             }):find()
-        end, { desc = "Telescope Hub" })
+        end
+
+        -- grepseeek function
+        local grepseek = function()
+            local f_dir = vim.fn.expand("%:p:h")
+            local f_cwd = vim.fn.getcwd()
+
+            local my_finder = finders.new_async_job {
+                command_generator = function(prompt)
+                    if not prompt or prompt == "" then return nil end
+                    local pieces = vim.split(prompt, "  ")
+                    local args = { "rg", "--vimgrep", "--smart-case" }
+                    if pieces[1] and pieces[1] ~= "" then
+                        table.insert(args, "-e")
+                        table.insert(args, pieces[1])
+                    end
+
+
+                    if pieces[2] then
+                        local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+                        if path then table.insert(args, path) end
+                    end
+                    vim.print(args)
+                    return args
+                end,
+                entry_maker = make_entry.gen_from_vimgrep(),
+            }
+
+            pickers.new({}, {
+                prompt_title = "Multi Grep",
+                finder = my_finder,
+                previewer = conf.grep_previewer({}),
+                sorter = sorters.empty(),
+            }):find()
+        end
+
+        vim.keymap.set("n", "<leader>ff", fileseek)
+        vim.keymap.set("n", "<leader>fg", grepseek)
+        vim.keymap.set("n", "<leader>fr", function() builtin.oldfiles() end)
+        vim.keymap.set('n', '<leader>m', function() builtin.marks() end)
+        vim.keymap.set('n', '<leader>t', "<cmd>Telescope builtin<CR>")
     end,
 }

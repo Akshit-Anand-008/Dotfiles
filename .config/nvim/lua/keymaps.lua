@@ -9,7 +9,6 @@ keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap("n", "<leader>l", ":w<CR>:<Up><CR>", { desc = "Save and repeat last command" })
 keymap("n", "<leader>q", "@@", { desc = "Run last macro" })
-keymap("n", "<leader>m", "<cmd>marks<CR>", { desc = "Open marks" })
 keymap("n", "=", "gg=G``", { buffer = true, silent = true })
 
 keymap("n", "s", "o<Esc>k", { noremap = true, silent = true })
@@ -44,7 +43,7 @@ keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<S-m>", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
 keymap("n", "<C-n>", ":e ")
-keymap("n", "<leader>bd", "<cmd>bdelete<CR>")
+keymap("n", "<leader>d", "<cmd>bdelete<CR>")
 
 -- Smart print
 local function smart_print()
