@@ -15,6 +15,13 @@ return {
         local conf = require("telescope.config").values
         local home_dir = vim.fn.expand("~")
 
+        -- Key maps
+        vim.keymap.set('n', '<leader>fb', builtin.buffers)
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+        vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
+        vim.keymap.set('n', '<leader>m', builtin.marks)
+        vim.keymap.set('n', '<leader>t', "<cmd>Telescope builtin<CR>")
+
         -- Path builder
         local resolve_path = function(char, len, file_dir, cwd)
             if char == "h" then
@@ -33,7 +40,7 @@ return {
             return nil
         end
 
-        -- filessek function
+        -- fileseek function
         local fileseek = function()
             local f_dir = vim.fn.expand("%:p:h")
             local f_cwd = vim.fn.getcwd()
@@ -60,7 +67,7 @@ return {
             }
 
             pickers.new({}, {
-                prompt_title = "Find Files",
+                prompt_title = "FILES",
                 finder = my_finder,
                 sorter = sorters.empty(),
                 previewer = conf.file_previewer({}),
@@ -94,7 +101,7 @@ return {
             }
 
             pickers.new({}, {
-                prompt_title = "Multi Grep",
+                prompt_title = "GREP",
                 finder = my_finder,
                 previewer = conf.grep_previewer({}),
                 sorter = sorters.empty(),
@@ -103,8 +110,5 @@ return {
 
         vim.keymap.set("n", "<leader>ff", fileseek)
         vim.keymap.set("n", "<leader>fg", grepseek)
-        vim.keymap.set("n", "<leader>fr", function() builtin.oldfiles() end)
-        vim.keymap.set('n', '<leader>m', function() builtin.marks() end)
-        vim.keymap.set('n', '<leader>t', "<cmd>Telescope builtin<CR>")
     end,
 }
