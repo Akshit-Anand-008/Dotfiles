@@ -16,11 +16,11 @@ return {
         local home_dir = vim.fn.expand("~")
 
         -- Key maps
+        vim.keymap.set('n', '<leader>fd', "<cmd>Telescope builtin<CR>")
         vim.keymap.set('n', '<leader>fb', builtin.buffers)
         vim.keymap.set('n', '<leader>fh', builtin.help_tags)
         vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
         vim.keymap.set('n', '<leader>m', builtin.marks)
-        vim.keymap.set('n', '<leader>t', "<cmd>Telescope builtin<CR>")
 
         -- Path builder
         local resolve_path = function(char, len, file_dir, cwd)
