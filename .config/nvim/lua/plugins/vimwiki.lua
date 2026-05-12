@@ -1,14 +1,10 @@
 return {
-    {
-        "vimwiki/vimwiki",
-        init = function()
-            vim.g.vimwiki_list = {
-                {
-                    path = "~/.nb/home/",
-                    syntax = "markdown",
-                    ext = ".md",
-                },
-            }
-        end,
-    },
+    "vimwiki/vimwiki",
+    init = function()
+        vim.g.vimwiki_list = { {
+            path = "~/NoteBooks/Wiki/",
+            syntax = "markdown",
+            ext = ".md",
+        }, }
+    end,
 }

@@ -13,7 +13,9 @@ export VISUAL=nvim
 export MANPAGER="nvim +Man!"
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPTS="Ee"
-export WIKI_PATH="$HOME/.nb/home"
+export NB_DIR="$HOME/NoteBooks"
+export WIKI_PATH="$NB_DIR"
+export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.*=0:*.pdf=35:*.jpg=35:*.png=35:*.zip=31:*.tar.gz=31"
 
 # History
 HISTSIZE=1000
@@ -22,9 +24,6 @@ HISTFILE=~/.zsh_history
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
-
-# LS_COLORS Setup
-export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.cpp=00:*.h=00:*.py=00:*.txt=00:*.pdf=35:*.c=00:*.lua=00:*.md=00:*.rs=00:*.tex=00:*.js=00:*.css=00:*.html=00:*.awk=00:*.go=00"
 
 # --- ALIASES ---
 # --- FILE SYSTEM ---
@@ -55,9 +54,9 @@ alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua/plugins'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
-alias id="nvim $WIKI_PATH/index.md"
-alias diary="nvim $WIKI_PATH/diary/diary.md"
-alias td='nvim -c VimwikiMakeDiaryNote'
+alias id="nvim $NB_DIR/home/index.md"
+alias diary="nvim $NB_DIR/diary/diary.md"
+alias td="nvim -c VimwikiMakeDiaryNote $NB_DIR/Wiki/diary/diary.md"
 alias rm='rm -Iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
@@ -87,7 +86,6 @@ alias gst='git stash'
 alias gsp='git stash pop'
 alias grv='git remote -v'
 alias gcan='git commit --amend --no-edit'
-alias gclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short && echo && echo '--Branches--' && git branch"
 
 # --- FUNCTIONS ---
@@ -142,24 +140,14 @@ n() {
 }
 
 fw() {
-    local file=$(fd --type f --hidden --exclude .git --full-path $WIKI_PATH | fzf\
-        --prompt=" Find File > " \
-        --header "ENTER: nvim | CTRL-Y: copy path" \
-        --height=80% --reverse --border \
-        --preview 'bat --color=always --style=numbers --line-range=:500 {}' \
-        --bind 'ctrl-y:execute-silent(echo {} | xclip -sel clip)+abort')
+    local file=$(fd --type f --hidden --exclude .git --full-path $WIKI_PATH | fzf)
     if [ -n "$file" ]; then
         nvim "$file"
     fi
 }
 
 ff() {
-    local file=$(fd --type f --hidden --exclude .git | fzf\
-        --prompt=" Find File > " \
-        --header "ENTER: nvim | CTRL-Y: copy path" \
-        --height=80% --reverse --border \
-        --preview 'bat --color=always --style=numbers --line-range=:500 {}' \
-        --bind 'ctrl-y:execute-silent(echo {} | xclip -sel clip)+abort')
+    local file=$(fd --type f --hidden --exclude .git | fzf)
     if [ -n "$file" ]; then
         nvim "$file"
     fi
@@ -182,7 +170,7 @@ load-venv() {
 add-zsh-hook chpwd load-venv
 load-venv
 
-nn() {
+nbn() {
   local name="$1"
   if [ -z "$name" ]; then
     echo "Usage: nn <notebook>"
@@ -194,3 +182,5 @@ nn() {
 
 cl
 eval "$(starship init zsh)"
+autoload -Uz compinit
+compinit

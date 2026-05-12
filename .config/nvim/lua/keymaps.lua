@@ -5,26 +5,24 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 -- Utilities
-keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
-keymap("n", "<leader>l", ":w<CR>:<Up><CR>", { desc = "Save and repeat last command" })
-keymap("n", "<leader>q", "@@", { desc = "Run last macro" })
-keymap("n", "<leader>e", "<cmd>Ex<CR>")
+keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+keymap({ "n", "v" }, "<leader>q", "@@", { desc = "Run last macro" })
 keymap("n", "=", "gg=G<C-o>", { buffer = true, silent = true })
 
-keymap("n", "s", "o<Esc>k", { noremap = true, silent = true })
-keymap("n", "S", "O<Esc>j", { noremap = true, silent = true })
+keymap("n", "s", "o<Esc>", { noremap = true, silent = true })
+keymap("n", "S", "O<Esc>", { noremap = true, silent = true })
 
 keymap("v", "<", "<gv", { desc = "Indent left and reselect" })
 keymap("v", ">", ">gv", { desc = "Indent right and reselect" })
 
-keymap("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
-keymap({ "n", "v" }, "<leader>x", '"_x', { desc = "Delete without yanking" })
-keymap("n", "<leader>v", "^vg_", { desc = "Select current line text" })
+keymap("x", "<leader>p", '"_dP')
+keymap({ "n", "v" }, "<leader>x", '"_x')
+keymap("n", "<leader>v", "^vg_")
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
-keymap("n", "<S-m>", "<cmd>b#<CR>", { desc = "Switch to last buffer" })
+keymap("n", "<S-m>", "<cmd>b#<CR>")
 
 -- Smart print
 local function smart_print()
@@ -67,5 +65,5 @@ keymap("n", "<A-p>", function()
     vim.notify('Yanked: "' .. path .. '"')
 end, { desc = "Copy absolute path" })
 
-keymap("n", "<A-t>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
-keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "toggle auto-save" })
+keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
+keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "Toggle auto-save" })
