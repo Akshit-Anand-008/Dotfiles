@@ -7,8 +7,7 @@ local keymap = vim.keymap.set
 -- Utilities
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-keymap({ "n", "v" }, "<leader>q", "@@", { desc = "Run last macro" })
-keymap("n", "=", "gg=G<C-o>", { buffer = true, silent = true })
+keymap("n", "=", "gg=G<C-o>")
 
 keymap("n", "s", "o<Esc>", { noremap = true, silent = true })
 keymap("n", "S", "O<Esc>", { noremap = true, silent = true })

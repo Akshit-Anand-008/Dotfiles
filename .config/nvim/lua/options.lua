@@ -16,8 +16,8 @@ opt.showmode = false      -- Hide mode text (e.g. -- INSERT --)
 opt.scrolloff = 8         -- Keep 8 lines of context when scrolling
 opt.confirm = true        -- Confirm to save changes before exiting
 opt.mouse = ""            -- Disable mouse
-opt.splitright = true
-opt.splitbelow = true
+opt.splitright = true     -- Split on right instead of left
+opt.splitbelow = true     -- Split on below instead of top
 
 -- SECTION 2: Indentation & Tabs
 opt.expandtab = true   -- Use spaces instead of tabs
@@ -43,11 +43,7 @@ end
 -- SECTION 4: File Handling & Performance
 opt.undofile = true           -- Save undo history to a file
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.updatetime = 250          -- Faster updates (useful for diagnostics)
-opt.timeoutlen = 500          -- Wait time for mapped sequences
-opt.fileformats = "unix,dos"  -- Line ending preferences
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-opt.shada = "!,'20,<50,s10,h" -- What info to save between sessions
 
 -- SECTION 5: Formatting & Visuals
 opt.formatoptions = "jqlrn" -- Modern text wrapping/formatting logic

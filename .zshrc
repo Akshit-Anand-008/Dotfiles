@@ -14,7 +14,7 @@ export MANPAGER="nvim +Man!"
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPTS="Ee"
 export NB_DIR="$HOME/NoteBooks"
-export WIKI_PATH="$NB_DIR"
+export WIKI_PATH="$NB_DIR/Wiki"
 export LS_COLORS="di=00;34:fi=00:ex=00;38;5;192:ln=00;36:*.*=0:*.pdf=35:*.jpg=35:*.png=35:*.zip=31:*.tar.gz=31"
 
 # History
@@ -38,31 +38,28 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
-# --- SAFETY & UTILS ---
+# -- UTILITIES --
 alias q='exit'
 alias v='nvim'
 alias c='clear'
 alias z='zathura'
 alias open='xdg-open'
 alias rd='bat'
+alias rm='rm -Iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+# --- SHORTCUTS ---
 alias t='task'
-alias tt='task done'
-alias ta='task add'
 alias nu='nb use'
 alias ne='nb edit'
 alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua/plugins'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
-alias id="nvim $NB_DIR/home/index.md"
-alias diary="nvim $NB_DIR/diary/diary.md"
-alias td="nvim -c VimwikiMakeDiaryNote $NB_DIR/Wiki/diary/diary.md"
-alias rm='rm -Iv'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias mkdir='mkdir -pv'
+alias id="nvim $WIKI_PATH/index.md"
+alias td="nvim -c VimwikiMakeDiaryNote $WIKI_PATH/diary/diary.md"
 # --- GIT ---
-alias lg='lazygit'
 alias gs='git status'
 alias ga='git add'
 alias gaa='git add --all'
@@ -169,16 +166,6 @@ load-venv() {
 }
 add-zsh-hook chpwd load-venv
 load-venv
-
-nbn() {
-  local name="$1"
-  if [ -z "$name" ]; then
-    echo "Usage: nn <notebook>"
-    return 1
-  fi
-  nb notebook add "$name"
-  nvim "$HOME/.nb/$name/index.md"
-}
 
 cl
 eval "$(starship init zsh)"
