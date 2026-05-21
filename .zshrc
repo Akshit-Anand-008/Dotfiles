@@ -58,7 +58,7 @@ alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua/plugins'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
 alias id="nvim $WIKI_PATH/index.md"
-alias td="nvim -c VimwikiMakeDiaryNote $WIKI_PATH/diary/diary.md"
+alias td="nvim -c VimwikiMakeDiaryNote"
 # --- GIT ---
 alias gs='git status'
 alias ga='git add'
@@ -119,8 +119,6 @@ jot() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-ZVM_KEYTIMEOUT=0.01
 
 n() {
     if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
@@ -171,3 +169,4 @@ cl
 eval "$(starship init zsh)"
 autoload -Uz compinit
 compinit
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
