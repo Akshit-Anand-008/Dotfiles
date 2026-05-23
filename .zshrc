@@ -165,8 +165,8 @@ load-venv() {
 add-zsh-hook chpwd load-venv
 load-venv
 
-cl
 eval "$(starship init zsh)"
 autoload -Uz compinit
 compinit
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+cl

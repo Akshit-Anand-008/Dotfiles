@@ -6,5 +6,5 @@ vim.schedule(function()
     pcall(vim.keymap.del, "n", "<S-Tab>", { buffer = true })
 end)
 
-vim.keymap.set("n", "\\", "<Plug>VimwikiNextLink", { buffer = true, desc = "Vimwiki Next Link" })
-vim.keymap.set("n", "|", "<Plug>VimwikiPrevLink", { buffer = true, desc = "Vimwiki Prev Link" })
+vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = true, desc = "Vimwiki Next Link" })
+vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = true, desc = "Vimwiki Prev Link" })

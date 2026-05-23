@@ -9,15 +9,21 @@ keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" }
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 keymap("n", "=", "gg=G<C-o>")
 
+keymap("i", "<C-l>", "<right>")
+keymap("i", "<C-h>", "<left>")
+
 keymap("n", "s", "o<Esc>", { noremap = true, silent = true })
 keymap("n", "S", "O<Esc>", { noremap = true, silent = true })
 
 keymap("v", "<", "<gv", { desc = "Indent left and reselect" })
 keymap("v", ">", ">gv", { desc = "Indent right and reselect" })
 
-keymap("x", "<leader>p", '"_dP')
+keymap("v", "<leader>p", '"_dP')
 keymap({ "n", "v" }, "<leader>x", '"_x')
+
 keymap("n", "<leader>v", "^vg_")
+keymap("n", "<leader>y", "^yg_")
+keymap("n", "<leader>d", "^dg_")
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
@@ -28,10 +34,10 @@ local function smart_print()
     local ft = vim.bo.filetype
     local templates = {
         rust       = 'println!("");<Esc>2hi',
-        python     = 'print()<Left>',
-        lua        = 'print()<Left>',
-        javascript = 'console.log()<Left>',
-        go         = 'fmt.Println()<Left>',
+        python     = 'print()<left>',
+        lua        = 'print()<left>',
+        javascript = 'console.log()<left>',
+        go         = 'fmt.Println()<left>',
         c          = 'printf("");<Esc>2hi',
         cpp        = 'cout <<  << endl;<Esc>8hi',
     }

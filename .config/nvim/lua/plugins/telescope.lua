@@ -46,13 +46,14 @@ return {
             local f_cwd = vim.fn.getcwd()
             local my_finder = finders.new_async_job {
                 command_generator = function(prompt)
-                    if not prompt or prompt == "" then return nil end
-                    local pieces = vim.split(prompt, "  ")
                     local args = { "fd", "--type", "f" }
+                    local pieces = vim.split(prompt, "  ")
                     if pieces[1] and pieces[1] ~= "" then
                         table.insert(args, pieces[1])
+                    elseif pieces[2] and pieces[2] ~= "" then
+                        table.insert(args, ".")
                     end
-                    if pieces[2] then
+                    if pieces[2] and pieces[2] ~= "" then
                         local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
                         if path then table.insert(args, path) end
                     end
@@ -82,7 +83,7 @@ return {
                         table.insert(args, "-e")
                         table.insert(args, pieces[1])
                     end
-                    if pieces[2] then
+                    if pieces[2] and pieces[2] ~= "" then
                         local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
                         if path then table.insert(args, path) end
                     end
