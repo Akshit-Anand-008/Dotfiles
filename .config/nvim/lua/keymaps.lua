@@ -18,13 +18,10 @@ keymap("n", "S", "O<Esc>")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
-keymap("v", "<leader>p", '"_dP')
-keymap({ "n", "v" }, "<leader>x", '"_x')
-
-keymap("n", "<leader>v", "^vg_")
-keymap("n", "<leader>y", "^yg_")
-keymap("n", "<leader>d", "^dg_")
-keymap("n", "<leader>c", "^cg_")
+keymap("x", "s", 'd^"_cg_')
+keymap("x", "<leader>p", '"_dP')
+keymap({ "n", "x" }, "<leader>x", '"_x')
+keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
