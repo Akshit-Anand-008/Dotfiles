@@ -21,6 +21,7 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags)
         vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
         vim.keymap.set('n', '<leader>fm', builtin.marks)
+        vim.keymap.set('n', '<leader>fc', builtin.command_history)
 
         -- Path builder
         local resolve_path = function(char, len, file_dir, cwd)

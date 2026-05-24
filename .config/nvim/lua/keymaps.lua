@@ -5,18 +5,18 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 -- Utilities
-keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
-keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
+keymap({ "n", "v" }, "<Space>", "<Nop>")
 keymap("n", "=", "gg=G<C-o>")
 
 keymap("i", "<C-l>", "<right>")
 keymap("i", "<C-h>", "<left>")
 
-keymap("n", "s", "o<Esc>", { noremap = true, silent = true })
-keymap("n", "S", "O<Esc>", { noremap = true, silent = true })
+keymap("n", "s", "o<Esc>")
+keymap("n", "S", "O<Esc>")
 
-keymap("v", "<", "<gv", { desc = "Indent left and reselect" })
-keymap("v", ">", ">gv", { desc = "Indent right and reselect" })
+keymap("v", "<", "<gv")
+keymap("v", ">", ">gv")
 
 keymap("v", "<leader>p", '"_dP')
 keymap({ "n", "v" }, "<leader>x", '"_x')
@@ -24,6 +24,7 @@ keymap({ "n", "v" }, "<leader>x", '"_x')
 keymap("n", "<leader>v", "^vg_")
 keymap("n", "<leader>y", "^yg_")
 keymap("n", "<leader>d", "^dg_")
+keymap("n", "<leader>c", "^cg_")
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
@@ -68,7 +69,7 @@ keymap("n", "<A-p>", function()
     local path = vim.fn.expand("%:~")
     vim.fn.setreg("+", path)
     vim.notify('Yanked: "' .. path .. '"')
-end, { desc = "Copy absolute path" })
+end, { desc = "Copy path" })
 
 keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "Toggle auto-save" })
