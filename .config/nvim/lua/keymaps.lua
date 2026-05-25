@@ -8,18 +8,18 @@ local keymap = vim.keymap.set
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 keymap({ "n", "v" }, "<Space>", "<Nop>")
 keymap("n", "=", "gg=G<C-o>")
+keymap("t", "<C-x>", "<C-\\><C-n>")
 
 keymap("n", "<C-j>", "gj")
 keymap("n", "<C-k>", "gk")
-keymap("t", "<C-x>", "<C-\\><C-n>")
 
 keymap("n", "s", "o<Esc>")
 keymap("n", "S", "O<Esc>")
 
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
+keymap("x", "<", "<gv")
+keymap("x", ">", ">gv")
 
-keymap("x", "s", 'd^"_c_')
+keymap("x", "s", 'd"_cc')
 keymap("x", "<leader>p", '"_dP')
 keymap({ "n", "x" }, "<leader>x", '"_x')
 keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
