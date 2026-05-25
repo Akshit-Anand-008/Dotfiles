@@ -9,8 +9,9 @@ keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 keymap({ "n", "v" }, "<Space>", "<Nop>")
 keymap("n", "=", "gg=G<C-o>")
 
-keymap("i", "<C-l>", "<right>")
-keymap("i", "<C-h>", "<left>")
+keymap("n", "<C-j>", "gj")
+keymap("n", "<C-k>", "gk")
+keymap("t", "<C-x>", "<C-\\><C-n>")
 
 keymap("n", "s", "o<Esc>")
 keymap("n", "S", "O<Esc>")
@@ -18,7 +19,7 @@ keymap("n", "S", "O<Esc>")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
-keymap("x", "s", 'd^"_cg_')
+keymap("x", "s", 'd^"_c_')
 keymap("x", "<leader>p", '"_dP')
 keymap({ "n", "x" }, "<leader>x", '"_x')
 keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
@@ -26,6 +27,10 @@ keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<S-m>", "<cmd>b#<CR>")
+
+keymap("n", "g{", "f{ci{")
+keymap("n", "g(", "f(ci(")
+keymap("n", "g[", "f[ci[")
 
 -- Smart print
 local function smart_print()
@@ -41,7 +46,7 @@ local function smart_print()
     }
     return templates[ft] or 'print()<Left>'
 end
-vim.keymap.set('i', '<C-k>', smart_print, { expr = true })
+keymap('i', '<C-k>', smart_print, { expr = true })
 
 -- Diagnostics
 keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
