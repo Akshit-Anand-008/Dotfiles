@@ -18,6 +18,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
+-- File types
+vim.filetype.add({
+    extension = { v = "systemverilog" }
+})
+
 -- Diagnostics
 local notify_handler = vim.lsp.handlers["textDocument/publishDiagnostics"]
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
