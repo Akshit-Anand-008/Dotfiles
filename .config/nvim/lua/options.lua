@@ -35,10 +35,10 @@ opt.incsearch = true     -- Show matches while typing
 opt.inccommand = "split" -- Preview search/replace in a split window
 
 -- Configure ripgrep for global searching
-if vim.fn.executable("rg") == 1 then
-    opt.grepprg = "rg --vimgrep"
-    opt.grepformat = "%f:%l:%c:%m"
-end
+-- if vim.fn.executable("rg") == 1 then
+--     opt.grepprg = "rg --vimgrep"
+--     opt.grepformat = "%f:%l:%c:%m"
+-- end
 
 -- SECTION 4: File Handling & Performance
 opt.undofile = true           -- Save undo history to a file

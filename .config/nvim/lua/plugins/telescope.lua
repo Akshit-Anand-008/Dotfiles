@@ -21,7 +21,6 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags)
         vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
         vim.keymap.set('n', '<leader>fm', builtin.marks)
-        vim.keymap.set('n', '<leader>fc', builtin.command_history)
 
         -- Path builder
         local resolve_path = function(char, len, file_dir, cwd)
@@ -51,11 +50,10 @@ return {
                     local pieces = vim.split(prompt, "  ")
                     if pieces[1] and pieces[1] ~= "" then
                         table.insert(args, pieces[1])
-                    elseif pieces[2] and pieces[2] ~= "" then
-                        table.insert(args, ".")
                     end
                     if pieces[2] and pieces[2] ~= "" then
                         local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+                        table.insert(args, "--base-directory")
                         if path then table.insert(args, path) end
                     end
                     vim.print(args)
@@ -79,7 +77,15 @@ return {
                 command_generator = function(prompt)
                     if not prompt or prompt == "" then return nil end
                     local pieces = vim.split(prompt, "  ")
-                    local args = { "rg" }
+                    local args = {
+                        "rg",
+                        "--color=never",
+                        "--no-heading",
+                        "--with-filename",
+                        "--line-number",
+                        "--column",
+                        "--smart-case"
+                    }
                     if pieces[1] and pieces[1] ~= "" then
                         table.insert(args, "-e")
                         table.insert(args, pieces[1])

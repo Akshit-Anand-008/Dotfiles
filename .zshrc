@@ -58,7 +58,7 @@ alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua/plugins'
 alias csvenv='python -m venv .venv && source .venv/bin/activate'
 alias id="nvim $WIKI_PATH/index.md"
-alias td="nvim -c VimwikiMakeDiaryNote"
+alias td="nvim $WIKI_PATH/diary/diary.md -c VimwikiMakeDiaryNote"
 # --- GIT ---
 alias gs='git status'
 alias ga='git add'
