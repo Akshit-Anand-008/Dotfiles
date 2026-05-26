@@ -53,10 +53,11 @@ return {
                     end
                     if pieces[2] and pieces[2] ~= "" then
                         local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
-                        table.insert(args, "--base-directory")
+                        -- table.insert(args, "--base-directory")
+                        table.insert(args, "--search-path")
                         if path then table.insert(args, path) end
                     end
-                    vim.print(table.concat(args, " "))
+                    vim.print("$ " .. table.concat(args, " "))
                     return args
                 end,
                 entry_maker = make_entry.gen_from_file()
@@ -86,16 +87,16 @@ return {
                         "--column",
                         "--smart-case"
                     }
-                    local paper = "rg "
+                    local paper = "$ rg "
                     if pieces[1] and pieces[1] ~= "" then
                         table.insert(args, "-e")
                         table.insert(args, pieces[1])
-                        paper = paper .. pieces[1]
+                        paper = paper .. "-e " .. pieces[1]
                     end
                     if pieces[2] and pieces[2] ~= "" then
                         local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
                         if path then table.insert(args, path) end
-                        paper = paper .. path
+                        paper = paper .. " " .. path
                     end
                     vim.notify(paper)
                     return args
