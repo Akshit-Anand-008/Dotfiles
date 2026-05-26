@@ -39,6 +39,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
 # -- UTILITIES --
+alias fuck='echo "Yeah! fuck"'
 alias q='exit'
 alias v='nvim'
 alias c='clear'
