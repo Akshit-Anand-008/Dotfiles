@@ -24,13 +24,12 @@ news.version=3.4.2
 #include solarized-dark-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
-verbose=header,summary,affected,blank,edit,history
+#verbose=header,summary,affected,blank,edit,history
 confirmation=off
 recurrence.confirmation=none
 
 nag=
 advice=off
-completeness=off
 context.today=due.before:tomorrow or due:
 
-context=today
+#context=today
