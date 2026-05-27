@@ -6,9 +6,10 @@ local keymap = vim.keymap.set
 
 -- Utilities
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
-keymap({ "n", "v" }, "<Space>", "<Nop>")
+keymap({ "n", "x" }, "<Space>", "<Nop>")
 keymap("n", "=", "gg=G<C-o>")
 keymap("t", "<C-x>", "<C-\\><C-n>")
+keymap("x", "s", 'd"_cc')
 
 keymap("n", "<C-j>", "gj")
 keymap("n", "<C-k>", "gk")
@@ -19,18 +20,16 @@ keymap("n", "S", "O<Esc>")
 keymap("x", "<", "<gv")
 keymap("x", ">", ">gv")
 
-keymap("x", "s", 'd"_cc')
 keymap("x", "<leader>p", '"_dP')
 keymap({ "n", "x" }, "<leader>x", '"_x')
+
 keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
+keymap({ "o", "x" }, "ib", ":<C-u>normal! f(vi(<CR>", { silent = true })
+keymap({ "o", "x" }, "iB", ":<C-u>normal! f{vi{<CR>", { silent = true })
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<S-m>", "<cmd>b#<CR>")
-
-keymap("n", "g{", "f{ci{")
-keymap("n", "g(", "f(ci(")
-keymap("n", "g[", "f[ci[")
 
 -- Smart print
 local function smart_print()
