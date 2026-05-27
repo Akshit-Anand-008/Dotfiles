@@ -26,12 +26,11 @@ keymap({ "n", "x" }, "<leader>x", '"_x')
 keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
 keymap("x", "ib", ":<C-u>normal! f(vi(<CR>", { silent = true })
 keymap("x", "iB", ":<C-u>normal! f{vi{<CR>", { silent = true })
-keymap("n", "cib", "f(ci(<CR>", { silent = true })
-keymap("n", "dib", "f(di(<CR>", { silent = true })
-keymap("n", "yib", "f(yi(<CR>", { silent = true })
-keymap("n", "ciB", "f{ci{<CR>", { silent = true })
-keymap("n", "diB", "f{di{<CR>", { silent = true })
-keymap("n", "yiB", "f{yi{<CR>", { silent = true })
+
+for _, op in ipairs({ "c", "d", "y" }) do
+    keymap("n", op .. "ib", "f(" .. op .. "i(")
+    keymap("n", op .. "iB", "f{" .. op .. "i{")
+end
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
