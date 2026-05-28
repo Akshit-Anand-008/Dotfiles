@@ -19,16 +19,23 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             vim.cmd("normal! G")
         end
     end,
-    desc = "Auto-load template for new files",
 })
 
--- AutoFormat on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function(args)
-        vim.lsp.buf.format({ bufnr = args.buf, async = false })
+-- Auto-format on save
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('my.lsp', {}),
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method('textDocument/formatting') then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+                buffer = ev.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
+                end,
+            })
+        end
     end,
-    desc = "Format on save via LSP",
 })
 
 -- Tab key default behaviour for some files

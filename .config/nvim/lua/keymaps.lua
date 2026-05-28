@@ -26,7 +26,6 @@ keymap({ "n", "x" }, "<leader>x", '"_x')
 keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
 keymap("x", "ib", ":<C-u>normal! f(vi(<CR>", { silent = true })
 keymap("x", "iB", ":<C-u>normal! f{vi{<CR>", { silent = true })
-
 for _, op in ipairs({ "c", "d", "y" }) do
     keymap("n", op .. "ib", "f(" .. op .. "i(")
     keymap("n", op .. "iB", "f{" .. op .. "i{")
@@ -71,11 +70,13 @@ end, { desc = "Save and Run Code" })
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
 -- Shortcuts
-keymap("n", "<A-p>", function()
-    local path = vim.fn.expand("%:~")
-    vim.fn.setreg("+", path)
-    vim.notify('Yanked: "' .. path .. '"')
-end, { desc = "Copy path" })
+vim.api.nvim_create_user_command("Yp",
+    function()
+        local path = vim.fn.expand("%:~")
+        vim.fn.setreg("+", path)
+        vim.notify('Yanked: "' .. path .. '"')
+    end,
+    {})
 
 keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "Toggle auto-save" })
