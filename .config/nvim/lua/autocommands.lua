@@ -28,16 +28,16 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- vimwiki keymaps
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "vimwiki" },
-    callback = function(args)
-        local bufnr = args.buf
-        vim.keymap.del("n", "<Tab>", { buffer = bufnr })
-        vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
-        vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
-        vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
-    end
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = { "vimwiki" },
+--     callback = function(args)
+--         local bufnr = args.buf
+--         vim.keymap.del("n", "<Tab>", { buffer = bufnr })
+--         vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
+--         vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
+--         vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
+--     end
+-- })
 
 -- Auto-format on save
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -72,6 +72,5 @@ vim.api.nvim_create_autocmd("FileType", {
 
 --Force options
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
     callback = function() vim.opt_local.formatoptions:remove({ "o", "c" }) end,
 })
