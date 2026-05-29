@@ -4,7 +4,7 @@ return {
         focus = true,
         startinsert = true,
         -- term = { position = "horizontal", size = 10 },
-        term = { position = "vertical", size = 47 },
+        term = { position = "vertical", size = 50 },
         filetype = {
             tex = "cd $dir && pdflatex $fileName",
             lua = "cd $dir && lua $fileName",

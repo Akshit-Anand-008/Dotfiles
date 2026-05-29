@@ -5,7 +5,9 @@ TabWidth: 4
 UseTab: Never
 ColumnLimit: 120
 AllowShortBlocksOnASingleLine: Always
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Custom
+BraceWrapping:
+  BeforeElse: true
 PointerAlignment: Left
 SortIncludes: true
 SpaceBeforeParens: ControlStatements

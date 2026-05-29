@@ -2,7 +2,6 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-        options = { theme = "auto", icons_enabled = vim.g.have_nerd_font },
         sections = {
             lualine_a = { "mode" },
             lualine_b = { "filename" },

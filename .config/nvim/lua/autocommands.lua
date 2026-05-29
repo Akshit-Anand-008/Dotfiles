@@ -1,14 +1,10 @@
 -- Higlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.hl.on_yank()
-    end,
+    callback = function() vim.hl.on_yank() end,
 })
 
 --Auto loading templates
-local template_group = vim.api.nvim_create_augroup("CodeTemplates", { clear = true })
 vim.api.nvim_create_autocmd("BufNewFile", {
-    group = template_group,
     pattern = { "*.cpp", "*.c", "*.tex", "*.v" },
     callback = function()
         local ext = vim.fn.expand("%:e")
@@ -19,6 +15,28 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             vim.cmd("normal! G")
         end
     end,
+})
+
+-- Tab key default behaviour for some files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "make", "tsv" },
+    callback = function()
+        vim.opt_local.expandtab = false
+        vim.opt_local.tabstop = 8
+        vim.opt_local.shiftwidth = 8
+    end,
+})
+
+-- vimwiki keymaps
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "vimwiki" },
+    callback = function(args)
+        local bufnr = args.buf
+        vim.keymap.del("n", "<Tab>", { buffer = bufnr })
+        vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
+        vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
+        vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
+    end
 })
 
 -- Auto-format on save
@@ -38,51 +56,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- Tab key default behaviour for some files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "make", "tsv" },
-    callback = function()
-        vim.opt_local.expandtab = false
-        vim.opt_local.tabstop = 8
-        vim.opt_local.shiftwidth = 8
-    end,
-})
-
 -- Calling treesitter
-vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufNewFile" }, {
-    group = vim.api.nvim_create_augroup("TreesitterForceStart", { clear = true }),
+vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function(args)
-        local lang = vim.bo[args.buf].filetype
-        local has_parser = pcall(vim.treesitter.get_parser, args.buf, lang)
-        if has_parser then
-            vim.schedule(function()
-                if vim.api.nvim_buf_is_valid(args.buf) then
-                    pcall(vim.treesitter.start, args.buf, lang)
-                end
-            end)
-        end
+        local buf = args.buf
+        local ft = vim.bo[buf].filetype
+        local lang = vim.treesitter.language.get_lang(ft)
+        if not lang then return end
+        local ok_add = pcall(vim.treesitter.language.add, lang)
+        if not ok_add then return end
+        pcall(vim.treesitter.start, buf, lang)
     end,
-})
-
---Sorting completed and not completed tasks in vimwiki
-local habit_group = vim.api.nvim_create_augroup("HabitSortGroup", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = habit_group,
-    pattern = "*/todos.md",
-    callback = function()
-        local line_count = vim.api.nvim_buf_line_count(0)
-        if line_count > 0 then
-            vim.cmd("silent! %sort")
-        end
-    end,
-    desc = "Auto-sort tasks in todos.md on save",
 })
 
 --Force options
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
-    callback = function()
-        vim.opt_local.formatoptions:remove({ "o", "c" })
-    end,
+    callback = function() vim.opt_local.formatoptions:remove({ "o", "c" }) end,
 })
