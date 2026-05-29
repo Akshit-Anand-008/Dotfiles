@@ -3,6 +3,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function() vim.hl.on_yank() end,
 })
 
+--Force options
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function() vim.opt_local.formatoptions:remove({ "o", "c" }) end,
+})
+
 --Auto loading templates
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = { "*.cpp", "*.c", "*.tex", "*.v" },
@@ -27,17 +32,17 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- vimwiki keymaps
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = { "vimwiki" },
---     callback = function(args)
---         local bufnr = args.buf
---         vim.keymap.del("n", "<Tab>", { buffer = bufnr })
---         vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
---         vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
---         vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
---     end
--- })
+-- vimwiki features
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "vimwiki" },
+    callback = function(args)
+        local bufnr = args.buf
+        vim.keymap.del("n", "<Tab>", { buffer = bufnr })
+        vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
+        vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
+        vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
+    end
+})
 
 -- Auto-format on save
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -58,7 +63,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Calling treesitter
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
     callback = function(args)
         local buf = args.buf
         local ft = vim.bo[buf].filetype
@@ -66,11 +70,11 @@ vim.api.nvim_create_autocmd("FileType", {
         if not lang then return end
         local ok_add = pcall(vim.treesitter.language.add, lang)
         if not ok_add then return end
-        pcall(vim.treesitter.start, buf, lang)
+        -- pcall(vim.treesitter.start, buf, lang)
+        vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(buf) then
+                pcall(vim.treesitter.start, buf, lang)
+            end
+        end)
     end,
-})
-
---Force options
-vim.api.nvim_create_autocmd("FileType", {
-    callback = function() vim.opt_local.formatoptions:remove({ "o", "c" }) end,
 })
