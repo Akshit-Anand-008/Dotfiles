@@ -25,149 +25,16 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
-# --- ALIASES ---
-# --- FILE SYSTEM ---
-alias ls='eza --group-directories-first --color=automatic --no-quotes --icons'
-alias l='eza -h1 --group-directories-first --icons'
-alias ll='eza -lh --group-directories-first --grid --git --icons'
-alias la='eza -ah1 --group-directories-first --icons'
-alias lal='eza -lah --group-directories-first --grid --git --icons'
-alias tree='eza -T --icons'
-alias tr='eza -T --level=2 --icons'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias -- -='cd -'
-# -- UTILITIES --
-alias fuck='echo "Yeah! fuck"'
-alias q='exit'
-alias v='nvim'
-alias c='clear'
-alias z='zathura'
-alias open='xdg-open'
-alias rd='bat'
-alias rm='rm -Iv'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias mkdir='mkdir -pv'
-# --- SHORTCUTS ---
-alias t='task'
-alias nu='nb use'
-alias ne='nb edit'
-alias szsh='source ~/.zshrc'
-alias czsh='nvim ~/.zshrc'
-alias cnvim='cd ~/.config/nvim/lua/plugins'
-alias csvenv='python -m venv .venv && source .venv/bin/activate'
-alias id="nvim $WIKI_PATH/index.md"
-alias td="nvim $WIKI_PATH/diary/diary.md -c VimwikiMakeDiaryNote"
-# --- GIT ---
-alias gs='git status'
-alias ga='git add'
-alias gaa='git add --all'
-alias gcm='git commit -m'
-alias gacm='git add --all && git commit -m'
-alias gacmd='git add --all && git commit -m "Commit on $(date +%Y-%m-%d\ %H:%M)"'
-alias gacmdp='git add --all && git commit -m "Commit on $(date +%Y-%m-%d\ %H:%M)" && git push'
-alias gca='git commit --amend'
-alias gps='git push'
-alias gpl='git pull'
-alias gplr='git pull --rebase'
-alias gplnr='git pull --no-rebase'
-alias gpf='git push --force-with-lease'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gc='git checkout'
-alias gcb='git checkout -b'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias gst='git stash'
-alias gsp='git stash pop'
-alias grv='git remote -v'
-alias gcan='git commit --amend --no-edit'
-alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short && echo && echo '--Branches--' && git branch"
+# calling zsh scripts
+source ~/.zshscripts/aliases.sh
+source ~/.zshscripts/functions.sh
+source ~/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# --- FUNCTIONS ---
-ex() {
-  if [ -f "$1" ] ; then
-    case "$1" in
-      *.tar.bz2)   tar xjf "$1"    ;;
-      *.tar.gz)    tar xzf "$1"    ;;
-      *.tar.xz)    tar xf "$1"     ;;
-      *.bz2)       bunzip2 "$1"    ;;
-      *.rar)       unrar x "$1"    ;;
-      *.gz)        gunzip "$1"     ;;
-      *.tar)       tar xf "$1"     ;;
-      *.tbz2)      tar xjf "$1"    ;;
-      *.tgz)       tar xzf "$1"    ;;
-      *.zip)       unzip "$1"      ;;
-      *.Z)         uncompress "$1" ;;
-      *.7z)        7z x "$1"       ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-mkcd() {
-  mkdir -p "$1" && cd "$1"
-}
-
-jot() {
-  local target="$WIKI_PATH/jotted.md"
-  mkdir -p "$(dirname "$target")"
-  echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-n() {
-    if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-        echo "nnn is already running"
-        return
-    fi
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config/nnn}/.lastd"
-    mkdir -p "$(dirname "$NNN_TMPFILE")"
-    command nnn -e "$@"
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
-
-fw() {
-    local file=$(fd --type f --hidden --exclude .git --full-path $WIKI_PATH | fzf)
-    if [ -n "$file" ]; then
-        nvim "$file"
-    fi
-}
-
-ff() {
-    local file=$(fd --type f --hidden --exclude .git | fzf)
-    if [ -n "$file" ]; then
-        nvim "$file"
-    fi
-}
-
-# Auto-activate Python venv
 autoload -U add-zsh-hook
-load-venv() {
-  local venv_path="${PWD:A}/.venv"
-  if [[ -d "$venv_path" ]]; then
-    if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
-      source "$venv_path/bin/activate"
-    fi
-  elif [[ -n "$VIRTUAL_ENV" ]]; then
-    if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
-      deactivate
-    fi
-  fi
-}
+autoload -Uz compinit
+compinit
 add-zsh-hook chpwd load-venv
 load-venv
 
 eval "$(starship init zsh)"
-autoload -Uz compinit
-compinit
-source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 cl

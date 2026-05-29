@@ -52,8 +52,8 @@ end
 keymap('i', '<C-k>', smart_print, { expr = true })
 
 -- Diagnostics
-keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
-keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
+-- keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
+-- keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- CodeRunner
@@ -75,8 +75,8 @@ vim.api.nvim_create_user_command("Yp",
         local path = vim.fn.expand("%:~")
         vim.fn.setreg("+", path)
         vim.notify('Yanked: "' .. path .. '"')
-    end,
-    {})
+    end
+    , {})
 
 keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "Toggle auto-save" })
