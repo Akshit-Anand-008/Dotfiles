@@ -7,28 +7,30 @@ return {
     },
 
     config = function()
+        require("telescope").setup({
+            defaults = {
+                path_display = { "truncate" },
+                layout_strategy = "vertical",
+                layout_config = {
+                    height = 0.9,
+                    width = 0.9,
+                    preview_cutoff = 0,
+                    preview_height = 0.3
+                },
+            }
+        })
+
         local pickers = require "telescope.pickers"
         local finders = require "telescope.finders"
         local make_entry = require "telescope.make_entry"
         local sorters = require "telescope.sorters"
         local builtin = require "telescope.builtin"
-        -- local themes = require "telescope.themes"
-        -- local plenary = require "plenary.path"
         local conf = require("telescope.config").values
 
         local home_dir = vim.fn.expand("~")
         local f_dir = vim.fn.expand("%:p:h")
         local f_cwd = vim.fn.getcwd()
         local path
-        local layout_opts = {
-            layout_strategy = "vertical",
-            layout_config = {
-                height = 0.9,
-                width = 0.9,
-                preview_cutoff = 0,
-                preview_height = 0.3
-            },
-        }
 
         -- Key maps
         vim.keymap.set('n', '<leader>fd', "<cmd>Telescope builtin<CR>")
@@ -75,10 +77,10 @@ return {
                     return args
                 end,
 
-                entry_maker = make_entry.gen_from_file({ path_display = { "truncate" } })
+                entry_maker = make_entry.gen_from_file()
             }
 
-            pickers.new(layout_opts, {
+            pickers.new({}, {
                 prompt_title = "FILES",
                 finder = my_finder,
                 sorter = sorters.empty(),
@@ -117,19 +119,10 @@ return {
                     return args
                 end,
 
-                entry_maker = make_entry.gen_vimgrep({ path_display = { "truncate" } })
-                -- entry_maker = function(line)
-                --     local base_entry = make_entry.gen_from_file()(line)
-                --     if base_entry then
-                --         local absolute_path = base_entry.value
-                --         local relative_display = plenary:new(absolute_path):make_relative(path)
-                --         base_entry.display = function(entry) return relative_display end
-                --     end
-                --     return base_entry
-                -- end
+                entry_maker = make_entry.gen_vimgrep()
             }
 
-            pickers.new(layout_opts, {
+            pickers.new({}, {
                 prompt_title = "GREP",
                 finder = my_finder,
                 previewer = conf.grep_previewer({}),

@@ -10,7 +10,6 @@ return {
     -- },
     {
         "EdenEast/nightfox.nvim",
-        priority = 1000,
         opts = {
             palettes = { carbonfox = { bg1 = "#000000" } },
             groups = { all = { CursorLine = { bg = "#121212" } } },
