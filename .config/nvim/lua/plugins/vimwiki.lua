@@ -12,9 +12,9 @@ return {
             pattern = { "vimwiki" },
             callback = function(args)
                 local bufnr = args.buf
-                vim.keymap.del("n", "<Tab>", { buffer = bufnr })
-                vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
-                vim.keymap.del("o", "il", { buffer = bufnr })
+                pcall(vim.keymap.del, "n", "<Tab>", { buffer = bufnr })
+                pcall(vim.keymap.del, "n", "<S-Tab>", { buffer = bufnr })
+                pcall(vim.keymap.del, "o", "il", { buffer = bufnr })
                 vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
                 vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
             end

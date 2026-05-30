@@ -6,6 +6,7 @@ return {
         -- term = { position = "horizontal", size = 10 },
         term = { position = "vertical", size = 50 },
         filetype = {
+            cpp = "cd $dir && g++ $fileName && ./a.out",
             tex = "cd $dir && pdflatex $fileName",
             lua = "cd $dir && lua $fileName",
             go = "cd $dir && go run $fileName",
