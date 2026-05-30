@@ -32,18 +32,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- vimwiki features
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "vimwiki" },
-    callback = function(args)
-        local bufnr = args.buf
-        vim.keymap.del("n", "<Tab>", { buffer = bufnr })
-        vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
-        vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
-        vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
-    end
-})
-
 -- Auto-format on save
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
@@ -58,23 +46,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 end,
             })
         end
-    end,
-})
-
--- Calling treesitter
-vim.api.nvim_create_autocmd("FileType", {
-    callback = function(args)
-        local buf = args.buf
-        local ft = vim.bo[buf].filetype
-        local lang = vim.treesitter.language.get_lang(ft)
-        if not lang then return end
-        local ok_add = pcall(vim.treesitter.language.add, lang)
-        if not ok_add then return end
-        -- pcall(vim.treesitter.start, buf, lang)
-        vim.schedule(function()
-            if vim.api.nvim_buf_is_valid(buf) then
-                pcall(vim.treesitter.start, buf, lang)
-            end
-        end)
     end,
 })

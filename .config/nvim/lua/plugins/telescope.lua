@@ -53,7 +53,6 @@ return {
                     end
                     if pieces[2] and pieces[2] ~= "" then
                         local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
-                        -- table.insert(args, "--base-directory")
                         table.insert(args, "--search-path")
                         if path then table.insert(args, path) end
                     end

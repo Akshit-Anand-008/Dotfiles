@@ -7,4 +7,17 @@ return {
             ext = ".md",
         }, }
     end,
+    config = function()
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "vimwiki" },
+            callback = function(args)
+                local bufnr = args.buf
+                vim.keymap.del("n", "<Tab>", { buffer = bufnr })
+                vim.keymap.del("n", "<S-Tab>", { buffer = bufnr })
+                vim.keymap.del("o", "il", { buffer = bufnr })
+                vim.keymap.set("n", "<C-]>", "<Plug>VimwikiNextLink", { buffer = bufnr })
+                vim.keymap.set("n", "<C-[>", "<Plug>VimwikiPrevLink", { buffer = bufnr })
+            end
+        })
+    end
 }
