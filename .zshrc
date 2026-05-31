@@ -37,5 +37,4 @@ add-zsh-hook chpwd load-venv
 load-venv
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 cl
