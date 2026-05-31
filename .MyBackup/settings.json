@@ -1,0 +1,38 @@
+{
+    //Appearance
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.lineNumbers": "relative",
+    "workbench.panel.defaultLocation": "right",
+    "editor.roundedSelection": false,
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 23,
+    "editor.mouseWheelZoom": true,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.cursorBlinking": "solid",
+    "editor.renderWhitespace": "trailing",
+    "workbench.editor.empty.hint": "hidden",
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 200,
+    "workbench.colorCustomizations": { "editorCursor.foreground": "#FFFFFF" },
+    //CodeRunner
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveFileBeforeRun": true,
+    //System
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.inlineSuggest.enabled": false,
+    //Vim
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": [ "<leader>", "r" ], "commands": [ "code-runner.run" ] },
+        { "before": [ "<leader>", "d" ], "commands": [ "workbench.action.debug.start" ] },
+        { "before": [ "<leader>", "b" ], "commands": [ "editor.debug.action.toggleBreakpoint" ] },
+        { "before": [ "grn" ], "commands": [ "editor.action.rename" ] }
+    ],
+    //New
+    "livePreview.notifyOnOpenLooseFile": false,
+}

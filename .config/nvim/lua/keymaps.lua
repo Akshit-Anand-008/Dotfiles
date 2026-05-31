@@ -7,10 +7,8 @@ local keymap = vim.keymap.set
 -- Utilities
 keymap("n", "<Esc>", "<cmd>noh<CR>")
 keymap({ "n", "x" }, "<Space>", "<Nop>")
-keymap("n", "=", "gg=G<C-o>")
 keymap({ "n", "x" }, "+", ":s/\\<int\\>/ll/g<CR>:noh<CR>")
 keymap("t", "<C-x>", "<C-\\><C-n>")
-keymap("n", "<C-z>", ":wqa<CR>")
 keymap("x", "s", 'd"_cc')
 
 keymap("n", "<C-j>", "gj")
