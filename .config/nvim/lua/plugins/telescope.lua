@@ -116,7 +116,7 @@ return {
                     return args
                 end,
 
-                entry_maker = make_entry.gen_vimgrep()
+                entry_maker = make_entry.gen_from_vimgrep()
             }
             pickers.new({}, {
                 prompt_title = "GREP",

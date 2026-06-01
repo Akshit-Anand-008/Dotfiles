@@ -5,9 +5,9 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 -- Utilities
-keymap("n", "<Esc>", "<cmd>noh<CR>")
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 keymap({ "n", "x" }, "<Space>", "<Nop>")
-keymap({ "n", "x" }, "+", ":s/\\<int\\>/ll/g<CR>:noh<CR>")
+keymap({ "n", "x" }, "+", ":s/\\<int\\>/ll/ge<CR>:nohlsearch<CR>")
 keymap("t", "<C-x>", "<C-\\><C-n>")
 keymap("x", "s", 'd"_cc')
 
@@ -21,6 +21,7 @@ keymap("x", "<", "<gv")
 keymap("x", ">", ">gv")
 
 keymap("x", "<leader>p", '"_dP')
+keymap("x", "<leader>c", '"_c')
 keymap({ "n", "x" }, "<leader>x", '"_x')
 
 keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
