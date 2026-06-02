@@ -1,5 +1,6 @@
 -- Modules
 require("options")
+require("commands")
 require("autocommands")
 require("keymaps")
 

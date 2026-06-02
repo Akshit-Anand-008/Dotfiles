@@ -36,6 +36,20 @@ keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<S-m>", "<cmd>b#<CR>")
 
+-- Diagnostics
+-- keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
+-- keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
+keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+-- CodeRunner
+keymap("n", "<leader>r", function()
+    vim.cmd("write")
+    vim.cmd("RunCode")
+end)
+
+keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
+keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
+
 -- Smart print
 local function smart_print()
     local ft = vim.bo.filetype
@@ -51,33 +65,3 @@ local function smart_print()
     return templates[ft] or 'print()<Left>'
 end
 keymap('i', '<C-k>', smart_print, { expr = true })
-
--- Diagnostics
--- keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
--- keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
-keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-
--- CodeRunner
-keymap("n", "<leader>r", function()
-    if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
-        print("Not a executable file")
-        return
-    end
-    vim.cmd("write")
-    vim.cmd("RunCode")
-end, { desc = "Save and Run Code" })
-
--- UndoTree
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
-
--- Shortcuts
-vim.api.nvim_create_user_command("Yp",
-    function()
-        local path = vim.fn.expand("%:~")
-        vim.fn.setreg("+", path)
-        vim.notify('Yanked: "' .. path .. '"')
-    end
-    , {})
-
-keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
-keymap("n", "<A-s>", ":ASToggle<CR>", { desc = "Toggle auto-save" })

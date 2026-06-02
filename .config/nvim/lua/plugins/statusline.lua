@@ -22,5 +22,5 @@ return {
             lualine_y = { "filetype" },
             lualine_z = {},
         }
-    },
+    }
 }

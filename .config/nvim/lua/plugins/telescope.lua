@@ -30,7 +30,7 @@ return {
 
         -- Key maps
         vim.keymap.set('n', '<leader>fd', "<cmd>Telescope builtin<CR>")
-        vim.keymap.set('n', '<leader>fl', builtin.lsp_document_symbols)
+        vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
         vim.keymap.set('n', '<leader>fb', builtin.buffers)
         vim.keymap.set('n', '<leader>fh', builtin.help_tags)
         vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
