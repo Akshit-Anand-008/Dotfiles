@@ -8,6 +8,7 @@ local keymap = vim.keymap.set
 keymap("n", "<Esc>", vim.cmd.nohlsearch)
 keymap({ "n", "x" }, "<Space>", "<Nop>")
 keymap("t", "<C-x>", "<C-\\><C-n>")
+keymap("t", "<C-w>", "<C-\\><C-n><C-w>")
 keymap("x", "s", 'd"_cc')
 
 keymap("n", "<C-j>", "gj")
@@ -46,6 +47,7 @@ keymap("n", "<leader>r", function()
     vim.cmd("write")
     vim.cmd("RunCode")
 end)
+keymap("n", "<leader>t", '<leader>r<C-\\><C-n>"api<CR>', { remap = true })
 
 keymap("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "toggle undotree" })
 keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })

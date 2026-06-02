@@ -43,7 +43,7 @@ end
 -- SECTION 4: File Handling & Performance
 opt.undofile = true           -- Save undo history to a file
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
 
 -- SECTION 5: Formatting & Visuals
 opt.formatoptions = "jqlrn" -- Modern text wrapping/formatting logic

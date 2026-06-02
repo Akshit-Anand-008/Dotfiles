@@ -1,6 +1,5 @@
 return {
     "CRAG666/code_runner.nvim",
-    version = "*",
     opts = {
         focus = true,
         startinsert = true,
