@@ -5,9 +5,8 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 -- Utilities
-keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
+keymap("n", "<Esc>", vim.cmd.nohlsearch)
 keymap({ "n", "x" }, "<Space>", "<Nop>")
-keymap({ "n", "x" }, "+", ":s/\\<int\\>/ll/ge<CR>:nohlsearch<CR>")
 keymap("t", "<C-x>", "<C-\\><C-n>")
 keymap("x", "s", 'd"_cc')
 
@@ -40,6 +39,7 @@ keymap("n", "<S-m>", "<cmd>b#<CR>")
 -- keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
 -- keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+keymap("n", "<leader>l", "@@")
 
 -- CodeRunner
 keymap("n", "<leader>r", function()
@@ -47,7 +47,7 @@ keymap("n", "<leader>r", function()
     vim.cmd("RunCode")
 end)
 
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
+keymap("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "toggle undotree" })
 keymap("n", "<A-x>", "<Plug>VimwikiToggleListItem", { desc = "Toggle Checkbox" })
 
 -- Smart print
