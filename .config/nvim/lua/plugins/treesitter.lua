@@ -13,12 +13,12 @@ return {
                     if not lang then return end
                     local ok_add = pcall(vim.treesitter.language.add, lang)
                     if not ok_add then return end
-                    pcall(vim.treesitter.start, buf, lang)
-                    -- vim.schedule(function()
-                    --     if vim.api.nvim_buf_is_valid(buf) then
-                    --         pcall(vim.treesitter.start, buf, lang)
-                    --     end
-                    -- end)
+                    -- pcall(vim.treesitter.start, buf, lang)
+                    vim.schedule(function()
+                        if vim.api.nvim_buf_is_valid(buf) then
+                            pcall(vim.treesitter.start, buf, lang)
+                        end
+                    end)
                 end,
             })
         end
