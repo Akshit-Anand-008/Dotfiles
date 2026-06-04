@@ -25,5 +25,6 @@
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
   "undotree": { "branch": "master", "commit": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d" },
   "vim-floaterm": { "branch": "master", "commit": "bb4ba7952e906408e1f83b215f55ffe57efcade6" },
+  "vim-tpipeline": { "branch": "master", "commit": "9c1fc6a9aed96a6ff5f5cb0420e3760e95dfb1c1" },
   "vimwiki": { "branch": "dev", "commit": "a54a3002e229c4b43d69ced170ff77663a5b2c40" }
 }
