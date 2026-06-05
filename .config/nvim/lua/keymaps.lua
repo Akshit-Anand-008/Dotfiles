@@ -4,16 +4,20 @@ vim.g.mapleader = " "
 local keymap = vim.keymap.set
 
 -- Utilities
-keymap("n", "<Esc>", vim.cmd.nohlsearch)
 keymap({ "n", "x" }, "<Space>", "<Nop>")
+keymap("n", "<Esc>", function()
+    vim.cmd.nohlsearch()
+    vim.cmd.update()
+end)
+
+keymap("x", "<CR>", 'd"_cc')
+keymap("n", "<CR>", 'o<Esc>')
+
 keymap("t", "<C-x>", "<C-\\><C-n>")
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>")
-keymap("x", "s", 'd"_cc')
 
 keymap("n", "<C-j>", "gj")
 keymap("n", "<C-k>", "gk")
-
-keymap("n", "\\", "o<Esc>")
 
 keymap("x", "<", "<gv")
 keymap("x", ">", ">gv")
