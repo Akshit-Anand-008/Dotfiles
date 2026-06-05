@@ -6,7 +6,7 @@ vim.api.nvim_create_user_command("Yp",
     end, {}
 )
 
-vim.api.nvim_create_user_command("W",
+vim.api.nvim_create_user_command("R",
     function()
         vim.cmd("wa")
         vim.cmd("restart")

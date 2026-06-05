@@ -31,6 +31,7 @@ opt.shiftround = true  -- Round indent to multiple of shiftwidth
 -- SECTION 3: Search Behavior
 opt.ignorecase = true    -- Case-insensitive search...
 opt.smartcase = true     -- ...unless capital letters are used
+opt.hlsearch = false     --
 opt.incsearch = true     -- Show matches while typing
 opt.inccommand = "split" -- Preview search/replace in a split window
 
