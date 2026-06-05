@@ -1,45 +1,18 @@
 return {
     "folke/flash.nvim",
-    opts = {
-        modes = {
-            search = {
-                enabled = true,
-            },
-            char = {
-                jump_labels = true,
-            },
-        },
-    },
-    keys = {
-        {
-            "s",
-            mode = { "n", "x", "o" },
-            function() require("flash").jump() end,
-            desc = "Flash"
-        },
-        {
-            "S",
-            mode = { "n", "x", "o" },
-            function() require("flash").treesitter() end,
-            desc = "Flash Treesitter"
-        },
-        {
-            "r",
-            mode = "o",
-            function() require("flash").remote() end,
-            desc = "Remote Flash"
-        },
-        {
-            "R",
-            mode = { "o", "x" },
-            function() require("flash").treesitter_search() end,
-            desc = "Treesitter Search"
-        },
-        {
-            "<C-s>",
-            mode = { "c" },
-            function() require("flash").toggle() end,
-            desc = "Toggle Flash Search"
-        }
-    }
+    config = function()
+        require("flash").setup({
+            modes = {
+                search = { enabled = true },
+                char = { jump_labels = true }
+            }
+        })
+        local foo = require "flash"
+        vim.keymap.set({ "n", "o" }, "s", function() foo.jump() end)
+        vim.keymap.set("i", "<C-f>", function() foo.jump() end)
+        vim.keymap.set({ "n", "o" }, "S", function() foo.treesitter() end)
+        vim.keymap.set("o", "r", function() foo.remote() end)
+        vim.keymap.set({ "x", "o" }, "s", function() foo.treesitter_search() end)
+        vim.keymap.set("c", "<C-f>", function() foo.toggle() end)
+    end
 }
