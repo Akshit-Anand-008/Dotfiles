@@ -13,8 +13,7 @@ keymap("x", "s", 'd"_cc')
 keymap("n", "<C-j>", "gj")
 keymap("n", "<C-k>", "gk")
 
-keymap("n", "s", "o<Esc>")
-keymap("n", "S", "O<Esc>")
+keymap("n", "\\", "o<Esc>")
 
 keymap("x", "<", "<gv")
 keymap("x", ">", ">gv")
