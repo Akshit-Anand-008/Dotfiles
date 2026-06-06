@@ -6,8 +6,13 @@ return {
             syntax = "markdown",
             ext = ".md",
         }, }
+        vim.g.vimwiki_global_ext = 1
     end,
     config = function()
+        vim.keymap.set('n', '<leader>ww', ':VimwikiIndex 1<CR>', { silent = true })
+        vim.keymap.set('n', '<leader>wi', ':VimwikiDiaryIndex 1<CR>', { silent = true })
+        vim.keymap.set('n', '<leader>w<leader>w', ':VimwikiMakeDiaryNote 1<CR>', { silent = true })
+
         vim.api.nvim_create_autocmd("FileType", {
             pattern = { "vimwiki" },
             callback = function(args)

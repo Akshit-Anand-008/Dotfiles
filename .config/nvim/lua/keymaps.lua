@@ -66,4 +66,4 @@ local function smart_print()
     }
     return templates[ft] or 'print()<Left>'
 end
-keymap('i', '<C-k>', smart_print, { expr = true })
+keymap('i', '<C-j>', smart_print, { expr = true })
