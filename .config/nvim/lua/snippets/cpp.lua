@@ -25,11 +25,11 @@ ls.add_snippets(
         s("pr",
             fmt(
                 [[printf("{}\n",{});]],
-                { f(function(parameters)
-                    local ans = ""
-                    local parts = vim.split(parameters[1][1], ",", { plain = true, trimempty = true })
-                    for _, i in ipairs(parts) do ans = ans .. i .. ":%i, " end
-                    return ans or ""
+                { f(function(args)
+                    local parts = vim.split(args[1][1], ",", { plain = true, trimempty = true })
+                    local fmt_str = {}
+                    for _, var in ipairs(parts) do table.insert(fmt_str, vim.trim(var) .. ":%i") end
+                    return table.concat(fmt_str, ", ") or ""
                 end, { 1 }), i(1) }
             )
         ),
