@@ -39,6 +39,6 @@ load-venv
 eval "$(starship init zsh)"
 cl
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ]; then
     tmux attach-session || tmux new-session
 fi

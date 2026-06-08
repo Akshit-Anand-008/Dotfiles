@@ -6,8 +6,8 @@ local keymap = vim.keymap.set
 -- Utilities
 keymap({ "n", "x" }, "<Space>", "<Nop>")
 keymap("n", "<Esc>", function()
-    vim.cmd.nohlsearch()
-    vim.cmd.update()
+    vim.cmd("nohlsearch")
+    vim.cmd("update")
 end)
 
 keymap("x", "<CR>", 'd"_cc')
@@ -48,9 +48,9 @@ keymap("n", "<leader>r", function()
     vim.cmd("write")
     vim.cmd("RunCode")
 end)
-keymap("n", "<leader>t", '<leader>r<C-\\><C-n>"api<CR>', { remap = true })
+keymap("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
 
-keymap("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "toggle undotree" })
+keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
 -- Smart print
 local function smart_print()
@@ -61,8 +61,9 @@ local function smart_print()
         lua        = 'print()<left>',
         javascript = 'console.log()<left>',
         go         = 'fmt.Println()<left>',
-        c          = 'printf("");<Esc>2hi',
-        cpp        = 'cout <<  << endl;<Esc>8hi',
+        c          = [[printf("\n");<Esc>4hi]],
+        cpp        = [[printf("\n");<Esc>4hi]],
+        -- cpp        = 'cout <<  << endl;<Esc>8hi',
     }
     return templates[ft] or 'print()<Left>'
 end

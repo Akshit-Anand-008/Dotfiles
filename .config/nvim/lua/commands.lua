@@ -1,8 +1,6 @@
-vim.api.nvim_create_user_command("Yp",
+vim.api.nvim_create_user_command("Q",
     function()
-        local path = vim.fn.expand("%:~")
-        vim.fn.setreg("+", path)
-        vim.notify('Yanked: "' .. path .. '"')
+        vim.cmd("wqa")
     end, {}
 )
 
@@ -13,14 +11,21 @@ vim.api.nvim_create_user_command("R",
     end, {}
 )
 
-vim.api.nvim_create_user_command("Q", function() vim.cmd("wqa") end, {})
+vim.api.nvim_create_user_command("C",
+    function()
+        local view = vim.fn.winsaveview()
+        vim.cmd([[g/printf("/normal gcc]])
+        vim.fn.winrestview(view)
+    end, {}
+)
 
 vim.api.nvim_create_user_command("L",
     function()
-        local keys = vim.keycode("mz:%s/\\<int\\>/ll/g<CR>/ll main<CR>ciwint<Esc>")
-        vim.api.nvim_feedkeys(keys, "n", true)
-        local keys = vim.keycode(":%s/:%i/:%lli/g<CR>`z")
-        vim.api.nvim_feedkeys(keys, "n", true)
+        local view = vim.fn.winsaveview()
+        vim.cmd([[%s/\<int\>/ll/ge]])
+        vim.cmd([[%s/\<ll main\>/int main/ge]])
+        vim.cmd([[%s/:%i/:%lli/ge]])
         vim.cmd.nohlsearch()
+        vim.fn.winrestview(view)
     end, {}
 )
