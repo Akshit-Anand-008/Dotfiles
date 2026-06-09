@@ -62,8 +62,8 @@ local function smart_print()
         javascript = 'console.log()<left>',
         go         = 'fmt.Println()<left>',
         c          = [[printf("\n");<Esc>4hi]],
-        cpp        = [[printf("\n");<Esc>4hi]],
-        -- cpp        = 'cout <<  << endl;<Esc>8hi',
+        -- cpp        = [[printf("\n");<Esc>4hi]],
+        cpp        = 'cout <<  << endl;<Esc>8hi',
     }
     return templates[ft] or 'print()<Left>'
 end
