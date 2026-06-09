@@ -4,14 +4,6 @@ local i = ls.insert_node
 local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
-local boom = function(arg)
-    parts = arg.split(",")
-    local ans = ""
-    for _, i in parts do
-        ans = ans .. i .. ":%i, "
-    end
-end
-
 ls.add_snippets(
     "cpp",
     {
