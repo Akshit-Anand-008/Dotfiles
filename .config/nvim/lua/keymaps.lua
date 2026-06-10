@@ -11,7 +11,9 @@ keymap("n", "<Esc>", function()
 end)
 
 keymap("x", "<CR>", 'd"_cc')
-keymap("n", "<CR>", 'o<Esc>')
+keymap("n", "<CR>", function()
+    return vim.bo.buftype == "nofile" and "<CR>" or "o<Esc>"
+end, { expr = true, replace_keycodes = true })
 
 keymap("t", "<C-x>", "<C-\\><C-n>")
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>")
@@ -38,9 +40,6 @@ keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<S-m>", "<cmd>b#<CR>")
 
--- Diagnostics
--- keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
--- keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- CodeRunner
@@ -68,3 +67,12 @@ local function smart_print()
     return templates[ft] or 'print()<Left>'
 end
 keymap('i', '<C-j>', smart_print, { expr = true })
+
+local my_themes = { "carbonfox", "tokyonight-night" }
+local current_theme_idx = 1
+local function cycle_colorscheme()
+    current_theme_idx = current_theme_idx % #my_themes + 1
+    local next_theme = my_themes[current_theme_idx]
+    pcall(vim.cmd.colorscheme, next_theme)
+end
+keymap({ "n", "i" }, "<F8>", cycle_colorscheme, { desc = "Cycle colorschemes" })

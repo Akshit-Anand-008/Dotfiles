@@ -1,8 +1,20 @@
 return {
+    {
+        "folke/tokyonight.nvim",
+        -- opts = { style = "night" },
+        -- init = function() vim.cmd.colorscheme("tokyonight") end,
+    },
+
     -- {
-    --     "folke/tokyonight.nvim",
-    --     opts = { style = "night" },
-    --     init = function() vim.cmd.colorscheme("tokyonight") end,
+    -- "ellisonleao/gruvbox.nvim",
+    -- init = function() vim.cmd.colorscheme("gruvbox") end
+    -- },
+
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    --     opts = { flavour = "mocha" },
+    --     init = function() vim.cmd.colorscheme("catppuccin") end,
     -- },
 
     {
