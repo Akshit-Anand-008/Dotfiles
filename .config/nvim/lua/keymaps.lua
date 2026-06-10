@@ -42,14 +42,14 @@ keymap("n", "<S-m>", "<cmd>b#<CR>")
 
 keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
+keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
+
 -- CodeRunner
 keymap("n", "<leader>r", function()
     vim.cmd("write")
     vim.cmd("RunCode")
 end)
 keymap("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
-
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
 -- Smart print
 local function smart_print()
@@ -75,4 +75,4 @@ local function cycle_colorscheme()
     local next_theme = my_themes[current_theme_idx]
     pcall(vim.cmd.colorscheme, next_theme)
 end
-keymap({ "n", "i" }, "<F8>", cycle_colorscheme, { desc = "Cycle colorschemes" })
+keymap({ "n", "i" }, "<F8>", cycle_colorscheme)
