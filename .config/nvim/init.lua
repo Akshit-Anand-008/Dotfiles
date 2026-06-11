@@ -1,8 +1,8 @@
 -- Modules
-require("options")
-require("commands")
-require("autocommands")
-require("keymaps")
+require("config.options")
+require("config.commands")
+require("config.autocommands")
+require("config.keymaps")
 
 -- File types
 vim.filetype.add({
