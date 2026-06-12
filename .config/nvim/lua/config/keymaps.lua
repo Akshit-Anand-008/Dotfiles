@@ -1,10 +1,9 @@
--- ~/.config/nvim/lua/keymaps.lua
-
 vim.g.mapleader = " "
 local keymap = vim.keymap.set
 
--- Utilities
+-- [[ KEYMAPS ]]
 keymap({ "n", "x" }, "<Space>", "<Nop>")
+keymap("x", "<Tab>", "g_")
 keymap("n", "<Esc>", function()
     vim.cmd("nohlsearch")
     vim.cmd("update")
@@ -44,11 +43,10 @@ keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
 
--- CodeRunner
 keymap("n", "<leader>r", function()
     vim.cmd("write")
     vim.cmd("RunCode")
-end)
+end, { desc = "Code_Runner" })
 keymap("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
 
 -- Smart print
@@ -67,12 +65,3 @@ local function smart_print()
     return templates[ft] or 'print()<Left>'
 end
 keymap('i', '<C-j>', smart_print, { expr = true })
-
-local my_themes = { "carbonfox", "tokyonight-night" }
-local current_theme_idx = 1
-local function cycle_colorscheme()
-    current_theme_idx = current_theme_idx % #my_themes + 1
-    local next_theme = my_themes[current_theme_idx]
-    pcall(vim.cmd.colorscheme, next_theme)
-end
-keymap({ "n", "i" }, "<F8>", cycle_colorscheme)

@@ -17,7 +17,7 @@ return {
             pattern = { "vimwiki" },
             callback = function(args)
                 local bufnr = args.buf
-                pcall(vim.keymap.del, "o", "il", { buffer = bufnr })
+                pcall(vim.keymap.del, { "x", "o" }, "il", { buffer = bufnr })
                 vim.keymap.set("n", "<A-x>", "<Plug>VimwikiToggleListItem", { buffer = bufnr })
             end
         })
