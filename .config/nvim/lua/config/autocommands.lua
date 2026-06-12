@@ -32,6 +32,14 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "tex", "vimwiki", "text", "markdown" },
+    callback = function()
+        vim.opt.spelllang = "en_us"
+        vim.opt.spell = true
+    end,
+})
+
 -- Auto-format on save
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
