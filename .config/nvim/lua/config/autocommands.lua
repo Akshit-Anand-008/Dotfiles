@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 --Auto loading templates
 vim.api.nvim_create_autocmd("BufNewFile", {
-    pattern = { "*.cpp", "*.c", "*.tex", "*.v" },
     callback = function()
         local ext = vim.fn.expand("%:e")
         local snippet = vim.fn.expand("~/Snippets/snippet." .. ext)
@@ -29,14 +28,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.expandtab = false
         vim.opt_local.tabstop = 8
         vim.opt_local.shiftwidth = 8
-    end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "tex", "vimwiki", "text", "markdown" },
-    callback = function()
-        vim.opt.spelllang = "en_us"
-        vim.opt.spell = true
     end,
 })
 
