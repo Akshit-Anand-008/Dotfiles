@@ -1,4 +1,4 @@
--- ~/dotfiles/.config/nvim/lua/options.lua
+-- [[ Options ]]
 
 local opt = vim.opt
 
