@@ -25,6 +25,11 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
+# TMUX Setup
+if [ -z "$TMUX" ]; then
+    tmux attach-session || tmux new-session
+fi
+
 # calling zsh scripts
 source ~/.zshscripts/aliases.sh
 source ~/.zshscripts/functions.sh
@@ -38,7 +43,3 @@ load-venv
 
 eval "$(starship init zsh)"
 cl
-
-if [ -z "$TMUX" ]; then
-    tmux attach-session || tmux new-session
-fi

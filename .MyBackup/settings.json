@@ -1,38 +1,62 @@
 {
-    //Appearance
-    "workbench.colorTheme": "GitHub Dark Default",
+    //UI
+    "editor.wordWrap": "on",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.panel.defaultLocation": "right",
-    "editor.roundedSelection": false,
     "editor.minimap.enabled": false,
     "editor.fontSize": 23,
     "editor.mouseWheelZoom": true,
+    "editor.roundedSelection": false,
+    "workbench.editor.empty.hint": "hidden",
     "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "solid",
     "editor.renderWhitespace": "trailing",
-    "workbench.editor.empty.hint": "hidden",
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorCustomizations": { "editorCursor.foreground": "#FFFFFF" },
+    "editor.lineNumbers": "relative",
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 200,
-    "workbench.colorCustomizations": { "editorCursor.foreground": "#FFFFFF" },
+
     //CodeRunner
     "code-runner.runInTerminal": true,
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveFileBeforeRun": true,
+
     //System
+    "security.workspace.trust.enabled": false,
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    "remote.autoForwardPortsSource": "hybrid",
+    "explorer.confirmDelete": false,
+    "security.allowedUNCHosts": [ "wsl.localhost" ],
+
+    //Suggesstions
+    "editor.lightbulb.enabled": "off",
     "editor.acceptSuggestionOnEnter": "off",
     "editor.inlineSuggest.enabled": false,
-    //Vim
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "top",
+    "editor.parameterHints.enabled": false,
+    "emmet.triggerExpansionOnTab": true,
+
+    //Vim Keybindings
     "vim.useSystemClipboard": true,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         { "before": [ "<leader>", "r" ], "commands": [ "code-runner.run" ] },
         { "before": [ "<leader>", "d" ], "commands": [ "workbench.action.debug.start" ] },
         { "before": [ "<leader>", "b" ], "commands": [ "editor.debug.action.toggleBreakpoint" ] },
-        { "before": [ "grn" ], "commands": [ "editor.action.rename" ] }
+        { "before": [ "g", "r", "n" ], "commands": [ "editor.action.rename" ] },
+        { "before": [ "<space>" ], "commands": [ "noop" ] }
     ],
+
     //New
-    "livePreview.notifyOnOpenLooseFile": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
 }

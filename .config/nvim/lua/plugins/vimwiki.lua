@@ -9,7 +9,7 @@ return {
         vim.g.vimwiki_global_ext = 1
     end,
     config = function()
-        vim.keymap.set('n', '<leader>ww', '<cmd>VimwikiIndex 1<CR>', { silent = true })
+        -- vim.keymap.set('n', '<leader>ww', '<cmd>VimwikiIndex 1<CR>', { silent = true })
         vim.keymap.set('n', '<leader>wi', '<cmd>VimwikiDiaryIndex 1<CR>', { silent = true })
         vim.keymap.set('n', '<leader>w<leader>w', '<cmd>VimwikiMakeDiaryNote 1<CR>', { silent = true })
 
