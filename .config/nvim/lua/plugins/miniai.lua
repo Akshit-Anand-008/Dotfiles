@@ -8,8 +8,8 @@ return {
                 B = pair('{', '}', { search_method = "next" })
             },
             mappings = {
-                inside_last = '',
-                around_last = '',
+                inside_last = "ip",
+                around_last = "ap",
             }
         })
     end
