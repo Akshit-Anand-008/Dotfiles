@@ -1,16 +1,26 @@
 return {
     "nvim-mini/mini.ai",
     config = function()
-        pair = require("mini.ai").gen_spec.pair
-        require('mini.ai').setup({
+        local ai = require('mini.ai')
+        ai.setup({
             custom_textobjects = {
-                b = pair('(', ')', { search_method = "next" }),
-                B = pair('{', '}', { search_method = "next" })
+                ['('] = false,
+                ['{'] = false,
+                b = ai.gen_spec.pair('(', ')'),
+                B = ai.gen_spec.pair('{', '}'),
+                g = function()
+                    local from = { line = 1, col = 1 }
+                    local to = {
+                        line = vim.fn.line('$'),
+                        col = math.max(vim.fn.getline('$'):len(), 1)
+                    }
+                    return { from = from, to = to }
+                end
             },
             mappings = {
-                inside_last = "ip",
-                around_last = "ap",
-            }
+                around_last = 'ap',
+                inside_last = 'ip',
+            },
         })
     end
 }
