@@ -4,7 +4,7 @@ return {
         focus = true,
         startinsert = true,
         -- term = { position = "horizontal", size = 10 },
-        term = { position = "vertical", size = 50 },
+        term = { position = "vertical", size = 43 },
         filetype = {
             cpp = "cd $dir && g++ $fileName && ./a.out",
             tex = "cd $dir && pdflatex $fileName",

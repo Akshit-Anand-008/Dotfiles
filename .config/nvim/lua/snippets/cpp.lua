@@ -16,6 +16,13 @@ ls.add_snippets(
             )
         ),
 
+        s("fora",
+            fmt(
+                [[for (auto& {} : {}) {{ {} }}]],
+                { i(1, "i"), i(2), i(0) }
+            )
+        ),
+
         s("pr",
             fmt(
                 [[printf("{}\n",{});]],

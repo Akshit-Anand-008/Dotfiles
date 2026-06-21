@@ -4,15 +4,9 @@ return {
         sections = {
             lualine_a = { "mode" },
             lualine_b = { { "filename", path = 1 } },
-            lualine_c = {
-                -- function() return ("fwd: " .. vim.fn.fnamemodify(vim.fn.expand('%:p:h'), ':~') .. "/") end,
-                function() return ("cwd: " .. vim.fn.fnamemodify(vim.fn.getcwd(), ':~') .. "/") end,
-                -- function() return ("(" .. require("auto-session.lib").current_session_name(true) .. ")") end
-            },
-            -- lualine_x = { "diagnostics", "filetype" },
-            -- lualine_y = { "progress" },
-            lualine_x = { "diagnostics" },
-            lualine_y = { "filetype" },
+            lualine_c = { function() return ("cwd: " .. vim.fn.fnamemodify(vim.fn.getcwd(), ':~') .. "/") end },
+            lualine_x = { "diagnostics", "filetype" },
+            lualine_y = { "progress" },
             lualine_z = { "location" },
         },
         inactive_sections = {
