@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 local keymap = vim.keymap.set
 
 -- [[ KEYMAPS ]]
@@ -45,6 +46,21 @@ keymap("n", "<leader>r", function()
     vim.cmd("RunCode")
 end, { desc = "Code_Runner" })
 keymap("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
+
+keymap("n", "<leader>c", function()
+    local qf_exists = false
+    for _, win in ipairs(vim.fn.getwininfo()) do
+        if win.quickfix == 1 then
+            qf_exists = true
+            break
+        end
+    end
+    if qf_exists then
+        vim.cmd("cclose")
+    else
+        vim.cmd("copen")
+    end
+end, { desc = "Toggle Quickfix Window" })
 
 -- Smart print
 local function smart_print()
