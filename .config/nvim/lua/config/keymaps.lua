@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 -- [[ KEYMAPS ]]
@@ -55,11 +55,7 @@ keymap("n", "<leader>c", function()
             break
         end
     end
-    if qf_exists then
-        vim.cmd("cclose")
-    else
-        vim.cmd("copen")
-    end
+    if qf_exists then vim.cmd("cclose") else vim.cmd("copen") end
 end, { desc = "Toggle Quickfix Window" })
 
 -- Smart print
@@ -74,6 +70,7 @@ local function smart_print()
         c          = [[printf("\n");<Esc>4hi]],
         -- cpp        = [[printf("\n");<Esc>4hi]],
         cpp        = 'cout <<  << endl;<Esc>8hi',
+        tex        = "\\[  \\]<Esc>2hi",
     }
     return templates[ft] or 'print()<Left>'
 end

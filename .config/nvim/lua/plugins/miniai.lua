@@ -19,8 +19,8 @@ return {
                 end
             },
             mappings = {
-                around_last = 'ap',
-                inside_last = 'ip',
+                around_last = 'ax',
+                inside_last = 'ix',
             },
         })
     end
