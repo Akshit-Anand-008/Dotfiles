@@ -6,8 +6,9 @@ return {
             custom_textobjects = {
                 ['('] = false,
                 ['{'] = false,
-                b = ai.gen_spec.pair('(', ')'),
-                B = ai.gen_spec.pair('{', '}'),
+                b = false,
+                B = false,
+                f = false,
                 g = function()
                     local from = { line = 1, col = 1 }
                     local to = {

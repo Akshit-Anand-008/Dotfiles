@@ -17,8 +17,8 @@ keymap("n", "<CR>", function()
     return vim.bo.buftype == "nofile" and "<CR>" or "o<Esc>"
 end, { expr = true, replace_keycodes = true })
 
-keymap("t", "<C-x>", "<C-\\><C-n>")
-keymap("t", "<C-w>", "<C-\\><C-n><C-w>")
+keymap("t", "<C-x>", [[<C-\><C-n>]])
+keymap("t", "<C-w>", [[<C-\><C-n><C-w>]])
 
 keymap("n", "<C-j>", "gj")
 keymap("n", "<C-k>", "gk")
@@ -30,7 +30,9 @@ keymap("x", "<leader>p", '"_dP')
 keymap("x", "<leader>c", '"_c')
 keymap({ "n", "x" }, "<leader>x", '"_x')
 
-keymap({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
+keymap({ "x", "o" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
+keymap({ "x", "o" }, 'ib', "in)", { remap = true })
+keymap({ "x", "o" }, 'iB', "in}", { remap = true })
 
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")

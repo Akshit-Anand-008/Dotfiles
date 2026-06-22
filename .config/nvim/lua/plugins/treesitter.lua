@@ -44,7 +44,6 @@ return {
 
             local textobj = require("nvim-treesitter-textobjects.select").select_textobject
             local move = require("nvim-treesitter-textobjects.move")
-            local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
             local map = vim.keymap.set
 
             map({ "x", "o" }, "af", function() textobj("@function.outer", "textobjects") end)
