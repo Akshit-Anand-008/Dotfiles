@@ -48,30 +48,26 @@ end, { desc = "Code_Runner" })
 keymap("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
 
 keymap("n", "<leader>c", function()
-    local qf_exists = false
-    for _, win in ipairs(vim.fn.getwininfo()) do
-        if win.quickfix == 1 then
-            qf_exists = true
-            break
-        end
+    if vim.fn.getqflist({ winid = 0 }).winid > 0 then
+        vim.cmd.cclose()
+    else
+        vim.cmd.copen()
     end
-    if qf_exists then vim.cmd("cclose") else vim.cmd("copen") end
 end, { desc = "Toggle Quickfix Window" })
 
 -- Smart print
+local templates = {
+    rust       = 'println!("");<Esc>2hi',
+    python     = 'print()<left>',
+    lua        = 'print()<left>',
+    javascript = 'console.log()<left>',
+    go         = 'fmt.Println()<left>',
+    c          = [[printf("\n");<Esc>4hi]],
+    cpp        = 'cout <<  << endl;<Esc>8hi',
+    tex        = "$$<left>",
+}
 local function smart_print()
     local ft = vim.bo.filetype
-    local templates = {
-        rust       = 'println!("");<Esc>2hi',
-        python     = 'print()<left>',
-        lua        = 'print()<left>',
-        javascript = 'console.log()<left>',
-        go         = 'fmt.Println()<left>',
-        c          = [[printf("\n");<Esc>4hi]],
-        -- cpp        = [[printf("\n");<Esc>4hi]],
-        cpp        = 'cout <<  << endl;<Esc>8hi',
-        tex        = "$$<left>",
-    }
     return templates[ft] or 'print()<Left>'
 end
-keymap('i', '<C-j>', smart_print, { expr = true })
+keymap('i', '<C-j>', smart_print, { expr = true, replace_keycodes = true })
