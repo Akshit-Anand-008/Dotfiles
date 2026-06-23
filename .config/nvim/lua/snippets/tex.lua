@@ -9,7 +9,7 @@ local fmta = require("luasnip.extras.fmt").fmta
 
 ls.add_snippets("tex",
     {
-        s("\\b",
+        s("e",
             fmta(
                 "\\begin{<>}\n\\end{<>}",
                 { i(1), rep(1) }
@@ -23,7 +23,7 @@ ls.add_snippets("tex",
             )
         ),
 
-        s("fr",
+        s("f",
             fmta(
                 [[\frac{<>}{<>}]],
                 { i(1), i(0) }
