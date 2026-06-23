@@ -6,7 +6,7 @@ local keymap = vim.keymap.set
 keymap({ "n", "x" }, "<Space>", "<Nop>")
 keymap("x", "<Tab>", "g_")
 keymap("n", "<leader>m", "m")
-keymap("n", "S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("i", "<C-c>", "<Esc>")
 keymap("n", "<Esc>", function()
     vim.cmd("nohlsearch")
@@ -72,4 +72,4 @@ local function smart_print()
     local ft = vim.bo.filetype
     return templates[ft] or 'print()<Left>'
 end
-keymap('i', '<C-j>', smart_print, { expr = true, replace_keycodes = true })
+keymap('i', '<C-j>', smart_print, { expr = true })
