@@ -70,7 +70,7 @@ local function smart_print()
         c          = [[printf("\n");<Esc>4hi]],
         -- cpp        = [[printf("\n");<Esc>4hi]],
         cpp        = 'cout <<  << endl;<Esc>8hi',
-        tex        = "\\[  \\]<Esc>2hi",
+        tex        = "$$<left>",
     }
     return templates[ft] or 'print()<Left>'
 end

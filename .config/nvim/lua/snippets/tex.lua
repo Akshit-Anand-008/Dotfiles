@@ -5,14 +5,29 @@ local i = ls.insert_node
 local f = ls.function_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
-local fmt = require("luasnip.extras.fmt").fmt
+local fmta = require("luasnip.extras.fmt").fmta
 
 ls.add_snippets("tex",
     {
-        s("\\b", {
-            t("\\begin{"), i(1), t("}"),
-            t({ "", "\t" }), i(0),
-            t({ "", "\\end{" }), rep(1), t("}"), }
+        s("\\b",
+            fmta(
+                "\\begin{<>}\n\\end{<>}",
+                { i(1), rep(1) }
+            )
+        ),
+
+        s("m",
+            fmta(
+                "\\[\n\t<>\n\\]",
+                { i(0) }
+            )
+        ),
+
+        s("fr",
+            fmta(
+                [[\frac{<>}{<>}]],
+                { i(1), i(0) }
+            )
         )
     }
 )
