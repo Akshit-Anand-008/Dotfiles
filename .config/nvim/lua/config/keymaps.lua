@@ -6,6 +6,7 @@ local keymap = vim.keymap.set
 keymap({ "n", "x" }, "<Space>", "<Nop>")
 keymap("x", "<Tab>", "g_")
 keymap("n", "<leader>m", "m")
+keymap("n", "S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("i", "<C-c>", "<Esc>")
 keymap("n", "<Esc>", function()
     vim.cmd("nohlsearch")
