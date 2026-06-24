@@ -17,8 +17,8 @@ keymap("n", "<CR>", function()
     return vim.bo.buftype == "nofile" and "<CR>" or "o<Esc>"
 end, { expr = true, replace_keycodes = true })
 
-keymap("n", "R", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
-keymap("x", "R", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+keymap("x", "<leader>s", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
 
 keymap("t", "<C-x>", [[<C-\><C-n>]])
 keymap("t", "<C-w>", [[<C-\><C-n><C-w>]])
@@ -33,10 +33,6 @@ keymap("x", "<leader>p", '"_dP')
 keymap("x", "<leader>c", '"_c')
 keymap({ "n", "x" }, "<leader>x", '"_x')
 
-keymap({ "x", "o" }, "il", ":<C-u>normal! ^vg_<CR>", { silent = true })
-keymap({ "x", "o" }, 'ib', "in)", { remap = true })
-keymap({ "x", "o" }, 'iB', "in}", { remap = true })
-
 keymap("n", "<S-l>", "<cmd>bnext<CR>")
 keymap("n", "<S-h>", "<cmd>bprev<CR>")
 keymap("n", "<S-m>", "<cmd>b#<CR>")
@@ -44,12 +40,6 @@ keymap("n", "<S-m>", "<cmd>b#<CR>")
 keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 keymap("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
-
-keymap("n", "<leader>r", function()
-    vim.cmd("write")
-    vim.cmd("RunCode")
-end, { desc = "Code_Runner" })
-keymap("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
 
 keymap("n", "<leader>c", function()
     if vim.fn.getqflist({ winid = 0 }).winid > 0 then
