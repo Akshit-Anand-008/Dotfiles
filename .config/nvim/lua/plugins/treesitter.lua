@@ -3,7 +3,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        opts = { highlight = { enable = true } },
         config = function()
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function(args)

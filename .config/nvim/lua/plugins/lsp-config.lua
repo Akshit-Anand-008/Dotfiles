@@ -1,8 +1,9 @@
 return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
-        { "williamboman/mason.nvim", opts = {} },
         { "neovim/nvim-lspconfig" },
+        { "folke/lazydev.nvim",      opts = {} },
+        { "williamboman/mason.nvim", opts = {} },
     },
     config = function()
         require("mason-lspconfig").setup({})
