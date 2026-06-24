@@ -3,7 +3,7 @@ return {
     config = function()
         local foo = require "flash"
         foo.setup({ modes = { char = { enabled = false } } })
-        vim.keymap.set({ "n", "x", "o" }, "m", function() foo.jump() end)
+        vim.keymap.set({ "n", "x", "o" }, "s", function() foo.jump() end)
         vim.keymap.set({ "n", "x", "o" }, "S", function()
             foo.jump({ search = { mode = function(str) return "\\<" .. str end, } })
         end)
