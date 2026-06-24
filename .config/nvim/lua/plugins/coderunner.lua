@@ -12,6 +12,6 @@ return {
             go = "cd $dir && go run $fileName",
             -- rust = "cd $dir && cargo run",
             rust = "cd $dir && cargo run --bin $fileNameWithoutExt",
-        },
-    },
+        }
+    }
 }
