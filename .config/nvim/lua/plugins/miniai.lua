@@ -1,24 +1,15 @@
 return {
     "nvim-mini/mini.ai",
     config = function()
-        require("mini.ai").setup({
+        local ai = require "mini.ai"
+        ai.setup({
             search_method = 'next',
             custom_textobjects = {
-                ['('] = false,
-                ['['] = false,
-                [']'] = false,
-                ['{'] = false,
-                ['<'] = false,
-                ['>'] = false,
-                ["'"] = false,
-                ['"'] = false,
-                ['`'] = false,
-                ['?'] = false,
                 ['a'] = false,
                 ['b'] = false,
                 ['f'] = false,
-                ['t'] = false,
-                ['q'] = false,
+                ['}'] = function(o) return ai.find_textobject(o, '{', { search_method = 'next' }) end,
+                [')'] = function(o) return ai.find_textobject(o, '(', { search_method = 'next' }) end,
                 ['g'] = function()
                     local from = { line = 1, col = 1 }
                     local to = {
@@ -26,7 +17,7 @@ return {
                         col = math.max(vim.fn.getline('$'):len(), 1)
                     }
                     return { from = from, to = to }
-                end,
+                end
             },
             mappings = {
                 around_last = 'aL',
