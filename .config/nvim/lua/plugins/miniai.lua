@@ -7,7 +7,6 @@ return {
                 ['{'] = false,
                 b = false,
                 B = false,
-                f = false,
                 g = function()
                     local from = { line = 1, col = 1 }
                     local to = {

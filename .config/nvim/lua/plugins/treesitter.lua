@@ -45,17 +45,17 @@ return {
             local move = require("nvim-treesitter-textobjects.move")
             local map = vim.keymap.set
 
-            map({ "x", "o" }, "af", function() textobj("@function.outer", "textobjects") end)
-            map({ "x", "o" }, "if", function() textobj("@function.inner", "textobjects") end)
+            map({ "x", "o" }, "am", function() textobj("@function.outer", "textobjects") end)
+            map({ "x", "o" }, "im", function() textobj("@function.inner", "textobjects") end)
             map({ "x", "o" }, "ac", function() textobj("@class.outer", "textobjects") end)
             map({ "x", "o" }, "ic", function() textobj("@class.inner", "textobjects") end)
 
-            map({ "n", "x", "o" }, "]f", function() move.goto_next_start("@function.outer", "textobjects") end)
-            map({ "n", "x", "o" }, "]F", function() move.goto_next_end("@function.outer", "textobjects") end)
+            map({ "n", "x", "o" }, "]m", function() move.goto_next_start("@function.outer", "textobjects") end)
+            map({ "n", "x", "o" }, "]M", function() move.goto_next_end("@function.outer", "textobjects") end)
             map({ "n", "x", "o" }, "]c", function() move.goto_next_start("@class.outer", "textobjects") end)
             map({ "n", "x", "o" }, "]C", function() move.goto_next_end("@class.outer", "textobjects") end)
-            map({ "n", "x", "o" }, "[f", function() move.goto_previous_start("@function.outer", "textobjects") end)
-            map({ "n", "x", "o" }, "[F", function() move.goto_previous_end("@function.outer", "textobjects") end)
+            map({ "n", "x", "o" }, "[m", function() move.goto_previous_start("@function.outer", "textobjects") end)
+            map({ "n", "x", "o" }, "[M", function() move.goto_previous_end("@function.outer", "textobjects") end)
             map({ "n", "x", "o" }, "[c", function() move.goto_previous_start("@class.outer", "textobjects") end)
             map({ "n", "x", "o" }, "[C", function() move.goto_previous_end("@class.outer", "textobjects") end)
         end,
