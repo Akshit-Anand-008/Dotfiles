@@ -1,6 +1,5 @@
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    branch = "main",
     init = function() vim.g.no_plugin_maps = true end,
 
     config = function()
@@ -11,9 +10,9 @@ return {
                 selection_modes = {
                     ['@parameter.outer'] = 'v',
                     ['@function.outer'] = 'V',
-                },
+                }
             },
-            move = { set_jumps = true, },
+            move = { set_jumps = true }
         }
 
         local textobj = require("nvim-treesitter-textobjects.select").select_textobject
@@ -25,17 +24,9 @@ return {
             map({ "x", "o" }, 'i' .. key, function() textobj('@' .. object .. '.inner', "textobjects") end)
         end
 
-        map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-        map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-        map({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
-        map({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
-        map({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
-        map({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
-
         wot('f', "call")
         wot('c', "class")
         wot('m', "function")
-        wot('a', "parameter")
 
         map({ "n", "x", "o" }, "]m", function() move.goto_next_start("@function.outer", "textobjects") end)
         map({ "n", "x", "o" }, "]M", function() move.goto_next_end("@function.outer", "textobjects") end)
@@ -49,8 +40,5 @@ return {
 
         map({ "n", "x", "o" }, "]f", function() move.goto_next_start("@call.outer", "textobjects") end)
         map({ "n", "x", "o" }, "[f", function() move.goto_previous_start("@call.outer", "textobjects") end)
-
-        map({ "n", "x", "o" }, "]a", function() move.goto_next_start("@parameter.inner", "textobjects") end)
-        map({ "n", "x", "o" }, "[a", function() move.goto_previous_start("@parameter.inner", "textobjects") end)
     end,
 }
