@@ -26,9 +26,10 @@ ex() {
 mkcd() { mkdir -p "$1" && cd "$1" }
 
 jot() {
-  local target="$WIKI_PATH/jotted.md"
-  mkdir -p "$(dirname "$target")"
-  echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
+    local target
+    target="$WIKI_PATH/jotted.md"
+    mkdir -p "$(dirname "$target")"
+    echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
 }
 
 n() {
@@ -46,29 +47,40 @@ n() {
 }
 
 fw() {
-    local file=$(fd --type f --hidden --exclude .git --search-path $WIKI_PATH | fzf)
-    if [ -n "$file" ]; then
-        nvim "$file"
-    fi
+    local file
+    file=$(fd --type file --search-path "$WIKI_PATH" | fzf)
+    [[ -f "$file" ]] && nvim "$file"
 }
 
-ff() {
-    local file=$(fd --type f --hidden --exclude .git | fzf)
-    if [ -n "$file" ]; then
-        nvim "$file"
-    fi
+fh() {
+    local file
+    file=$(fd --type file --search-path "$HOME" | fzf)
+    [[ -f "$file" ]] && nvim "$file"
+}
+
+f() {
+    local file
+    file=$(fd --type file | fzf)
+    [[ -f "$file" ]] && nvim "$file"
+}
+
+d() {
+    local dir
+    dir=$(fd --type directory | fzf)
+    [[ -d "$dir" ]] && cd "$dir"
 }
 
 # Auto-activate Python venv
 load-venv() {
-  local venv_path="${PWD:A}/.venv"
-  if [[ -d "$venv_path" ]]; then
-    if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
-      source "$venv_path/bin/activate"
+    local venv_path
+        venv_path="${PWD:A}/.venv"
+    if [[ -d "$venv_path" ]]; then
+        if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
+        source "$venv_path/bin/activate"
+        fi
+    elif [[ -n "$VIRTUAL_ENV" ]]; then
+        if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
+            deactivate
+        fi
     fi
-  elif [[ -n "$VIRTUAL_ENV" ]]; then
-    if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
-      deactivate
-    fi
-  fi
 }

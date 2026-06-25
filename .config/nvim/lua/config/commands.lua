@@ -24,7 +24,6 @@ vim.api.nvim_create_user_command("L",
         local view = vim.fn.winsaveview()
         vim.cmd([[%s/\<int\>/ll/ge]])
         vim.cmd([[%s/\<ll main\>/int main/ge]])
-        vim.cmd([[%s/:%i/:%lli/ge]])
         vim.cmd.nohlsearch()
         vim.fn.winrestview(view)
     end, {}
