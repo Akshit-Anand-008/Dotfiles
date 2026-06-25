@@ -2,10 +2,23 @@ return {
     "nvim-mini/mini.ai",
     config = function()
         require("mini.ai").setup({
+            search_method = 'next',
             custom_textobjects = {
-                a = false,
-                b = false,
-                f = false,
+                ['('] = false,
+                ['['] = false,
+                [']'] = false,
+                ['{'] = false,
+                ['<'] = false,
+                ['>'] = false,
+                ["'"] = false,
+                ['"'] = false,
+                ['`'] = false,
+                ['?'] = false,
+                ['a'] = false,
+                ['b'] = false,
+                ['f'] = false,
+                ['t'] = false,
+                ['q'] = false,
                 g = function()
                     local from = { line = 1, col = 1 }
                     local to = {
@@ -18,19 +31,10 @@ return {
             mappings = {
                 around_last = 'aL',
                 inside_last = 'iL',
+                goto_left = '',
+                goto_right = '',
             }
         })
-
         vim.keymap.set({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
-
-        vim.keymap.set({ 'x', 'o' }, 'i}', "in{", { remap = true })
-        vim.keymap.set({ 'x', 'o' }, 'a}', "an{", { remap = true })
-        vim.keymap.set({ 'x', 'o' }, 'i{', "iL{", { remap = true })
-        vim.keymap.set({ 'x', 'o' }, 'a{', "aL{", { remap = true })
-
-        vim.keymap.set({ 'x', 'o' }, 'i)', "in(", { remap = true })
-        vim.keymap.set({ 'x', 'o' }, 'a)', "an(", { remap = true })
-        vim.keymap.set({ 'x', 'o' }, 'i(', "iL(", { remap = true })
-        vim.keymap.set({ 'x', 'o' }, 'a(', "aL(", { remap = true })
     end
 }
