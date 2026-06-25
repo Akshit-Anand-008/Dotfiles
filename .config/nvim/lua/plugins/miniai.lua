@@ -27,5 +27,9 @@ return {
             }
         })
         vim.keymap.set({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
+        vim.keymap.set({ 'x', 'o' }, 'i{', "iL{", { remap = true })
+        vim.keymap.set({ 'x', 'o' }, 'a{', "aL{", { remap = true })
+        vim.keymap.set({ 'x', 'o' }, 'i(', "iL(", { remap = true })
+        vim.keymap.set({ 'x', 'o' }, 'a(', "aL(", { remap = true })
     end
 }
