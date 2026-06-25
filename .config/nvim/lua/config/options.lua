@@ -9,6 +9,7 @@ vim.g.have_nerd_font = true -- Flag for plugins to use icons
 -- SECTION 1: Interface & UI
 opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Show relative line numbers for jumping
+opt.timeoutlen = 5000     -- Gives me more time to press keys
 opt.cursorline = true     -- Highlight the line the cursor is on
 opt.signcolumn = "yes"    -- Always show the column for icons/errors
 opt.termguicolors = true  -- Enable 24-bit RGB colors

@@ -2,24 +2,23 @@ return {
     "nvim-mini/mini.ai",
     config = function()
         require("mini.ai").setup({
-            search_method = 'next',
             custom_textobjects = {
-                ['('] = false,
-                ['['] = false,
-                [']'] = false,
-                ['{'] = false,
-                ['<'] = false,
-                ['>'] = false,
-                ["'"] = false,
-                ['"'] = false,
-                ['`'] = false,
-                ['?'] = false,
+                -- ['('] = false,
+                -- ['['] = false,
+                -- [']'] = false,
+                -- ['{'] = false,
+                -- ['<'] = false,
+                -- ['>'] = false,
+                -- ["'"] = false,
+                -- ['"'] = false,
+                -- ['`'] = false,
+                -- ['?'] = false,
+                -- ['t'] = false,
+                -- ['q'] = false,
                 ['a'] = false,
-                ['b'] = false,
                 ['f'] = false,
-                ['t'] = false,
-                ['q'] = false,
-                g = function()
+                ['b'] = false,
+                ['g'] = function()
                     local from = { line = 1, col = 1 }
                     local to = {
                         line = vim.fn.line('$'),
