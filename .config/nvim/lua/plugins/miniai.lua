@@ -1,13 +1,11 @@
 return {
     "nvim-mini/mini.ai",
     config = function()
-        require('mini.ai').setup({
+        local ai = require "mini.ai"
+        ai.setup({
             custom_textobjects = {
-                ['('] = false,
-                ['{'] = false,
-                b = false,
-                B = false,
                 a = false,
+                b = false,
                 f = false,
                 g = function()
                     local from = { line = 1, col = 1 }
@@ -23,5 +21,14 @@ return {
                 inside_last = 'iL',
             }
         })
+
+
+        vim.keymap.set({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
+
+        vim.keymap.set({ 'x', 'o' }, 'i}', "inB", { remap = true })
+        vim.keymap.set({ 'x', 'o' }, 'a}', "anB", { remap = true })
+        vim.keymap.set({ 'x', 'o' }, 'i{', "iLB", { remap = true })
+        vim.keymap.set({ 'x', 'o' }, 'a{', "aLB", { remap = true })
     end
+
 }
