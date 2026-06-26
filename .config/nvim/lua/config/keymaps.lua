@@ -15,7 +15,7 @@ end)
 keymap('x', "<CR>", 'd"_cc')
 keymap('n', "<CR>", function()
     return vim.bo.buftype == "nofile" and "<CR>" or "o<Esc>"
-end, { expr = true, replace_keycodes = true })
+end, { expr = true })
 
 keymap('n', "R", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('x', "R", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
@@ -37,10 +37,10 @@ keymap('n', "<S-l>", "<cmd>bnext<CR>")
 keymap('n', "<S-h>", "<cmd>bprev<CR>")
 keymap('n', "<S-m>", "<cmd>b#<CR>")
 
-keymap('n', "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-
 keymap({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
 keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR><C-o>", { silent = true })
+
+keymap('n', "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 keymap('n', "<leader>c", function()
     if vim.fn.getqflist({ winid = 0 }).winid > 0 then
