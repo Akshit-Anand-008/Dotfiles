@@ -8,8 +8,8 @@ keymap('x', "<Tab>", "g_")
 keymap('n', "<leader>m", "m")
 keymap('i', "<C-c>", "<Esc>")
 keymap('n', "<Esc>", function()
-    vim.cmd("nohlsearch")
-    vim.cmd("update")
+    vim.cmd.nohlsearch()
+    vim.cmd.update()
 end)
 
 keymap('x', "<CR>", 'd"_cc')
@@ -33,12 +33,12 @@ keymap('x', "<leader>p", '"_dP')
 keymap('x', "<leader>c", '"_c')
 keymap({ 'n', 'x' }, "<leader>x", '"_x')
 
-keymap('n', "<S-l>", "<cmd>bnext<CR>")
-keymap('n', "<S-h>", "<cmd>bprev<CR>")
+keymap('n', "<S-l>", vim.cmd.bnext)
+keymap('n', "<S-h>", vim.cmd.bprev)
 keymap('n', "<S-m>", "<cmd>b#<CR>")
 
 keymap({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
-keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR><C-o>", { silent = true })
+keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR>", { silent = true })
 
 keymap('n', "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
