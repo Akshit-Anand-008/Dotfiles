@@ -20,12 +20,12 @@ return {
         local map = vim.keymap.set
 
         local ts_repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
-        vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-        vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-        vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
-        vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
-        vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
-        vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
+        map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+        map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+        map({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+        map({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+        map({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+        map({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
         local wot = function(key, object)
             local oi = '@' .. object .. '.inner'
@@ -40,7 +40,6 @@ return {
         wot('c', "class")
         wot('m', "function")
         wot('a', "parameter")
-        wot('r', "return")
 
         map({ "n", "x", "o" }, "]M", function() move.goto_next_end("@function.outer", "textobjects") end)
         map({ "n", "x", "o" }, "[M", function() move.goto_previous_end("@function.outer", "textobjects") end)
@@ -50,10 +49,5 @@ return {
         map({ "x", "o" }, 'aB', function() textobj("@block.outer", "textobjects") end)
         map({ "n", "x", "o" }, ']B', function() move.goto_next_start("@block.outer", "textobjects") end)
         map({ "n", "x", "o" }, '[B', function() move.goto_previous_start("@block.outer", "textobjects") end)
-
-        map({ "x", "o" }, 'a=', function() textobj("@assignment.outer", "textobjects") end)
-        map({ "x", "o" }, 'i=', function() textobj("@assignment.rhs", "textobjects") end)
-        map({ "n", "x", "o" }, ']=', function() move.goto_next_start("@assignment.outer", "textobjects") end)
-        map({ "n", "x", "o" }, '[=', function() move.goto_previous_start("@assignment.outer", "textobjects") end)
     end,
 }
