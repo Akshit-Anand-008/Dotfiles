@@ -43,6 +43,7 @@ keymap('n', "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" }
 
 keymap({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
 keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR>", { silent = true })
+
 for _, gd in ipairs({ 'i', 'a' }) do
     keymap('x', gd .. '}', "<Esc>/{<CR>v" .. gd .. "{", { silent = true })
     keymap('x', gd .. ')', "<Esc>/(<CR>v" .. gd .. "(", { silent = true })
