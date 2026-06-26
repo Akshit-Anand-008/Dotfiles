@@ -1,13 +1,3 @@
--- Higlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function() vim.highlight.on_yank() end,
-})
-
---Force options
-vim.api.nvim_create_autocmd("FileType", {
-    callback = function() vim.opt_local.formatoptions:remove({ "o", "c" }) end,
-})
-
 --Spell Check
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "tex" },
@@ -15,6 +5,16 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.spelllang = "en_us"
         vim.opt_local.spell = true
         vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { buffer = true })
+    end,
+})
+
+-- Tab key default behaviour for some files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "make", "tsv" },
+    callback = function()
+        vim.opt_local.expandtab = false
+        vim.opt_local.tabstop = 8
+        vim.opt_local.shiftwidth = 8
     end,
 })
 
@@ -31,29 +31,12 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     end,
 })
 
--- Tab key default behaviour for some files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "make", "tsv" },
-    callback = function()
-        vim.opt_local.expandtab = false
-        vim.opt_local.tabstop = 8
-        vim.opt_local.shiftwidth = 8
-    end,
+-- Higlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function() vim.highlight.on_yank() end,
 })
 
--- Auto-format on save
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('my.lsp', {}),
-    callback = function(ev)
-        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-        if client:supports_method('textDocument/formatting') then
-            vim.api.nvim_create_autocmd('BufWritePre', {
-                group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-                buffer = ev.buf,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
-                end,
-            })
-        end
-    end,
+--Force options
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function() vim.opt_local.formatoptions:remove({ "o", "c" }) end,
 })
