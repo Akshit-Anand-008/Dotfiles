@@ -25,8 +25,8 @@ vim.api.nvim_create_autocmd("BufNewFile", {
         local snippet = vim.fn.expand("~/Snippets/snippet." .. ext)
         if vim.fn.filereadable(snippet) == 1 then
             vim.cmd("0r " .. snippet)
-            vim.cmd("$delete")
             vim.cmd("normal! G")
+            vim.cmd('normal! "_dd')
         end
     end,
 })

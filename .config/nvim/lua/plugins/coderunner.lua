@@ -16,9 +16,9 @@ return {
             }
         })
         vim.keymap.set("n", "<leader>r", function()
-            vim.cmd("write")
-            vim.cmd("RunCode")
-        end, { desc = "Code_Runner" })
+            vim.cmd.write()
+            vim.cmd.RunCode()
+        end)
         vim.keymap.set("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
     end
 }

@@ -39,19 +39,8 @@ keymap('n', "<S-m>", "<cmd>b#<CR>")
 
 keymap('n', "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
-keymap('n', "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "toggle undotree" })
-
 keymap({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
-keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR>", { silent = true })
-
-for _, gd in ipairs({ 'i', 'a' }) do
-    keymap('x', gd .. '}', "<Esc>/{<CR>v" .. gd .. "{", { silent = true })
-    keymap('x', gd .. ')', "<Esc>/(<CR>v" .. gd .. "(", { silent = true })
-    for _, op in ipairs({ 'y', 'c', 'd' }) do
-        keymap('n', op .. gd .. '}', '/{<CR>' .. op .. gd .. '{', { silent = true })
-        keymap('n', op .. gd .. ')', '/(<CR>' .. op .. gd .. '(', { silent = true })
-    end
-end
+keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR><C-o>", { silent = true })
 
 keymap('n', "<leader>c", function()
     if vim.fn.getqflist({ winid = 0 }).winid > 0 then
@@ -60,6 +49,16 @@ keymap('n', "<leader>c", function()
         vim.cmd.copen()
     end
 end, { desc = "Toggle Quickfix Window" })
+
+-- My textobject
+for _, gd in ipairs({ 'i', 'a' }) do
+    keymap('x', gd .. '}', "<Esc>/{<CR>v" .. gd .. "{", { silent = true })
+    keymap('x', gd .. ')', "<Esc>/(<CR>v" .. gd .. "(", { silent = true })
+    for _, op in ipairs({ 'y', 'c', 'd' }) do
+        keymap('n', op .. gd .. '}', '/{<CR>' .. op .. gd .. '{', { silent = true })
+        keymap('n', op .. gd .. ')', '/(<CR>' .. op .. gd .. '(', { silent = true })
+    end
+end
 
 -- Smart print
 local templates = {

@@ -1,5 +1,4 @@
 return {
-    { "mbbill/undotree" },
     { "mrcjkb/rustaceanvim" },
     { "lewis6991/gitsigns.nvim" },
     { "HiPhish/rainbow-delimiters.nvim" },
