@@ -70,6 +70,12 @@ d() {
     [[ -d "$dir" ]] && cd "$dir"
 }
 
+dh() {
+    local dir
+    dir=$(fd --type directory --search-path "$HOME" | fzf)
+    [[ -d "$dir" ]] && cd "$dir"
+}
+
 # Auto-activate Python venv
 load-venv() {
     local venv_path
