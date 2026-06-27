@@ -37,6 +37,14 @@ ls.add_snippets(
             )
         ),
 
+        s(
+            "p",
+            fmt(
+                [[printf("{}\n"{});]],
+                { i(1), i(0) }
+            )
+        ),
+
         s("sort",
             fmt(
                 [[sort({}.begin(),{}.end(){});]],
