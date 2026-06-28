@@ -8,11 +8,11 @@ return {
             ['<C-p>'] = { 'select_prev', 'fallback' },
         },
         appearance = { nerd_font_variant = 'mono' },
-        completion = {
-            documentation = { auto_show = false },
-            menu = { auto_show = false },
-        },
-        sources = { default = { 'snippets', 'buffer' }, },
+        -- completion = {
+        --     documentation = { auto_show = false },
+        --     menu = { auto_show = false },
+        -- },
+        sources = { default = { 'lsp', 'snippets', 'buffer' }, },
         fuzzy = { implementation = "prefer_rust_with_warning" }
     },
     opts_extend = { "sources.default" }
