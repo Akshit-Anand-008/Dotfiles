@@ -24,10 +24,10 @@ return {
         local fileseek = require("custom.fileseek").fileseek
 
         -- Key maps
-        vim.keymap.set('n', '<leader>ff', fileseek)
+        vim.keymap.set('n', '<leader>fl', fileseek)
         vim.keymap.set('n', '<leader>fd', builtin.builtin)
         vim.keymap.set('n', '<leader>fb', builtin.buffers)
-        vim.keymap.set('n', '<leader>fl', builtin.find_files)
+        vim.keymap.set('n', '<leader>ff', builtin.find_files)
         vim.keymap.set('n', '<leader>fh', builtin.help_tags)
         vim.keymap.set('n', '<leader>fr', builtin.oldfiles)
         vim.keymap.set('n', '<leader>fm', builtin.marks)
