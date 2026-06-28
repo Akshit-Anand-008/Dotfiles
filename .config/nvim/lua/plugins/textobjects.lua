@@ -40,14 +40,6 @@ return {
         wot('c', "class")
         wot('m', "function")
         wot('a', "parameter")
-
-        map({ "n", "x", "o" }, "]M", function() move.goto_next_end("@function.outer", "textobjects") end)
-        map({ "n", "x", "o" }, "[M", function() move.goto_previous_end("@function.outer", "textobjects") end)
-        map({ "n", "x", "o" }, "]C", function() move.goto_next_end("@class.outer", "textobjects") end)
-        map({ "n", "x", "o" }, "[C", function() move.goto_previous_end("@class.outer", "textobjects") end)
-
-        map({ "x", "o" }, 'aB', function() textobj("@block.outer", "textobjects") end)
-        map({ "n", "x", "o" }, ']B', function() move.goto_next_start("@block.outer", "textobjects") end)
-        map({ "n", "x", "o" }, '[B', function() move.goto_previous_start("@block.outer", "textobjects") end)
+        wot('B', "block")
     end,
 }

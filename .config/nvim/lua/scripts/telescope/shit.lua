@@ -1,0 +1,42 @@
+-- -- grepseeek function
+-- local grepseek = function()
+--     local f_dir = vim.fn.expand("%:p:h")
+--     local f_cwd = vim.fn.getcwd()
+--     local my_finder = finders.new_async_job {
+--         command_generator = function(prompt)
+--             if not prompt or prompt == "" then return nil end
+--             local pieces = vim.split(prompt, "  ")
+--             local args = {
+--                 "rg",
+--                 "--color=never",
+--                 "--no-heading",
+--                 "--with-filename",
+--                 "--line-number",
+--                 "--column",
+--                 "--smart-case"
+--             }
+--             local paper = "$ rg "
+--             if pieces[1] and pieces[1] ~= "" then
+--                 table.insert(args, "-e")
+--                 table.insert(args, pieces[1])
+--                 paper = paper .. "-e " .. pieces[1]
+--             end
+--             if pieces[2] and pieces[2] ~= "" then
+--                 local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+--                 if path then table.insert(args, path) end
+--                 paper = paper .. " " .. path
+--             end
+--             vim.notify(paper)
+--             return args
+--         end,
+--
+--         entry_maker = make_entry.gen_from_vimgrep()
+--     }
+--     pickers.new({}, {
+--         prompt_title = "GREP",
+--         finder = my_finder,
+--         previewer = conf.grep_previewer({}),
+--         sorter = sorters.empty(),
+--     }):find()
+-- end
+-- vim.keymap.set("n", "<leader>fg", grepseek)

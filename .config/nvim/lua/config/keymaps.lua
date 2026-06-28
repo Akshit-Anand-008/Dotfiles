@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
--- [[ KEYMAPS ]]
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
 keymap('x', "<Tab>", "g_")
 keymap('n', "<leader>m", "m")
@@ -13,8 +12,20 @@ keymap('n', "<Esc>", function()
     vim.cmd.update()
 end)
 keymap('n', "<CR>", function()
-    return vim.bo.buftype == "nofile" and "<CR>" or "o<Esc>"
+    if (vim.bo.buftype == "nofile") then
+        return "<CR>"
+    else
+        return "o<Esc>"
+    end
 end, { expr = true })
+
+keymap("n", "<leader>e", function()
+    if (vim.bo.filetype == "netrw") then
+        vim.cmd.bwipeout()
+    else
+        vim.cmd.Ex()
+    end
+end)
 
 keymap('n', "R", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('x', "R", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
