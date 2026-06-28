@@ -1,5 +1,4 @@
 local M = {}
-
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
@@ -34,36 +33,25 @@ my_sorter.score = function(self, prompt, line, entry)
 end
 
 -- fileseek function
-local fileseek = function()
+M.fileseek = function()
     local f_dir = vim.fn.expand("%:p:h")
     local f_cwd = vim.fn.getcwd()
-    -- local my_finder = finders.new_async_job {
-    --     command_generator = function(prompt)
-    --         local args = { "fd", "--type", "f" }
-    --         local pieces = vim.split(prompt, "  ", { plain = true, trimempty = true })
-    --         if pieces[1] and pieces[1] ~= "" then table.insert(args, pieces[1]) end
-    --         if pieces[2] and pieces[2] ~= "" then
-    --             local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
-    --             if path then
-    --                 table.insert(args, "--search-path")
-    --                 table.insert(args, path)
-    --             end
-    --         end
-    --         return args
-    --     end,
-    --     entry_maker = make_entry.gen_from_file()
-    -- }
-
-    local my_finder = function()
-        local prompt = action_state.get_current_line()
-        local args = { "fd", "--type", "f" }
-        local pieces = vim.split(prompt, "  ", { plain = true, trimempty = true })
-        local path = f_cwd
-        if pieces[2] and pieces[2] ~= "" then
-            path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
-        end
-        return finders.new_oneshot_job(args, { search_dirs = { path } })
-    end
+    local my_finder = finders.new_async_job {
+        command_generator = function(prompt)
+            local args = { "fd", "--type", "f" }
+            local pieces = vim.split(prompt, "  ", { plain = true, trimempty = true })
+            if pieces[1] and pieces[1] ~= "" then table.insert(args, pieces[1]) end
+            if pieces[2] and pieces[2] ~= "" then
+                local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+                if path then
+                    table.insert(args, "--search-path")
+                    table.insert(args, path)
+                end
+            end
+            return args
+        end,
+        entry_maker = make_entry.gen_from_file()
+    }
 
     pickers.new({}, {
         prompt_title = "FILES",
@@ -72,7 +60,4 @@ local fileseek = function()
         previewer = conf.file_previewer({}),
     }):find()
 end
-
-vim.keymap.set("n", "<leader>ff", fileseek)
-
 return M

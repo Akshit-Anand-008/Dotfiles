@@ -30,6 +30,15 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     end,
 })
 
+-- Modifying Netrw
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        vim.keymap.set("n", "h", "-", { remap = true, buf = 0 })
+        vim.keymap.set("n", "l", "<CR>", { remap = true, buf = 0 })
+    end,
+})
+
 -- Higlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function() vim.highlight.on_yank() end,

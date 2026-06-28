@@ -2,7 +2,7 @@ local opt = vim.opt
 
 -- Global Variables
 vim.g.have_nerd_font = true -- Flag for plugins to use icons
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 
 -- SECTION 1: Interface & UI
