@@ -23,27 +23,38 @@ end
 M.fileseek = function()
     local f_dir = vim.fn.expand("%:p:h")
     local f_cwd = vim.fn.getcwd()
+    local last_key = nil
     pickers.new({}, {
         prompt_title = "FILES",
         finder = finders.new_oneshot_job({ "fd", "--type", "file", "--color", "never" }, {}),
         sorter = conf.generic_sorter({}),
         previewer = conf.file_previewer({}),
         on_input_filter_cb = function(prompt)
-            local last_dir = f_cwd
-            local pieces = vim.split(prompt, "  ", { plain = true, trimempty = true })
-            if pieces[2] and pieces[2] ~= "" then
-                local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
-                dir = path or last_dir
-                if dir == last_dir then
-                    return { prompt = pieces[1] }
+            local pieces = vim.split(prompt, "  ", { plain = true })
+            local key = pieces[2]
+            -- vim.print(pieces[1])
+            if key ~= last_key then
+                last_key = key
+                local dir
+                if key then
+                    dir = resolve_path(key:sub(1, 1), #key, f_dir, f_cwd)
+                    return {
+                        prompt = pieces[1],
+                        updated_finder = finders.new_oneshot_job(
+                            { "fd", "--type", "file", "--color", "never", "--search-path", dir }, {}
+                        )
+                    }
+                else
+                    dir = f_cwd
+                    return {
+                        prompt = pieces[1],
+                        updated_finder = finders.new_oneshot_job(
+                            { "fd", "--type", "file", "--color", "never" }, {}
+                        )
+                    }
                 end
-                last_dir = dir
-                return {
-                    prompt = pieces[1],
-                    updated_finder = finders.new_oneshot_job(
-                        { "fd", "--type", "file", "--color", "never", "--search-path", dir }, {}),
-                }
             end
+            return { prompt = pieces[1] or "" }
         end
     }):find()
 end
