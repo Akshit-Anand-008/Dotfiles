@@ -1,3 +1,4 @@
+local M = {}
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
@@ -19,7 +20,7 @@ local resolve_path = function(char, len, file_dir, cwd)
     return nil
 end
 
-local fileseek = function()
+M.fileseek = function()
     local f_dir = vim.fn.expand("%:p:h")
     local f_cwd = vim.fn.getcwd()
     pickers.new({}, {
@@ -30,23 +31,21 @@ local fileseek = function()
         on_input_filter_cb = function(prompt)
             local last_dir = f_cwd
             local pieces = vim.split(prompt, "  ", { plain = true, trimempty = true })
-            local path = ""
             if pieces[2] and pieces[2] ~= "" then
-                ---@diagnostic disable-next-line: cast-local-type
-                path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+                local path = resolve_path(pieces[2]:sub(1, 1), #pieces[2], f_dir, f_cwd)
+                dir = path or last_dir
+                if dir == last_dir then
+                    return { prompt = pieces[1] }
+                end
+                last_dir = dir
+                return {
+                    prompt = pieces[1],
+                    updated_finder = finders.new_oneshot_job(
+                        { "fd", "--type", "file", "--color", "never", "--search-path", dir }, {}),
+                }
             end
-            dir = path or last_dir
-            if dir == last_dir then
-                return { prompt = pieces[1] }
-            end
-            last_dir = dir
-            return {
-                prompt = pieces[1],
-                updated_finder = finders.new_oneshot_job(
-                    { "fd", "--type", "file", "--color", "never", "--search-path", dir }, {}),
-            }
         end
     }):find()
 end
 
-vim.keymap.set('n', '<leader>ff', fileseek)
+return M

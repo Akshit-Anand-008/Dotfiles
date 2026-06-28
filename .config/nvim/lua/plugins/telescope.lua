@@ -21,9 +21,10 @@ return {
         })
         require('telescope').load_extension('fzf')
         local builtin = require "telescope.builtin"
-        require "custom.fileseek"
+        local fileseek = require "custom.fileseek"
 
         -- Key maps
+        vim.keymap.set('n', '<leader>ff', fileseek.fileseek)
         vim.keymap.set('n', '<leader>fd', builtin.builtin)
         vim.keymap.set('n', '<leader>fb', builtin.buffers)
         vim.keymap.set('n', '<leader>fg', builtin.live_grep)
