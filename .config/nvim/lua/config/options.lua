@@ -54,6 +54,7 @@ opt.listchars = {
     tab = "» ",
     trail = "·",
     nbsp = "␣",
+    -- eol = "↲"
 }
 
 -- SECTION 6: Cursor Customization

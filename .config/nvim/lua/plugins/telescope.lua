@@ -16,9 +16,11 @@ return {
                     preview_cutoff = 0,
                     preview_height = 0.3
                 },
-            }
+            },
+            extensions = { fzf = {} }
         })
 
+        require('telescope').load_extension('fzf')
         local pickers = require "telescope.pickers"
         local finders = require "telescope.finders"
         local make_entry = require "telescope.make_entry"
@@ -57,6 +59,7 @@ return {
         local fileseek = function()
             local f_dir = vim.fn.expand("%:p:h")
             local f_cwd = vim.fn.getcwd()
+
             local my_finder = finders.new_async_job {
                 command_generator = function(prompt)
                     local args = { "fd", "--type", "f" }
@@ -75,6 +78,7 @@ return {
 
                 entry_maker = make_entry.gen_from_file()
             }
+
             pickers.new({}, {
                 prompt_title = "FILES",
                 finder = my_finder,

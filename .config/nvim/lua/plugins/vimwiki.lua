@@ -20,6 +20,7 @@ return {
                 pcall(vim.keymap.del, "n", "<CR>", { buf = 0 })
                 vim.keymap.set("n", "<leader><leader>", "<Plug>VimwikiNormalizeLinkVisualCR", { buf = 0 })
                 vim.keymap.set("n", "<leader><leader>", "<Plug>VimwikiFollowLink", { buf = 0 })
+                vim.keymap.set("n", "U", function() vim.cmd('normal! di["_diWP') end, { buf = 0 })
             end
         })
     end

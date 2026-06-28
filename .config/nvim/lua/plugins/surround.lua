@@ -4,7 +4,6 @@ return {
         vim.g.nvim_surround_no_mappings = true;
     end,
     config = function()
-        vim.keymap.set("i", "<C-g>m", "<Plug>(nvim-surround-insert)")
         vim.keymap.set("n", "m", "<Plug>(nvim-surround-normal)")
         vim.keymap.set("x", "m", "<Plug>(nvim-surround-visual)")
         vim.keymap.set("n", "mm", "<Plug>(nvim-surround-normal-cur)")
