@@ -32,7 +32,6 @@ M.fileseek = function()
         on_input_filter_cb = function(prompt)
             local pieces = vim.split(prompt, "  ", { plain = true })
             local key = pieces[2]
-            -- vim.print(pieces[1])
             if key ~= last_key then
                 last_key = key
                 local dir

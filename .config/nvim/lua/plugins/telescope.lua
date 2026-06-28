@@ -21,7 +21,7 @@ return {
         })
         require('telescope').load_extension('fzf')
         local builtin = require "telescope.builtin"
-        local fileseek = require "custom.fileseek"
+        local fileseek = require "myscripts.fileseek"
 
         -- Key maps
         vim.keymap.set('n', '<leader>ff', fileseek.fileseek)
