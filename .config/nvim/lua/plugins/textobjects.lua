@@ -1,5 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     init = function() vim.g.no_plugin_maps = true end,
 
     config = function()
@@ -40,6 +41,6 @@ return {
         wot('c', "class")
         wot('m', "function")
         wot('a', "parameter")
-        wot('B', "block")
+        wot('b', "block")
     end,
 }
