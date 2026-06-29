@@ -2,9 +2,10 @@
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "tex" },
     callback = function()
-        vim.opt_local.spelllang = "en_us"
         vim.opt_local.spell = true
-        vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { buf = 0 })
+        vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[S1z=`]a<c-g>u", { buf = 0 })
+        -- vim.opt_local.spelllang = "en_us"
+        -- vim.opt_local.spellcapcheck = ""
     end,
 })
 

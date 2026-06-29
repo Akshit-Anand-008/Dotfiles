@@ -11,7 +11,6 @@ opt.cursorline = true     -- Highlight the line the cursor is on
 opt.signcolumn = "yes"    -- Always show the column for icons/errors
 opt.termguicolors = true  -- Enable 24-bit RGB colors
 opt.showmode = false      -- Hide mode text (e.g. -- INSERT --)
-opt.scrolloff = 5         -- Keep lines of context when scrolling
 opt.confirm = true        -- Confirm to save changes before exiting
 opt.mouse = ""            -- Disable mouse
 opt.splitright = true     -- Split on right instead of left

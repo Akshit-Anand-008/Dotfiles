@@ -11,7 +11,11 @@ return {
             if ls.expand_or_jumpable() then ls.expand_or_jump() end
         end, { silent = true })
         vim.keymap.set({ "i", "s" }, "<C-l>", function()
-            if ls.jumpable(-1) then ls.jump(-1) end
+            if ls.jumpable(-1) then
+                ls.jump(-1)
+            else
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, false, true), "n", false)
+            end
         end, { silent = true })
     end
 }
