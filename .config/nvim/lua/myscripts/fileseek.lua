@@ -35,7 +35,7 @@ M.fileseek = function()
             if key ~= last_key then
                 last_key = key
                 local dir
-                if key then
+                if key and key ~= "" and key ~= " " then
                     dir = resolve_path(key:sub(1, 1), #key, f_dir, f_cwd)
                     return {
                         prompt = pieces[1],
@@ -53,7 +53,7 @@ M.fileseek = function()
                     }
                 end
             end
-            return { prompt = pieces[1] or "" }
+            return { prompt = pieces[1] or prompt }
         end
     }):find()
 end

@@ -13,20 +13,8 @@ keymap('n', "<Esc>", function()
     vim.cmd.update()
 end)
 keymap('n', "<CR>", function()
-    if (vim.bo.buftype == "nofile") then
-        return "<CR>"
-    else
-        return "o<Esc>"
-    end
+    return (vim.bo.buftype == "nofile") and "<CR>" or "o<Esc>"
 end, { expr = true })
-
-keymap("n", "<leader>e", function()
-    if (vim.bo.filetype == "netrw") then
-        vim.cmd.bwipeout()
-    else
-        vim.cmd.Ex()
-    end
-end)
 
 keymap('n', "R", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('x', "R", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
@@ -51,11 +39,7 @@ keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR>", { silent = true })
 keymap('n', "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 keymap('n', "<leader>c", function()
-    if vim.fn.getqflist({ winid = 0 }).winid > 0 then
-        vim.cmd.cclose()
-    else
-        vim.cmd.copen()
-    end
+    if vim.fn.getqflist({ winid = 0 }).winid > 0 then vim.cmd.cclose() else vim.cmd.copen() end
 end, { desc = "Toggle Quickfix Window" })
 
 for _, gd in ipairs({ 'i', 'a' }) do
