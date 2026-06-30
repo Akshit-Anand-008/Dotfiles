@@ -19,6 +19,6 @@ return {
             vim.cmd.write()
             vim.cmd.RunCode()
         end)
-        vim.keymap.set("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>]], { remap = true })
+        vim.keymap.set("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>w]], { remap = true })
     end
 }
