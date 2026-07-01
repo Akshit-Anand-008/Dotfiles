@@ -2,20 +2,22 @@ local opt = vim.opt
 
 -- Global Variables
 vim.g.have_nerd_font = true -- Flag for plugins to use icons
+vim.g.loaded_netrw = 1      -- Disables netrw
 
 -- SECTION 1: Interface & UI
+opt.timeoutlen = 10000    -- Gives me more time to press keys
+opt.scrolloff = 3         -- Keep lines of context when scrolling
 opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Show relative line numbers for jumping
-opt.timeoutlen = 10000    -- Gives me more time to press keys
 opt.cursorline = true     -- Highlight the line the cursor is on
-opt.signcolumn = "yes"    -- Always show the column for icons/errors
 opt.termguicolors = true  -- Enable 24-bit RGB colors
-opt.showmode = false      -- Hide mode text (e.g. -- INSERT --)
-opt.scrolloff = 3         -- Keep lines of context when scrolling
 opt.confirm = true        -- Confirm to save changes before exiting
-opt.mouse = ""            -- Disable mouse
 opt.splitright = true     -- Split on right instead of left
 opt.splitbelow = true     -- Split on below instead of top
+opt.showmode = false      -- Hide mode text
+opt.signcolumn = "yes"    -- Always show the column for icons/errors
+opt.virtualedit = "block" -- Allows cursor to move anywhere in V-Block mode
+opt.mouse = ""            -- Disable mouse
 
 -- SECTION 2: Indentation & Tabs
 opt.expandtab = true   -- Use spaces instead of tabs
