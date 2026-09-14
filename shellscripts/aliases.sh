@@ -49,4 +49,5 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias gr='git remote'
 alias grv='git remote -v'
-alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short && echo && echo '--Branches--' && git branch"
+alias gl="git log --graph --oneline --date"
+# alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short && echo && echo '--Branches--' && git branch"
