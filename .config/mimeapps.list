@@ -1,0 +1,7 @@
+[Default Applications]
+video/mp4=mpv.desktop
+image/jpeg=org.pwmt.zathura.desktop
+image/png=org.pwmt.zathura.desktop
+
+; application/pdf=org.pwmt.zathura.desktop
+application/pdf=org.kde.okular.desktop

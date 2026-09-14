@@ -1,0 +1,30 @@
+[colors.primary]
+background = "#000000"
+[selection]
+save_to_clipboard = true
+[window]
+dynamic_padding = true
+opacity = 0.9
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
+
+[font]
+size = 16
+[font.normal]
+family = "JetBrainsMono NerdFont"
+style = "Regular"
+[font.bold]
+family = "JetBrainsMono NerdFont"
+style = "Bold"
+[font.italic]
+family = "JetBrainsMono NerdFont"
+style = "Italic"
+[font.bold_italic]
+family = "JetBrainsMono NerdFont"
+style = "Bold Italic"

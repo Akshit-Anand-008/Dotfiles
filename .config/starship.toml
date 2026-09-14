@@ -1,0 +1,24 @@
+format = """$hostname$directory$git_branch$git_commit$git_status$character"""
+add_newline = true
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style)"
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+style = "underline bold yellow"
+format = "[$path/]($style)"
+
+[git_branch]
+style = "purple"
+format = "[$branch]($style)"
+
+[git_commit]
+style = "purple"
+format = '[\($hash\)]($style)'
+
+[git_status]
+style = "red"
+format = '([\[$all_status$ahead_behind\]]($style))'

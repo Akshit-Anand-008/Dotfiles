@@ -1,0 +1,52 @@
+# -- UTILITIES --
+alias ..='cd ..'
+alias -- -='cd -'
+alias nrs='sudo nixos-rebuild switch --impure --flake'
+alias nc='sudo nix-collect-garbage -d'
+alias cl='clear && task'
+alias q='exit'
+alias v='nvim'
+alias c='clear'
+alias z='zathura'
+alias gdb='gdb --quiet'
+alias bc="bc --quiet"
+alias t='task'
+alias cat='bat'
+alias open='xdg-open'
+alias rm='rm -Iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+
+# --- SHORTCUTS ---
+alias szsh='source ~/.zshrc'
+alias czsh='nvim ~/.zshrc'
+alias cnvim='cd ~/.config/nvim/lua/'
+alias id="nvim $WIKI_PATH/index.md"
+alias td="nvim $WIKI_PATH/diary/diary.md -c VimwikiMakeDiaryNote"
+
+# --- GIT ---
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gcm='git commit -m'
+# alias gacm='git add --all && git commit -m'
+# alias gacmd='git add --all && git commit -m "Commit on $(date +%Y-%m-%d\ %H:%M)"'
+# alias gacmdp='git add --all && git commit -m "Commit on $(date +%Y-%m-%d\ %H:%M)" && git push'
+alias gcam='git commit -am'
+alias gcamd='git commit -am "Commit on $(date +%Y-%m-%d\ %H:%M)"'
+alias gps='git push'
+alias gpl='git pull'
+alias gf='git fetch'
+alias gm='git merge'
+alias gplr='git pull --rebase'
+alias gplnr='git pull --no-rebase'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gr='git remote'
+alias grv='git remote -v'
+alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short && echo && echo '--Branches--' && git branch"

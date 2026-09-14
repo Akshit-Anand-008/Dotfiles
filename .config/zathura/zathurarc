@@ -1,0 +1,19 @@
+set recolor true
+set selection-clipboard "clipboard"
+set adjust-open "width"
+set render-loading false
+set selection-notification false
+
+map i recolor
+
+map d scroll half-down
+map u scroll half-up
+
+map <Left> navigate previous
+map <Right> navigate next
+
+map p toggle_presentation
+map [presentation] p toggle_presentation
+
+map [presentation] k navigate previous
+map [presentation] j navigate next

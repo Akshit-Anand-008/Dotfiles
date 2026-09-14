@@ -1,0 +1,7 @@
+alias l='lsd -h1 --group-directories-first'
+alias ls='lsd --group-directories-first'
+alias ll='lsd -lh --group-directories-first --git'
+alias la='lsd -Ah1 --group-directories-first'
+alias lal='lsd -lAh --group-directories-first --git'
+alias tree='lsd --tree'
+alias tr='lsd --tree --level=2'
