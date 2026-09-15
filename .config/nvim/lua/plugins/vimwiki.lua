@@ -5,6 +5,7 @@ vim.g.vimwiki_list = { {
 } }
 vim.g.vimwiki_global_ext = 1 -- 0 treats only in wiki_path to be part of vimwiki
 vim.g.vimwiki_markdown_link_ext = 1
+vim.g.vimwiki_list_ignore_newline = 1
 vim.keymap.set('n', '<leader>W', '<cmd>VimwikiIndex 1<CR>', { silent = true })
 vim.keymap.set('n', '<leader>wi', '<cmd>VimwikiDiaryIndex 1<CR>', { silent = true })
 vim.keymap.set('n', '<leader>w<leader>w', '<cmd>VimwikiMakeDiaryNote 1<CR>', { silent = true })
