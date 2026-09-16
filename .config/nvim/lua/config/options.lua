@@ -49,15 +49,3 @@ vim.opt.listchars = {
     nbsp = "␣",
     -- eol = "↲"
 }
-
--- SECTION 6: Cursor Customization
-vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff" })
-vim.api.nvim_set_hl(0, "TerminalCursor", { bg = "#3ddbd9" })
-vim.opt.guicursor = {
-    "a:blinkon0",             -- Disable blinking
-    "n:block-Cursor",         -- Normal: White block
-    "t:block-TerminalCursor", -- Terminal: Blue
-    "v:block-VisualCursor",   -- Visual: Purple block
-    "i-c-ci:ver25-Cursor",    -- Insert: Thin vertical line
-    "r-cr-ve:hor20-Cursor",   -- Replace: Horizontal bar
-}

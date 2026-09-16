@@ -1,11 +1,7 @@
 require('nightfox').setup({
-    options = {
-        transparent = true,
-        -- styles = { keywords = "italic" }
-    },
+    options = { transparent = true },
     groups = {
         all = {
-            CursorLine = { bg = "NONE" },
             TelescopeSelection = { bg = "palette.sel0" },
             TelescopeSelectionCaret = { bg = "palette.sel0" },
         }
@@ -13,8 +9,16 @@ require('nightfox').setup({
 })
 vim.cmd.colorscheme("carbonfox")
 
--- require("tokyonight").setup({
---     transparent = true,
---     on_highlights = function(hl, c) hl.CursorLine = { bg = "NONE" } end
--- })
--- vim.cmd.colorscheme("tokyonight-storm")
+vim.api.nvim_set_hl(0, "Todo", { link = "Comment" })
+vim.api.nvim_set_hl(0, "Cursorline", { bg = "None" })
+vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#c099ff" })
+vim.api.nvim_set_hl(0, "NormalCursor", { bg = "#ffffff" })
+vim.api.nvim_set_hl(0, "TerminalCursor", { bg = "#3ddbd9" })
+vim.opt.guicursor = {
+    "a:blinkon0",             -- Disable blinking
+    "n:block-NormalCursor",   -- Normal: White block
+    "t:block-TerminalCursor", -- Terminal: Blue
+    "v:block-VisualCursor",   -- Visual: Purple block
+    "i-c-ci:ver25-Cursor",    -- Insert: Thin vertical line
+    "r-cr-ve:hor20-Cursor",   -- Replace: Horizontal bar
+}

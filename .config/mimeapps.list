@@ -2,6 +2,7 @@
 video/mp4=mpv.desktop
 image/jpeg=org.pwmt.zathura.desktop
 image/png=org.pwmt.zathura.desktop
+application/json=nvim
 
 ; application/pdf=org.pwmt.zathura.desktop
 application/pdf=org.kde.okular.desktop

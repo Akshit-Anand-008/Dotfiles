@@ -19,12 +19,12 @@ size = 16
 [font.normal]
 family = "JetBrainsMono NerdFont"
 style = "Regular"
-[font.bold]
-family = "JetBrainsMono NerdFont"
-style = "Bold"
 [font.italic]
 family = "JetBrainsMono NerdFont"
 style = "Italic"
+[font.bold]
+family = "JetBrainsMono NerdFont"
+style = "Bold"
 [font.bold_italic]
 family = "JetBrainsMono NerdFont"
 style = "Bold Italic"
