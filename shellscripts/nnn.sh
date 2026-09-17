@@ -1,9 +1,12 @@
-export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_PLUG='f:fzopen;d:fzcd'
+export NNN_PLUG='f:fzopen;d:fzcd;o:fzf-launcher'
 export NNN_OPTS="Aeu"
-export NNN_OPENER='/home/akshit/.config/nnn/plugins/nuke'
 
-n() {
+# export NNN_OPENER='/home/akshit/.config/nnn/plugins/nuke'
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_SEL='/tmp/.sel'
+export NNN_TMPFILE='/tmp/.lastd'
+
+function n() {
     if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
         echo "nnn is already running"
         return

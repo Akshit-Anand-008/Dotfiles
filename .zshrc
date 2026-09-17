@@ -24,5 +24,5 @@ setopt HIST_REDUCE_BLANKS
 
 # Others
 source ~/shellscripts/init.sh
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 task
