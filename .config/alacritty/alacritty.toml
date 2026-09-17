@@ -13,6 +13,10 @@ action = "Paste"
 [[keyboard.bindings]]
 key = "F11"
 action = "ToggleFullscreen"
+[[keyboard.bindings]]
+key = "Space"
+mods = "Control"
+action = "ToggleViMode"
 
 [font]
 size = 16
