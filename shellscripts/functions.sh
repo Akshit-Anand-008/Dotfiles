@@ -65,7 +65,7 @@ f() {
 
 d() {
     local dir
-    dir=$(fd --type directory --search-path "$HOME" | fzf)
+    dir=$(fd --type directory --base-directory "$HOME" | fzf)
     [[ -d "$dir" ]] && cd "$dir"
 }
 

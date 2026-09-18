@@ -108,7 +108,7 @@
                     "showApplicationsHover": false,
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
-                    "unfocusedIconsOpacity": 1
+                    "unfocusedIconsOpacity": 0.75
                 },
                 {
                     "colorizeIcons": false,
