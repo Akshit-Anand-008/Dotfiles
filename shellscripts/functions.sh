@@ -37,30 +37,16 @@ fw() {
     [[ -f "$file" ]] && nvim "$file"
 }
 
-myopen(){
-    local file="$1"
-    local mime
-    mime=$(file -biL "$file")
-    case "$mime" in
-        *text*|*empty*|application/json|application/xml)
-            "${VISUAL:-nvim}" "$file"
-            ;;
-        *)
-            xdg-open "$file" &>/dev/null &
-            ;;
-    esac
-}
-
 fh() {
     local file
     file=$(fd --type file --search-path "$HOME" | fzf)
-    [[ -f "$file" ]] && myopen "$file"
+    [[ -f "$file" ]] && "$NNN_OPENER" "$file"
 }
 
 f() {
     local file
     file=$(fd --type file | fzf) || return
-    [[ -f "$file" ]] && myopen "$file"
+    [[ -f "$file" ]] && "$NNN_OPENER"  "$file"
 }
 
 d() {
@@ -69,14 +55,14 @@ d() {
     [[ -d "$dir" ]] && cd "$dir"
 }
 
-ctrlf(){
-    local arg
-    arg=$(fd -d 1 | fzf)
-    [[ -e "$arg" ]] && LBUFFER="${LBUFFER}${(q)arg} "
-}
+# ctrlf(){
+#     local arg
+#     arg=$(fd -d 1 | fzf)
+#     [[ -e "$arg" ]] && LBUFFER="${LBUFFER}${(q)arg} "
+# }
 
-my_zvm_bindkeys() {
-    zvm_define_widget ctrlf
-    zvm_bindkey viins '^F' ctrlf
-}
-zvm_after_init_commands+=(my_zvm_bindkeys)
+# my_zvm_bindkeys() {
+#     zvm_define_widget ctrlf
+#     zvm_bindkey viins '^F' ctrlf
+# }
+# zvm_after_init_commands+=(my_zvm_bindkeys)
