@@ -18,6 +18,7 @@ set wildmode=longest:full,full
 set background=dark
 set cursorline
 colorscheme catppuccin
+hi! Normal ctermbg=NONE guibg=NONE
 
 set ignorecase
 set smartcase
