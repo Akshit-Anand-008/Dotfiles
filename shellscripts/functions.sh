@@ -52,17 +52,9 @@ f() {
 d() {
     local dir
     dir=$(fd --type directory --base-directory "$HOME" | fzf)
+    dir="$HOME/$dir"
     [[ -d "$dir" ]] && cd "$dir"
 }
 
-ctrlf(){
-    local arg
-    arg=$(fd | fzf)
-    [[ -e "$arg" ]] && LBUFFER="${LBUFFER}${(q)arg} "
-}
-
-my_zvm_bindkeys() {
-    zvm_define_widget ctrlf
-    zvm_bindkey viins '^F' ctrlf
-}
-zvm_after_init_commands+=(my_zvm_bindkeys)
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
