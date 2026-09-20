@@ -51,10 +51,10 @@ f() {
 
 d() {
     local dir
-    dir=$(fd --type directory --base-directory "$HOME" | fzf)
+    dir=$(fd --type directory --base-directory "$HOME" | fzf) || return
     dir="$HOME/$dir"
     [[ -d "$dir" ]] && cd "$dir"
 }
 
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_DEFAULT_COMMAND='fd'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
