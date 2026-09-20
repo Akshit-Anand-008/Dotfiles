@@ -55,14 +55,14 @@ d() {
     [[ -d "$dir" ]] && cd "$dir"
 }
 
-# ctrlf(){
-#     local arg
-#     arg=$(fd -d 1 | fzf)
-#     [[ -e "$arg" ]] && LBUFFER="${LBUFFER}${(q)arg} "
-# }
+ctrlf(){
+    local arg
+    arg=$(fd | fzf)
+    [[ -e "$arg" ]] && LBUFFER="${LBUFFER}${(q)arg} "
+}
 
-# my_zvm_bindkeys() {
-#     zvm_define_widget ctrlf
-#     zvm_bindkey viins '^F' ctrlf
-# }
-# zvm_after_init_commands+=(my_zvm_bindkeys)
+my_zvm_bindkeys() {
+    zvm_define_widget ctrlf
+    zvm_bindkey viins '^F' ctrlf
+}
+zvm_after_init_commands+=(my_zvm_bindkeys)
