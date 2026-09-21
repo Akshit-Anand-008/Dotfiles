@@ -1,4 +1,4 @@
-export NNN_PLUG='f:fzopen;d:fzcd;o:fzf-launcher;x:togglex;e:editall'
+export NNN_PLUG='s:fzplug;f:fzopen;d:fzcd;x:togglex;o:fzf-launcher'
 export NNN_BMS='d:~/Downloads/'
 export NNN_OPTS="Aeu"
 
