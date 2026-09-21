@@ -38,6 +38,7 @@ end
 
 -- SECTION 4: File Handling & Performance
 vim.opt.undofile = true           -- Save undo history to a file
+vim.opt.swapfile = false          -- Do not create swap file
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
 -- SECTION 5: Formatting & Visuals
