@@ -1,4 +1,4 @@
-"> options
+" options
 syntax on
 set nocompatible
 set encoding=utf-8

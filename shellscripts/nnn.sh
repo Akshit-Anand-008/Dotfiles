@@ -1,8 +1,8 @@
-export NNN_PLUG='s:fzplug;f:fzopen;d:fzcd;x:togglex;o:fzf-launcher'
-export NNN_BMS='d:~/Downloads/'
-export NNN_OPTS="Aeu"
+export NNN_PLUG='s:fzplug;e:myopen;f:fzopen;d:fzcd;x:togglex;o:fzf-launcher'
+export NNN_BMS="d:$HOME/Downloads/"
+export NNN_OPTS="QAeu"
+export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
 
-export NNN_OPENER='/home/akshit/.config/nnn/plugins/nuke'
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_SEL='/tmp/.sel'
 export NNN_TMPFILE='/tmp/.lastd'

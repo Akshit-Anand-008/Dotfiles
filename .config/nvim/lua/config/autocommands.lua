@@ -65,7 +65,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function() vim.highlight.on_yank() end,
 })
 
---Force options
-vim.api.nvim_create_autocmd("FileType", {
-    callback = function() vim.opt_local.formatoptions:remove("o") end,
+-- Force options
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "*" },
+    callback = function()
+        vim.opt.formatoptions = {
+            t = true, c = true, r = true, o = false, q = true, ["]"] = true, j = true,
+        }
+    end
 })

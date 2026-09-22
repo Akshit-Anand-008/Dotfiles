@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+text_files=()
+other_files=()
+
+# Function to categorize files by MIME type
+categorize_file() {
+    local f="$1"
+    case $(file --mime-type -Lb "$f") in
+        text/*) text_files+=("$f") ;;
+        *) other_files+=("$f") ;;
+    esac
+}
+
+# 1. Check if there is an active selection
+if [ -s "$NNN_SEL" ]; then
+    # Read the null-separated selection file
+    # The || [ -n "$f" ] catches the final file before EOF
+    while IFS= read -r -d $'\0' f || [ -n "$f" ]; do
+        [ -n "$f" ] && categorize_file "$f"
+    done < "$NNN_SEL"
+elif [ -n "$1" ]; then
+    # Fallback to the currently hovered file if nothing is selected
+    categorize_file "$1"
+else
+    exit 0
+fi
+
+# 2. Open non-text files asynchronously in the background
+for f in "${other_files[@]}"; do
+    ${OPENER:-xdg-open} "$f" > /dev/null 2>&1 &
+done
+
+# 3. Open all text files in a single editor instance
+if [ ${#text_files[@]} -gt 0 ]; then
+    ${EDITOR:-vi} "${text_files[@]}"
+fi

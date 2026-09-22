@@ -11,7 +11,6 @@ vim.opt.splitbelow = true     -- Split on below instead of top
 vim.opt.showmode = false      -- Hide mode text
 vim.opt.signcolumn = "yes"    -- Always show the column for icons/errors
 vim.opt.virtualedit = "block" -- Allows cursor to move anywhere in V-Block mode
--- vim.opt.mouse = ""            -- Disable mouse
 vim.opt.textwidth = 0
 
 -- SECTION 2: Indentation & Tabs
@@ -41,9 +40,8 @@ vim.opt.undofile = true           -- Save undo history to a file
 vim.opt.swapfile = false          -- Do not create swap file
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
--- SECTION 5: Formatting & Visuals
-vim.opt.formatoptions = "jqlrntc" -- Modern text wrapping/formatting logic
-vim.opt.list = true               -- Show invisible characters
+-- SECTION 5: Visuals
+vim.opt.list = true -- Show invisible characters
 vim.opt.listchars = {
     tab = "» ",
     trail = "·",
