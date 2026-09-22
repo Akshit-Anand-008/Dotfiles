@@ -1,8 +1,10 @@
-" options
+"> options
 syntax on
 set nocompatible
 set encoding=utf-8
 set hidden
+set undofile
+set noswapfile
 set clipboard=unnamedplus
 set scrolloff=4
 
@@ -35,8 +37,8 @@ set ttimeoutlen=1
 set ttyfast
 
 " keybinds
-nnoremap <S-l> :bn<CR>
-nnoremap <S-h> :bp<CR>
-nnoremap <S-m> :b#<CR>
+nnoremap L :bn<CR>
+nnoremap P :bp<CR>
+nnoremap M :b#<CR>
 nnoremap <Esc> :update<Cr>
 nnoremap <CR> o<Esc>

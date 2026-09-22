@@ -19,6 +19,13 @@ keymap('n', "<CR>", function()
     return (vim.bo.buftype == "nofile") and "<CR>" or "o<Esc>"
 end, { expr = true })
 
+keymap({ 'n', 'x' }, "j", function()
+    return vim.v.count > 1 and "m'" .. vim.v.count .. "j" or "j"
+end, { expr = true })
+keymap({ 'n', 'x' }, "k", function()
+    return vim.v.count > 1 and "m'" .. vim.v.count .. "k" or "k"
+end, { expr = true })
+
 keymap('n', "R", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('n', "<C-S-r>", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('x', "R", [[y:s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
@@ -34,9 +41,9 @@ keymap({ 'n', 'x', 'o' }, '-', 'g_')
 keymap('x', "<", "<gv")
 keymap('x', ">", ">gv")
 
-keymap('n', "<S-l>", vim.cmd.bnext)
-keymap('n', "<S-h>", vim.cmd.bprev)
-keymap('n', "<S-m>", "<cmd>b#<CR>")
+keymap('n', "L", vim.cmd.bnext)
+keymap('n', "H", vim.cmd.bprev)
+keymap('n', "M", "<cmd>b#<CR>")
 
 keymap({ 'x', 'o' }, 'il', ":<C-u>normal! ^vg_<CR>", { silent = true })
 keymap({ 'x', 'o' }, 'ig', ":<C-u>normal! ggVG<CR>", { silent = true })
