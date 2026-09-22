@@ -8,6 +8,7 @@ alias q='exit'
 alias v='nvim'
 alias c='clear'
 alias z='zathura'
+alias a='alacritty --working-directory="$PWD" &'
 alias gdb='gdb --quiet'
 alias bc="bc --quiet"
 alias t='task'

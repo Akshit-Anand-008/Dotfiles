@@ -1,6 +1,6 @@
 export NNN_PLUG='s:fzplug;e:myopen;f:fzopen;d:fzcd;x:togglex;o:fzf-launcher'
 export NNN_BMS="d:$HOME/Downloads/"
-export NNN_OPTS="QAeu"
+export NNN_OPTS="QAEeu"
 export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
 
 export NNN_FIFO='/tmp/nnn.fifo'
