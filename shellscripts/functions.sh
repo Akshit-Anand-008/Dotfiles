@@ -11,13 +11,13 @@ jot() {
 
 fw() {
     local file
-    file=$(fd --type file --search-path "$WIKI_PATH" | fzf)
+    file=$(fd --type file --search-path "$WIKI_PATH" | fzf) || return
     [[ -f "$file" ]] && nvim "$file"
 }
 
 fh() {
     local file
-    file=$(fd --type file --search-path "$HOME" | fzf)
+    file=$(fd --type file --search-path "$HOME" | fzf) || return
     [[ -f "$file" ]] && "$NNN_OPENER" "$file"
 }
 
