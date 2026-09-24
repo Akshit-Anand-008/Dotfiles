@@ -5,6 +5,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.spelllang = "en_us"
         vim.opt_local.spell = true
         vim.opt_local.spellcapcheck = ""
+        vim.opt_local.linebreak = true
+        vim.opt_local.conceallevel = 1
         vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { buf = 0 })
         vim.keymap.set({ "n", "x" }, "j", "gj", { buf = 0 })
         vim.keymap.set({ "n", "x" }, "k", "gk", { buf = 0 })

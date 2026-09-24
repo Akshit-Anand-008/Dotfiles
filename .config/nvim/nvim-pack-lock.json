@@ -28,10 +28,6 @@
       "rev": "247b2c731bf4b2c01410a08747b3fa08c3033517",
       "src": "https://github.com/jakobkhansen/journal.nvim"
     },
-    "kiwi.nvim": {
-      "rev": "61e86fc29365e32b44c2914a2b10c90d04a3b22e",
-      "src": "https://github.com/serenevoid/kiwi.nvim.git"
-    },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -79,10 +75,6 @@
     "vimtex": {
       "rev": "a5949d2800c1866c878956d49c51fc8d003c6b99",
       "src": "https://github.com/lervag/vimtex"
-    },
-    "vimwiki": {
-      "rev": "a54a3002e229c4b43d69ced170ff77663a5b2c40",
-      "src": "https://github.com/vimwiki/vimwiki"
     }
   }
 }

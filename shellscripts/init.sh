@@ -10,7 +10,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="nvim +Man!"
 export NB_DIR="$HOME/NoteBooks"
-export WIKI_PATH="$NB_DIR/Wiki"
 export DIARY_PATH="$NB_DIR/Diary"
 export PS1=$'\n%B%U%F{yellow}%~/%f%u%b '
 
