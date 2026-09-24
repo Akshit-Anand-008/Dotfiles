@@ -15,13 +15,14 @@ vim.pack.add({
     'https://github.com/mbbill/undotree',
     'https://github.com/CRAG666/code_runner.nvim',
     'https://github.com/folke/flash.nvim',
-    'https://github.com/vimwiki/vimwiki',
     'https://github.com/lervag/vimtex',
     'https://github.com/L3MON4D3/LuaSnip',
+    'https://github.com/jakobkhansen/journal.nvim',
 })
 
 require "nvim-autopairs".setup()
 require "ibl".setup({ indent = { char = "▏" } })
+require "journal".setup({ root = vim.fn.expand("$DIARY_PATH") })
 require "plugins.theme"
 require "plugins.surround"
 require "plugins.auto-sessions"
@@ -32,5 +33,4 @@ require "plugins.textobjects"
 require "plugins.lualine"
 require "plugins.telescope"
 require "plugins.luasnip"
-require "plugins.vimwiki"
 require "plugins.vimtex"

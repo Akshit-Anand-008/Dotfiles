@@ -20,29 +20,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- Tab key default behaviour for some files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "nix" },
-    callback = function()
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-    end,
-})
-
---Auto loading templates
-vim.api.nvim_create_autocmd("BufNewFile", {
-    callback = function()
-        local ext = vim.fn.expand("%:e")
-        local snippet = vim.fn.expand("~/Templates/template." .. ext)
-        if vim.fn.filereadable(snippet) == 1 then
-            vim.cmd("0r " .. snippet)
-            vim.cmd("normal! G")
-            vim.cmd('normal! "_dd')
-        end
-    end,
-})
-
 -- Calling treesitter
 vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)

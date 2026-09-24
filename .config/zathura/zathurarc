@@ -12,8 +12,13 @@ map u scroll half-up
 map <Left> navigate previous
 map <Right> navigate next
 
+map h navigate previous
+map l navigate next
+
 map p toggle_presentation
 map [presentation] p toggle_presentation
 
 map [presentation] k navigate previous
 map [presentation] j navigate next
+map [presentation] h navigate previous
+map [presentation] l navigate next

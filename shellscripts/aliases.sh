@@ -11,6 +11,7 @@ alias z='zathura'
 alias s='setsid alacritty --working-directory="$PWD" >/dev/null 2>&1 & disown'
 alias gdb='gdb --quiet'
 alias bc="bc --quiet"
+alias t='task'
 alias cat='bat'
 alias rm='rm -Iv'
 alias cp='cp -iv'
