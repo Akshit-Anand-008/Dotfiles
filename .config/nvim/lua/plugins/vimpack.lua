@@ -20,17 +20,17 @@ vim.pack.add({
     'https://github.com/jakobkhansen/journal.nvim',
 })
 
-require "nvim-autopairs".setup()
+require "nvim-autopairs".setup({})
 require "ibl".setup({ indent = { char = "▏" } })
-require "journal".setup({ root = vim.fn.expand("$DIARY_PATH") })
-require "plugins.theme"
-require "plugins.surround"
 require "plugins.auto-sessions"
 require "plugins.coderunner"
-require "plugins.undotree"
 require "plugins.flash"
-require "plugins.textobjects"
+require "plugins.journal"
 require "plugins.lualine"
-require "plugins.telescope"
 require "plugins.luasnip"
+require "plugins.surround"
+require "plugins.telescope"
+require "plugins.textobjects"
+require "plugins.theme"
+require "plugins.undotree"
 require "plugins.vimtex"

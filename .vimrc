@@ -1,40 +1,20 @@
 " options
-syntax on
 set nocompatible
 set encoding=utf-8
-set hidden
-set undofile
-set noswapfile
 set clipboard=unnamedplus
-set scrolloff=4
-
-set splitbelow
-set splitright
-
-set number
-set relativenumber
-
-set wildmenu
-set wildmode=longest:full,full
-
+syntax on
+set number relativenumber
 set background=dark
-set cursorline
 colorscheme catppuccin
 hi! Normal ctermbg=NONE guibg=NONE
-
-set ignorecase
-set smartcase
-set incsearch
-
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set autoindent
-set smartindent
-
-set ttimeout
-set ttimeoutlen=1
-set ttyfast
+set hidden undofile noswapfile
+set splitbelow splitright
+set wildmenu wildmode=longest:full,full
+set cursorline scrolloff=4
+set ignorecase smartcase incsearch
+set shiftwidth=4 tabstop=4 softtabstop=4
+set autoindent smartindent
+set ttimeout ttimeoutlen=1
 
 " keybinds
 nnoremap L :bn<CR>
