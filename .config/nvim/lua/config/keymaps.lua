@@ -3,8 +3,6 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
-keymap({ 'n', 'x' }, "<Tab>", "<Nop>")
-keymap('n', "<C-i>", "<C-i>")
 keymap('t', "<C-w>", [[<C-\><C-n>]])
 keymap('i', "<C-c>", "<Esc>")
 keymap('n', "<C-c>", "<cmd>bp|bd #<CR>")
