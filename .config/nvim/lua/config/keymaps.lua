@@ -3,10 +3,11 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
-keymap('t', "<C-x>", [[<C-\><C-n>]])
+keymap('t', "<C-q>", [[<C-\><C-n>]])
 keymap('i', "<C-c>", "<Esc>")
 keymap('i', "<C-l>", "<right>")
-keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.wqall)
+keymap({ 'n', 'i', 'x' }, "<C-x>", vim.cmd.wqall)
+keymap({ 'n', 'i' }, "<C-z>", vim.cmd.undo)
 keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
     vim.cmd.update()
