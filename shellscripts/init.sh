@@ -29,4 +29,4 @@ source ~/shellscripts/lsaliases.sh
 # Other
 zvm_after_init_commands+=('source <(fzf --zsh)')
 eval "$(starship init zsh)"
-# task
+task

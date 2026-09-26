@@ -1,12 +1,6 @@
-vim.api.nvim_create_user_command("Q",
-    function()
-        vim.cmd("wqa")
-    end, {}
-)
-
 vim.api.nvim_create_user_command("R",
     function()
-        vim.cmd("wa")
+        vim.cmd.wall()
         vim.cmd.restart()
     end, {}
 )
@@ -29,7 +23,3 @@ vim.api.nvim_create_user_command("L",
         vim.fn.winrestview(view)
     end, {}
 )
-
-vim.api.nvim_create_user_command("Preview", function()
-    vim.cmd("vsplit | terminal glow -p " .. vim.fn.shellescape(vim.fn.expand("%:p")))
-end, { desc = "Preview markdown with glow" })

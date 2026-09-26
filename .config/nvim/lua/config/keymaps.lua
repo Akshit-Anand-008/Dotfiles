@@ -3,10 +3,10 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
-keymap('t', "<C-w>", [[<C-\><C-n>]])
+keymap('t', "<C-x>", [[<C-\><C-n>]])
 keymap('i', "<C-c>", "<Esc>")
-keymap('n', "<C-c>", "<cmd>bp|bd #<CR>")
 keymap('i', "<C-l>", "<right>")
+keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.wqall)
 keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
     vim.cmd.update()
@@ -71,3 +71,26 @@ local function smart_print()
     return templates[ft] and ("<C-g>u" .. templates[ft]) or ""
 end
 keymap('i', "<C-j>", smart_print, { expr = true })
+
+-- Closing buffers in a smart way
+keymap("n", "<C-c>", function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    local listed_buffers = vim.tbl_filter(
+        function(bufnr) return vim.bo[bufnr].buflisted end,
+        vim.api.nvim_list_bufs()
+    )
+    local buf_count = #listed_buffers
+    vim.cmd.wall()
+    if vim.bo.filetype == "help" then
+        vim.cmd.close()
+    elseif buf_count <= 1 then
+        if (#vim.fn.win_findbuf(current_buf) > 1) then
+            vim.cmd.close()
+        else
+            vim.cmd.quit()
+        end
+    else
+        vim.cmd.bprevious()
+        vim.cmd("bdelete " .. current_buf)
+    end
+end)

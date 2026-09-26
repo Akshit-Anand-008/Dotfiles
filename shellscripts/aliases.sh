@@ -17,8 +17,6 @@ alias rm='rm -Iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
-alias id="nvim $WIKI_PATH/index.md"
-alias td="nvim $DIARY_PATH/index.md -c Journal"
 
 # --- GIT ---
 alias gs='git status'

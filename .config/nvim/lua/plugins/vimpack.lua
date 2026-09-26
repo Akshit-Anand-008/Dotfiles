@@ -21,8 +21,8 @@ vim.pack.add({
 })
 
 require "plugins.theme"
+require "nvim-autopairs".setup()
 require "ibl".setup({ indent = { char = "▏" } })
-require "nvim-autopairs".setup({})
 require "plugins.lualine"
 require "plugins.undotree"
 require "plugins.auto-sessions"
