@@ -4,7 +4,7 @@ mkcd() {
 
 jot() {
     local target
-    target="$WIKI_PATH/jotted.md"
+    target="$NB_DIR/jotted.md"
     mkdir -p "$(dirname "$target")"
     echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
 }
