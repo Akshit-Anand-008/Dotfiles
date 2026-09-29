@@ -18,12 +18,14 @@ vim.pack.add({
     'https://github.com/lervag/vimtex',
     'https://github.com/L3MON4D3/LuaSnip',
     'https://github.com/jakobkhansen/journal.nvim',
+    'https://github.com/nvim-mini/mini.statusline'
 })
 
 require "plugins.theme"
+require "plugins.statusline"
+-- require "plugins.lualine"
 require "nvim-autopairs".setup()
 require "ibl".setup({ indent = { char = "▏" } })
-require "plugins.lualine"
 require "plugins.undotree"
 require "plugins.auto-sessions"
 require "plugins.surround"
