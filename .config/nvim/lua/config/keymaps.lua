@@ -84,14 +84,8 @@ keymap("n", "<C-c>", function()
     vim.cmd.wall()
     if vim.bo.filetype == "help" then
         vim.cmd.close()
-    elseif buf_count <= 1 then
-        if (#vim.fn.win_findbuf(current_buf) > 1) then
-            vim.cmd.close()
-        else
-            vim.cmd.quit()
-        end
     else
-        vim.cmd.bprevious()
+        if buf_count > 1 then vim.cmd.bprevious() end
         vim.cmd("bdelete " .. current_buf)
     end
 end)
