@@ -7,7 +7,6 @@ vim.pack.add({
     'https://github.com/nvim-telescope/telescope.nvim',
     'https://github.com/kylechui/nvim-surround',
     'https://github.com/rmagatti/auto-session',
-    'https://github.com/nvim-lualine/lualine.nvim',
     'https://github.com/lewis6991/gitsigns.nvim',
     'https://github.com/HiPhish/rainbow-delimiters.nvim',
     'https://github.com/windwp/nvim-autopairs',
@@ -23,7 +22,6 @@ vim.pack.add({
 
 require "plugins.theme"
 require "plugins.statusline"
--- require "plugins.lualine"
 require "nvim-autopairs".setup()
 require "ibl".setup({ indent = { char = "▏" } })
 require "plugins.undotree"
