@@ -14,13 +14,12 @@ mile.active = function()
 
     return mile.combine_groups({
         { hl = mode_hl,                  strings = { mode } },
-        '%<',
         { hl = 'MiniStatuslineFileinfo', strings = { '%f' } },
-        { hl = 'MiniStatuslineFilename', strings = { get_cwd() } },
         '%<',
+        { hl = 'MiniStatuslineFilename', strings = { get_cwd() } },
         '%=',
         { strings = { diagnostics } },
         { strings = { '%y' } },
-        { hl = mode_hl,             strings = { '%p%%', '|', '%l:%c' } },
+        { hl = mode_hl, strings = { '%P', '│', '%l:%c' } },
     })
 end
