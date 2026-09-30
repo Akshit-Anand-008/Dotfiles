@@ -18,6 +18,7 @@ vim.pack.add({
     'https://github.com/L3MON4D3/LuaSnip',
     'https://github.com/jakobkhansen/journal.nvim',
     'https://github.com/nvim-mini/mini.statusline',
+    'https://github.com/nvim-mini/mini.bufremove'
 })
 
 require "plugins.theme"

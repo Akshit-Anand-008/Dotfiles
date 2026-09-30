@@ -7,7 +7,7 @@ keymap({ 'n', 'x' }, "x", '"_x')
 keymap('t', "<C-q>", [[<C-\><C-n>]])
 keymap('i', "<C-c>", "<Esc>")
 keymap('i', "<C-l>", "<right>")
-keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.wqall)
+keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.qall)
 keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
     vim.cmd.update()
@@ -73,19 +73,11 @@ local function smart_print()
 end
 keymap('i', "<C-j>", smart_print, { expr = true })
 
--- Closing buffers in a smart way
 keymap("n", "<C-c>", function()
-    local current_buf = vim.api.nvim_get_current_buf()
-    local listed_buffers = vim.tbl_filter(
-        function(bufnr) return vim.bo[bufnr].buflisted end,
-        vim.api.nvim_list_bufs()
-    )
-    local buf_count = #listed_buffers
     vim.cmd.wall()
     if vim.bo.filetype == "help" then
         vim.cmd.close()
     else
-        if buf_count > 1 then vim.cmd.bprevious() end
-        vim.cmd("bdelete " .. current_buf)
+        require("mini.bufremove").delete()
     end
 end)
