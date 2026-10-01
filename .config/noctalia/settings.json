@@ -329,7 +329,8 @@
         "iRadiusRatio": 1,
         "keybinds": {
             "keyDown": [
-                "Down"
+                "Down",
+                "Ctrl+J"
             ],
             "keyEnter": [
                 "Return",
@@ -348,7 +349,8 @@
                 "Right"
             ],
             "keyUp": [
-                "Up"
+                "Up",
+                "Ctrl+K"
             ]
         },
         "language": "",

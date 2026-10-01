@@ -102,8 +102,8 @@ binds {
     Mod+Space repeat=false   { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+C repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+W repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
-    // Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/first.sh"; }
-    Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/fmenuinit"; }
+    Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/first.sh"; }
+    // Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/fmenuinit"; }
     Mod+P repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
 
     Mod+X repeat=false       { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }

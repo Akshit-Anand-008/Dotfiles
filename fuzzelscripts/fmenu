@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export CUR_WIFI=$(nmcli -t -f TYPE,NAME con show --active | grep -v 'lo' | head -n 1 | cut -d: -f2-)
+export CUR_WIFI=$(nmcli -t -f TYPE,NAME con show --active | rg -vw 'lo' | head -n 1 | cut -d: -f2-)
 prompt_label="${CUR_WIFI:-Disconnected}"
 wifi="WIFI [$prompt_label]"
 
