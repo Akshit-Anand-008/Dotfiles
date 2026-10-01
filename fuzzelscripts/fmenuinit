@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+alacritty --class="fmenu" --config-file="$HOME/.config/alacritty/launcher.toml" -e "$HOME/fuzzelscripts/fmenu"

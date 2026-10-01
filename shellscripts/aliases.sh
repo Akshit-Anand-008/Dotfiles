@@ -8,7 +8,7 @@ alias q='exit'
 alias v='nvim'
 alias c='clear'
 alias z='zathura'
-alias s='setsid alacritty --working-directory="$PWD" >/dev/null 2>&1 & disown'
+alias s='setsid -f alacritty --working-directory="$PWD" >/dev/null 2>&1'
 alias gdb='gdb --quiet'
 alias bc="bc --quiet"
 alias t='task'

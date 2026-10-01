@@ -1,6 +1,9 @@
 local picker = require "fzf-lua"
 picker.setup({
-    fzf_opts = { ["--layout"] = "default" },
+    fzf_opts = {
+        ["--layout"] = "default",
+        ["--cycle"] = true
+    },
     files    = { hidden = false },
     winopts  = {
         fullscreen = true,
@@ -19,6 +22,7 @@ vim.keymap.set('n', '<leader>fh', picker.help_tags)
 vim.keymap.set('n', '<leader>fr', picker.oldfiles)
 vim.keymap.set('n', '<leader>fm', picker.marks)
 vim.keymap.set('n', '<leader>s', picker.lsp_document_symbols)
-vim.keymap.set('n', '<leader>fd', picker.builtin)
 vim.keymap.set('n', '<leader>ff', picker.files)
-vim.keymap.set('n', '<leader><space>', picker.files)
+vim.keymap.set('n', '<leader>fw', function() picker.files({ cwd = "$NB_DIR" }) end)
+vim.keymap.set('n', '<leader>fd', function() picker.files({ cwd = "$HOME" }) end)
+vim.keymap.set('n', '<leader><space>', picker.builtin)

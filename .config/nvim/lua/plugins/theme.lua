@@ -1,12 +1,4 @@
-require('nightfox').setup({
-    options = { transparent = true },
-    groups = {
-        all = {
-            TelescopeSelection = { bg = "palette.sel0" },
-            TelescopeSelectionCaret = { bg = "palette.sel0" },
-        }
-    }
-})
+require('nightfox').setup({ options = { transparent = true }, })
 vim.cmd.colorscheme("carbonfox")
 
 vim.api.nvim_set_hl(0, "Todo", { link = "Comment" })

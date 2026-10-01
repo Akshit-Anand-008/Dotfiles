@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+export CUR_WIFI=$(nmcli -t -f TYPE,NAME con show --active | grep -v 'lo' | head -n 1 | cut -d: -f2-)
+prompt_label="${CUR_WIFI:-Disconnected}"
+wifi="WIFI [$prompt_label]"
+
+selection=$(printf '%s\n' "$wifi" "Calculator" "Find" | fzf --cycle) || exit 0;
+
+case "$selection" in
+    "Calculator")
+    exec fend ;;
+
+    "$wifi")
+    nmcli radio wifi on;
+    exec "$HOME/fuzzelscripts/wifi.sh" ;;
+
+    "Find")
+    ans=$(fd -t f -C "$HOME" | fuzzel --dmenu) || exit 0
+    # setsid -f "${NNN_OPENER:-xdg-open}" "$ans" >/dev/null 2>&1;;
+    "${NNN_OPENER:-xdg-open}" "$ans" ;;
+    *)
+    exit 0 ;;
+esac
