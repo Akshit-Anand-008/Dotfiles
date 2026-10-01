@@ -6,6 +6,18 @@ wifi="WIFI [$prompt_label]"
 
 selection=$(printf '%s\n' "$wifi" "Calculator" "Find" | fzf --cycle) || exit 0;
 
+myopen(){
+    local file="$1"
+    local mime
+    mime=$(file -biL "$file")
+    case "$mime" in
+        *text*|*empty*|application/json|application/xml)
+            setsid -f alacritty -e "${VISUAL:-nvim}" "$file" >/dev/null 2>&1;;
+        *)
+            setsid -f xdg-open "$file" >/dev/null 2>&1;;
+    esac
+}
+
 case "$selection" in
     "Calculator")
     exec fend ;;
@@ -15,9 +27,9 @@ case "$selection" in
     exec "$HOME/fuzzelscripts/wifi.sh" ;;
 
     "Find")
-    ans=$(fd -t f -C "$HOME" | fuzzel --dmenu) || exit 0
+    ans=$(fd -t f -C "$HOME" | fzf --cycle) || exit 0
     # setsid -f "${NNN_OPENER:-xdg-open}" "$ans" >/dev/null 2>&1;;
-    "${NNN_OPENER:-xdg-open}" "$ans" ;;
+    myopen "$ans" ;;
     *)
     exit 0 ;;
 esac
