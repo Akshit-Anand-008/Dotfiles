@@ -3,11 +3,12 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
+keymap('n', "<C-i>", "<C-i>")
 keymap({ 'n', 'x' }, "x", '"_x')
 keymap('t', "<C-q>", [[<C-\><C-n>]])
 keymap('i', "<C-c>", "<Esc>")
 keymap('i', "<C-l>", "<right>")
-keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.qall)
+keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.wqall)
 keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
     vim.cmd.update()
@@ -75,9 +76,17 @@ keymap('i', "<C-j>", smart_print, { expr = true })
 
 keymap("n", "<C-c>", function()
     vim.cmd.wall()
-    if vim.bo.filetype == "help" then
-        vim.cmd.close()
+    if vim.bo.filetype == "help" or vim.bo.filetype == "netrw" or vim.bo.filetype == "pager" then
+        vim.cmd.bdelete()
     else
         require("mini.bufremove").delete()
+    end
+end)
+
+keymap('n', "<Tab>", function()
+    if vim.bo.filetype == "netrw" then
+        vim.cmd.bdelete()
+    else
+        vim.cmd.Explore()
     end
 end)
