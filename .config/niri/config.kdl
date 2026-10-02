@@ -234,7 +234,7 @@ animations {
 }
 
 window-rule {
-    match app-id="fmenu"
+    match app-id="Calculator"
     open-maximized-to-edges false
     open-floating true
     default-column-width { proportion 0.4; }

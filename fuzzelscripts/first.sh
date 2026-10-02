@@ -17,18 +17,23 @@ myopen(){
 }
 
 selection=$(cat <<EOF | fuzzel -d
-$wifi
 Calculator
-FZF
+$wifi
+Files
 EOF
 )
 
 case "$selection" in
     "Calculator")
-    exec fend;;
+    alacritty --class="Calculator" --config-file="$HOME/.config/alacritty/launcher.toml" -e fend;;
+    # expr=$(printf '' | fuzzel --dmenu --prompt="calc > ") || exit 0
+    # [[ -z "$expr" ]] && exit 0
+    # result=$(fend "$expr" 2>&1)
+    # printf '%s' "$result" | wl-copy
+    # notify-send "$expr" "$result";;
 
-    "FZF")
-    ans=$(fd -C "/home/akshit/" | fuzzel -d) || exit 0;
+    "Files")
+    ans=$(fd -t f -C "$HOME" | fuzzel -d) || exit 0;
     myopen "$ans";;
 
     "$wifi")
