@@ -1,6 +1,7 @@
 setopt NO_NOTIFY            # No notification for processes
 setopt GLOB_STAR_SHORT      # Allows **/*.js
 unsetopt FLOW_CONTROL       # Replaces stty -ixon
+setopt interactive_comments
 
 # ENVIRONMENT
 export PATH="$PATH:$HOME/bin"

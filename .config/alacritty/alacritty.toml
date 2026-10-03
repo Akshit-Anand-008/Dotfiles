@@ -1,5 +1,8 @@
 [colors.primary]
-background = "#000000"
+background = '#000000'
+[colors.selection]
+text   = '#c0caf5'
+background = '#28344a'
 [selection]
 save_to_clipboard = true
 [window]
