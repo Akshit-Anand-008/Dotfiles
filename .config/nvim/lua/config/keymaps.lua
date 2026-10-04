@@ -30,11 +30,8 @@ keymap('n', "<C-S-r>", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('x', "R", [[y:s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
 keymap('x', "<C-S-r>", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
 
--- keymap({ 'n', 'x' }, "<Down>", "gj")
--- keymap({ 'n', 'x' }, "<Up>", "gk")
-
-keymap({ 'n', 'x' }, "<C-j>", "gj")
-keymap({ 'n', 'x' }, "<C-k>", "gk")
+keymap({ 'n', 'x' }, "<Down>", "gj")
+keymap({ 'n', 'x' }, "<Up>", "gk")
 
 keymap({ 'n', 'x', 'o' }, '^', '0')
 keymap({ 'n', 'x', 'o' }, '_', '^')

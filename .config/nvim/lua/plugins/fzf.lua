@@ -22,6 +22,7 @@ vim.keymap.set('n', '<leader>fg', picker.live_grep)
 vim.keymap.set('n', '<leader>fh', picker.help_tags)
 vim.keymap.set('n', '<leader>fr', picker.oldfiles)
 vim.keymap.set('n', '<leader>fm', picker.marks)
+vim.keymap.set('n', '<leader>fw', function() picker.files({ cwd = "$NB_DIR" }) end)
 
 vim.keymap.set('n', '<leader>s', picker.lsp_document_symbols)
 vim.keymap.set('n', '<leader><space>', picker.builtin)
@@ -42,6 +43,9 @@ local function files_up(cwd, query, hidden)
             ["ctrl-r"] = function()
                 files_up(vim.fn.expand("%:p:h"), last_query(), hidden)
             end,
+            ["ctrl-g"] = function()
+                files_up(vim.fn.expand("$HOME"), last_query(), hidden)
+            end,
             ["ctrl-a"] = function()
                 files_up(cwd, last_query(), not hidden)
             end,
@@ -50,7 +54,4 @@ local function files_up(cwd, query, hidden)
 end
 
 vim.keymap.set("n", "<leader>ff", function() files_up() end)
-vim.keymap.set('n', "<leader>ff", function() files_up() end)
 vim.keymap.set('n', "<C-P>", function() files_up() end)
-vim.keymap.set('n', '<leader>fw', function() picker.files({ cwd = "$NB_DIR" }) end)
-vim.keymap.set('n', '<leader>fd', function() picker.files({ cwd = "$HOME" }) end)
