@@ -8,7 +8,7 @@ input {
         numlock
     }
     touchpad {
-        off
+        // off
         tap
         dwt
         // dwtp
@@ -93,7 +93,6 @@ screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 binds {
     Mod+O repeat=false  { toggle-overview; }
     Mod+Q repeat=false  { close-window; }
-    Mod+Z repeat=false     { power-off-monitors; }
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
     Mod+Return repeat=false  { spawn "alacritty"; }
@@ -104,10 +103,11 @@ binds {
     Mod+W repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
     Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/first.sh"; }
     Mod+P repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
+    Mod+M repeat=false       { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
 
+    Mod+Z repeat=false       { power-off-monitors; }
     Mod+X repeat=false       { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
-    Mod+Shift+M repeat=false { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
 
     Mod+H { focus-column-left-or-last; }
     Mod+L { focus-column-right-or-first; }
@@ -149,8 +149,8 @@ binds {
     Mod+V       { switch-focus-between-floating-and-tiling; }
 
     Mod+F repeat=false       { maximize-column; }
-    Mod+M repeat=false       { maximize-window-to-edges; }
-    // Mod+Shift+M repeat=false { fullscreen-window; }
+    Mod+Shift+F repeat=false { maximize-window-to-edges; }
+    Mod+Shift+M repeat=false { fullscreen-window; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
