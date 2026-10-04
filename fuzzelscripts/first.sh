@@ -25,7 +25,8 @@ EOF
 
 case "$selection" in
     "Calculator")
-    alacritty --class="Calculator" --config-file="$HOME/.config/alacritty/launcher.toml" -e fend;;
+    # alacritty --class="Calculator" --config-file="$HOME/.config/alacritty/launcher.toml" -e fend;;
+    alacritty --class="Calculator"  -e fend;;
     # expr=$(printf '' | fuzzel --dmenu --prompt="calc > ") || exit 0
     # [[ -z "$expr" ]] && exit 0
     # result=$(fend "$expr" 2>&1)

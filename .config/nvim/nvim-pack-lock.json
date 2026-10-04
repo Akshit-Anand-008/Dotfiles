@@ -32,6 +32,10 @@
       "rev": "247b2c731bf4b2c01410a08747b3fa08c3033517",
       "src": "https://github.com/jakobkhansen/journal.nvim"
     },
+    "midnight.nvim": {
+      "rev": "fe062a6f2e5bd77cd8a260f61e6e12789eaf4f13",
+      "src": "https://github.com/dasupradyumna/midnight.nvim"
+    },
     "mini.bufremove": {
       "rev": "281bb1a2c60c3618c854bef2c0933276eb2362c2",
       "src": "https://github.com/nvim-mini/mini.bufremove"

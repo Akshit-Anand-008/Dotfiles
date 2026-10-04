@@ -16,6 +16,7 @@ picker.setup({
         },
     },
 })
+
 vim.keymap.set('n', '<leader>fb', picker.buffers)
 vim.keymap.set('n', '<leader>fg', picker.live_grep)
 vim.keymap.set('n', '<leader>fh', picker.help_tags)
@@ -25,25 +26,31 @@ vim.keymap.set('n', '<leader>fm', picker.marks)
 vim.keymap.set('n', '<leader>s', picker.lsp_document_symbols)
 vim.keymap.set('n', '<leader><space>', picker.builtin)
 
-
-local function files_up(cwd, query)
+local function files_up(cwd, query, hidden)
     cwd = cwd or vim.fn.getcwd()
-    require("fzf-lua").files({
+    local fzf = require("fzf-lua")
+    local function last_query() return fzf.config.__resume_data.last_query end
+
+    fzf.files({
         cwd = cwd,
         query = query,
+        hidden = hidden,
         actions = {
             ["ctrl-h"] = function()
-                local last = require("fzf-lua").config.__resume_data.last_query
-                files_up(vim.fn.fnamemodify(cwd, ":h"), last)
+                files_up(vim.fn.fnamemodify(cwd, ":h"), last_query(), hidden)
             end,
             ["ctrl-r"] = function()
-                local last = require("fzf-lua").config.__resume_data.last_query
-                files_up(vim.fn.expand("%:p:h"), last)
+                files_up(vim.fn.expand("%:p:h"), last_query(), hidden)
+            end,
+            ["ctrl-a"] = function()
+                files_up(cwd, last_query(), not hidden)
             end,
         },
     })
 end
 
 vim.keymap.set("n", "<leader>ff", function() files_up() end)
+vim.keymap.set('n', "<leader>ff", function() files_up() end)
+vim.keymap.set('n', "<C-P>", function() files_up() end)
 vim.keymap.set('n', '<leader>fw', function() picker.files({ cwd = "$NB_DIR" }) end)
 vim.keymap.set('n', '<leader>fd', function() picker.files({ cwd = "$HOME" }) end)

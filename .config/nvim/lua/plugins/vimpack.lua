@@ -19,14 +19,13 @@ vim.pack.add({
     'https://github.com/nvim-mini/mini.bufremove',
 })
 
-require "plugins.mine"
 require "plugins.theme"
 require "plugins.statusline"
+require "plugins.undotree"
+require "plugins.surround"
 require "nvim-autopairs".setup()
 require "ibl".setup({ indent = { char = "▏" } })
-require "plugins.undotree"
 require "plugins.auto-sessions"
-require "plugins.surround"
 require "plugins.textobjects"
 require "plugins.fzf"
 require "plugins.luasnip"
