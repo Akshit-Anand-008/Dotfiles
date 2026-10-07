@@ -224,6 +224,9 @@ window-rule {
     open-maximized-to-edges true
     geometry-corner-radius 0
     clip-to-geometry true
+    background-effect {
+        blur false
+    }
 }
 
 window-rule {

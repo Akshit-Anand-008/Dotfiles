@@ -18,7 +18,7 @@ order = [ "AkshitBar" ]
     enabled = true
     auto_hide = false
     reserve_space = true
-    background_opacity = 0.8
+    background_opacity = 0.88
     border = "outline"
     border_width = 0.0
     capsule = false
@@ -274,7 +274,7 @@ show_app_name = true
 width = 360
 
 [osd]
-background_opacity = 0.8
+background_opacity = 0.2
 border = true
 border_color = "outline"
 border_width = 1.0
@@ -549,6 +549,12 @@ transition_on_startup = false
 
     [wallpaper.automation]
     enabled = false
+
+    [wallpaper.last]
+    path = "/home/akshit/Pictures/Wallpapers/starry-nights.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/akshit/Pictures/Wallpapers/starry-nights.jpg"
 
 [weather]
 effects = false
