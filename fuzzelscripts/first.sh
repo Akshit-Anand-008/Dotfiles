@@ -17,8 +17,8 @@ myopen(){
 }
 
 selection=$(cat <<EOF | fuzzel -d
-Calculator
 $wifi
+Calculator
 Files
 EOF
 )

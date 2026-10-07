@@ -509,7 +509,7 @@ umbriel_overview_type_to_launch_enabled = false
     show_app_icon = true
     show_caption = true
     show_count = true
-    style = "carousel"
+    style = "compact"
 
 [storage]
 key_file = ""

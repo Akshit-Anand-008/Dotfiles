@@ -75,17 +75,6 @@ layout {
     }
 }
 
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
-    open-maximized-to-edges true
-    geometry-corner-radius 0
-    clip-to-geometry true
-}
-
 spawn-at-startup "noctalia"
 spawn-at-startup "alacritty"
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
@@ -167,7 +156,6 @@ binds {
     Mod+Comma        { consume-window-into-column; }
     Mod+Period       { expel-window-from-column; }
 
-
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -233,16 +221,26 @@ animations {
 }
 
 window-rule {
+    open-maximized-to-edges true
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
     match app-id="Calculator"
     open-maximized-to-edges false
-    open-floating true
-    default-column-width { proportion 0.4; }
-    default-window-height { proportion 0.5; }
+    // open-floating true
+    // default-column-width { proportion 0.4; }
+    // default-window-height { proportion 0.5; }
     draw-border-with-background false
 }
 
 layer-rule {
-    match namespace="^noctalia-"
     background-effect {
         blur false
     }
