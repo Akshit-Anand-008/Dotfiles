@@ -5,6 +5,7 @@ vim.opt.undofile = true           -- Save undo history to a file
 vim.opt.swapfile = false          -- Do not create swap file
 vim.opt.autowrite = true          -- Automatically save before running external commands
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+vim.opt.mouse = ""                -- Disables mouse
 
 -- Interface & UI
 vim.opt.scrolloff = 3         -- Keep lines of context when scrolling

@@ -100,9 +100,12 @@ binds {
 
     Mod+Space repeat=false   { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+C repeat=false       { spawn-sh "noctalia msg panel-toggle clipboard"; }
-    Mod+W repeat=false       { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+W repeat=false       { spawn-sh "noctalia msg panel-toggle launcher /win"; }
     Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/first.sh"; }
     Mod+P repeat=false       { spawn-sh "noctalia msg panel-toggle control-center system"; }
+
+    Mod+F repeat=false       { maximize-column; }
+    Mod+Shift+F repeat=false { maximize-window-to-edges; }
     Mod+M repeat=false       { spawn-sh "noctalia msg bar-toggle"; }
 
     Mod+Z repeat=false       { power-off-monitors; }
@@ -147,10 +150,6 @@ binds {
 
     Mod+Shift+V { toggle-window-floating; }
     Mod+V       { switch-focus-between-floating-and-tiling; }
-
-    Mod+F repeat=false       { maximize-column; }
-    Mod+Shift+F repeat=false { maximize-window-to-edges; }
-    Mod+Shift+M repeat=false { fullscreen-window; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
@@ -240,4 +239,11 @@ window-rule {
     default-column-width { proportion 0.4; }
     default-window-height { proportion 0.5; }
     draw-border-with-background false
+}
+
+layer-rule {
+    match namespace="^noctalia-"
+    background-effect {
+        blur false
+    }
 }
