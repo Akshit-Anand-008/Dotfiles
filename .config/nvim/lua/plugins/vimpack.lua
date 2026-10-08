@@ -1,4 +1,5 @@
 vim.pack.add({
+    'https://github.com/folke/tokyonight.nvim',
     'https://github.com/EdenEast/nightfox.nvim',
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
@@ -17,11 +18,11 @@ vim.pack.add({
     'https://github.com/ibhagwan/fzf-lua',
     'https://github.com/nvim-mini/mini.statusline',
     'https://github.com/nvim-mini/mini.bufremove',
-    'https://github.com/folke/tokyonight.nvim',
 })
 
-require "plugins.theme"
-require "plugins.statusline"
+require "plugins.tokyonight"
+-- require "plugins.carbonfox"
+require "plugins.common"
 require "plugins.undotree"
 require "plugins.surround"
 require "nvim-autopairs".setup()
