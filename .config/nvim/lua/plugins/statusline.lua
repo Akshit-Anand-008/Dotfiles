@@ -4,8 +4,8 @@ local get_cwd = function()
     return ("cwd: " .. vim.fn.fnamemodify(vim.fn.getcwd(), ':~') .. "/")
 end
 
-vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { fg = "#161616", bg = "#78a9ff", bold = true })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { fg = "#161616", bg = "#3ddbd9", bold = true })
+vim.api.nvim_set_hl(0, "MiniStatuslineFileinfo", { fg = "#b6b8bb", bg = "#252525" })
+vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { fg = "#b6b8bb", bg = "#0c0c0c" })
 
 mile.active = function()
     local mode, mode_hl = mile.section_mode({ trunc_width = 120 })

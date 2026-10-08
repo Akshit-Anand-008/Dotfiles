@@ -1,5 +1,20 @@
-require('nightfox').setup({ options = { transparent = true }, })
-vim.cmd.colorscheme("carbonfox")
+-- require('nightfox').setup({ options = { transparent = true }, })
+-- vim.cmd.colorscheme("carbonfox")
+
+require "tokyonight".setup({
+    style = "night",
+    transparent = true,
+    styles = {
+        comments = { italic = false },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "transparent",
+        floats = "transparent",
+    },
+})
+vim.cmd.colorscheme("tokyonight-night")
+vim.api.nvim_set_hl(0, "IblScope", { fg = "#7b7c7e" })
 
 vim.api.nvim_set_hl(0, "Todo", { link = "Comment" })
 vim.api.nvim_set_hl(0, "Cursorline", { bg = "None" })

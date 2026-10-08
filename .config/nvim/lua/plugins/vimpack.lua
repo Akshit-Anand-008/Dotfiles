@@ -17,6 +17,7 @@ vim.pack.add({
     'https://github.com/ibhagwan/fzf-lua',
     'https://github.com/nvim-mini/mini.statusline',
     'https://github.com/nvim-mini/mini.bufremove',
+    'https://github.com/folke/tokyonight.nvim',
 })
 
 require "plugins.theme"
