@@ -11,8 +11,10 @@ MenuBar=Disabled
 [Recent Files]
 File1[$e]=$HOME/DSA/PYQs/midsem.pdf
 File2[$e]=$HOME/DSA/CppReferenceManual.pdf
+File3[$e]=$HOME/Logic/Problem_Sheets/ps7_copy.pdf
 Name1[$e]=midsem.pdf
 Name2[$e]=CppReferenceManual.pdf
+Name3[$e]=ps7_copy.pdf
 
 [UiSettings]
 ColorScheme=BreezeDark
