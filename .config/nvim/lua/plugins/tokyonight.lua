@@ -3,7 +3,7 @@ require "tokyonight".setup({
     transparent = true,
     styles = {
         comments = { italic = false },
-        keywords = { italic = true },
+        keywords = { italic = false },
         functions = {},
         variables = {},
         sidebars = "transparent",
@@ -12,5 +12,6 @@ require "tokyonight".setup({
 })
 vim.cmd.colorscheme("tokyonight-night")
 vim.api.nvim_set_hl(0, "IblScope", { fg = "#7b7c7e" })
+vim.api.nvim_set_hl(0, "Visual", { bg = "#2a2a2a" })
 vim.api.nvim_set_hl(0, "MiniStatuslineFileinfo", { fg = "#b6b8bb", bg = "#252525" })
 vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { fg = "#b6b8bb", bg = "#0c0c0c" })

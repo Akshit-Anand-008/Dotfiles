@@ -11,58 +11,6 @@ sound_volume = 0.5
 [backdrop]
 enabled = false
 
-[bar]
-order = [ "AkshitBar" ]
-
-    [bar.AkshitBar]
-    enabled = true
-    auto_hide = false
-    reserve_space = true
-    background_opacity = 0.88
-    border = "outline"
-    border_width = 0.0
-    capsule = false
-    capsule_border_width = 1.0
-    capsule_fill = "surface_variant"
-    capsule_group = []
-    capsule_opacity = 1.0
-    capsule_padding = 6.0
-    capsule_radius = 8.0
-    capsule_thickness = 1.0
-    center = [ "clock" ]
-    compositor_blur = false
-    concave_edge_corners = false
-    contact_shadow = false
-    end = [ "network", "bluetooth", "volume", "brightness", "battery", "session" ]
-    font_family = "JetBrainsMono Nerd Font Propo"
-    font_scale = 1.0
-    font_weight = 400
-    hover_highlight = true
-    layer = "top"
-    margin_edge = 0
-    margin_ends = 0
-    margin_opposite_edge = 0
-    padding = 6
-    panel_overlap = 0
-    position = "top"
-    radius = 0
-    radius_bottom_left = 0
-    radius_bottom_right = 0
-    radius_top_left = 0
-    radius_top_right = 0
-    scale = 1.2000000476837158
-    shadow = false
-    show_on_workspace_switch = false
-    smart_auto_hide = false
-    start = [ "workspaces", "active_window" ]
-    thickness = 29
-    widget_spacing = 15
-
-        [bar.AkshitBar.dead_zone.actions]
-        left = "notification-clear-active"
-        scroll_down = "volume-down"
-        scroll_up = "volume-up"
-
 [battery]
 warning_threshold = 10
 
@@ -84,35 +32,6 @@ refresh_minutes = 15
     enabled = true
     use_event_reminders = true
 
-[control_center]
-hidden_tabs = [ "monitor", "system", "power", "weather", "calendar", "network", "bluetooth" ]
-show_session_button = true
-show_shortcut_labels = true
-sidebar = "compact"
-sidebar_section = "compact"
-width = 700
-
-    [control_center.calendar]
-    show_events_card = false
-    show_week_numbers = false
-
-    [[control_center.shortcuts]]
-    type = "caffeine"
-
-    [[control_center.shortcuts]]
-    type = "nightlight"
-
-    [[control_center.shortcuts]]
-    type = "notification"
-
-    [[control_center.shortcuts]]
-    type = "power_profile"
-
-    [[control_center.shortcuts]]
-    type = "wallpaper"
-
-    [[control_center.shortcuts]]
-    type = "media"
 
 [desktop_widgets]
 enabled = true
@@ -305,24 +224,6 @@ scale = 1.0
     volume_input = true
     volume_output = true
     wifi = true
-
-[plugin_settings]
-
-[plugins]
-auto_update = "all"
-enabled = [ "noctalia/timer" ]
-
-    [[plugins.source]]
-    enabled = true
-    kind = "git"
-    location = "https://github.com/noctalia-dev/official-plugins"
-    name = "official"
-
-    [[plugins.source]]
-    enabled = true
-    kind = "git"
-    location = "https://github.com/noctalia-dev/community-plugins"
-    name = "community"
 
 [shell]
 app_icon_colorize = false
@@ -544,58 +445,9 @@ transition = []
 transition_duration = 1500.0
 transition_on_startup = false
 
-    [wallpaper.default]
-    path = "/home/akshit/Pictures/Wallpapers/starry-nights.jpg"
-
     [wallpaper.automation]
     enabled = false
-
-    [wallpaper.last]
-    path = "/home/akshit/Pictures/Wallpapers/starry-nights.jpg"
-
-    [wallpaper.monitors.eDP-1]
-    path = "/home/akshit/Pictures/Wallpapers/starry-nights.jpg"
 
 [weather]
 effects = false
 enabled = false
-
-# widgets
-
-[widget.workspaces]
-hide_when_empty = true
-labels_only_when_occupied = true
-type = "workspaces"
-
-[widget.active_window]
-display = "icon_only"
-icon_size = 14.0
-max_length = 80
-min_length = 0
-scale = 1.5
-title_scroll = "none"
-type = "active_window"
-
-[widget.battery]
-show_label = false
-type = "battery"
-
-[widget.bluetooth]
-show_label = true
-type = "bluetooth"
-
-[widget.brightness]
-show_label = false
-type = "brightness"
-
-[widget.clock]
-format = "{:%a %d %b, %H:%M}"
-type = "clock"
-
-[widget.session]
-icon_color = "error"
-type = "session"
-
-[widget.volume]
-show_label = false
-type = "volume"

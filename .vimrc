@@ -1,5 +1,5 @@
 " options
-set nocompatible
+set nocompatible ttyfast
 set encoding=utf-8
 set clipboard=unnamedplus
 set ttimeout ttimeoutlen=1
@@ -25,3 +25,5 @@ nnoremap P :bp<CR>
 nnoremap M :b#<CR>
 nnoremap <Esc> :update<Cr>
 nnoremap <CR> o<Esc>
+nnoremap <C-c> :wall<CR>:bd<CR>
+nnoremap <C-z> :wqall<CR>
