@@ -1,7 +1,7 @@
 id = "me/stopwatch"
 name = "Stopwatch"
-version = "1.0.0"
-plugin_api = 3
+version = "1.0.2"
+plugin_api = 20
 author = "me"
 license = "MIT"
 icon = "stopwatch"

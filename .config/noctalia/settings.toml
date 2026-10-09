@@ -172,7 +172,7 @@ temperature_day = 6500
 temperature_night = 4000
 
 [notification]
-background_opacity = 0.8
+background_opacity = 0.9
 border = true
 border_color = "outline"
 border_width = 1.0
@@ -191,9 +191,20 @@ scale = 1.0
 show_actions = true
 show_app_name = true
 width = 360
+filter_order = [ "all" ]
+
+    [notification.filter.all]
+    enabled = true
+    allow_permanent = false
+    bypass_dnd = false
+    match_content = ".*"
+    override_duration = 1000
+    play_sound = true
+    save_history = true
+    show_toast = true
 
 [osd]
-background_opacity = 0.2
+background_opacity = 0.5
 border = true
 border_color = "outline"
 border_width = 1.0

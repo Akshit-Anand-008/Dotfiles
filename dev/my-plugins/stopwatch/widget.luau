@@ -1,8 +1,12 @@
-local running = false
-local startedAt = 0      -- wall-clock time when the current run began
-local accumulated = 0    -- seconds banked from earlier runs
+--!nonstrict
+--   left click   start / pause
+--   right click  reset
+--   IPC          toggle | reset
 
--- Derive elapsed time from the clock instead of counting ticks, so it never drifts
+local running = false
+local startedAt = 0
+local accumulated = 0
+
 local function elapsed()
   if running then
     return accumulated + (os.time() - startedAt)
@@ -11,6 +15,7 @@ local function elapsed()
 end
 
 local function fmt(s)
+  s = math.floor(tonumber(s) or 0)
   local h = s // 3600
   local m = (s % 3600) // 60
   local sec = s % 60
@@ -22,23 +27,30 @@ end
 
 local function render()
   local e = elapsed()
-
-  if running then
-    barWidget.setGlyph("stopwatch")
-  elseif e > 0 then
-    barWidget.setGlyph("player-pause")
-  else
-    barWidget.setGlyph("stopwatch")
+  local glyph = "stopwatch"
+  if not running and e > 0 then
+    glyph = "player-pause"
   end
 
-  -- Show the time while running or paused, hide it only at zero
-  if running or e > 0 then
-    barWidget.setText(fmt(e))
-  else
-    barWidget.setText("")
+  if barWidget.isVertical() then
+    barWidget.render(ui.column({ align = "center" }, {
+      ui.glyph({ name = glyph }),
+    }))
+    return
   end
 
-  barWidget.setTooltip(fmt(e) .. "  |  Left click: start/pause  |  Right click: reset")
+  -- Label hidden only when idle at zero
+  if not running and e == 0 then
+    barWidget.render(ui.row({ align = "center" }, {
+      ui.glyph({ name = glyph }),
+    }))
+    return
+  end
+
+  barWidget.render(ui.row({ gap = 6, align = "center" }, {
+    ui.glyph({ name = glyph }),
+    ui.label({ text = fmt(e)  }),
+  }))
 end
 
 local function toggle()
@@ -58,8 +70,15 @@ local function reset()
   render()
 end
 
+-- Redraw each second while running, driven by the service
+noctalia.state.watch("sw.tick", function(value)
+  if running then
+    render()
+  end
+end)
+
+-- update is needed for the initial load
 function update()
-  noctalia.setUpdateInterval(1000)
   render()
 end
 
@@ -71,7 +90,6 @@ function onRightClick()
   reset()
 end
 
--- Lets you control it from a keybind or a terminal
 function onIpc(event, payload)
   if event == "toggle" then
     toggle()
@@ -79,5 +97,3 @@ function onIpc(event, payload)
     reset()
   end
 end
-
-render()
