@@ -1,7 +1,5 @@
 vim.pack.add({
-    -- 'https://github.com/EdenEast/nightfox.nvim',
-    'https://github.com/folke/tokyonight.nvim',
-    -- { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+    'https://github.com/EdenEast/nightfox.nvim',
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
     'https://github.com/kylechui/nvim-surround',
@@ -21,10 +19,8 @@ vim.pack.add({
     'https://github.com/nvim-mini/mini.bufremove',
 })
 
--- require "plugins.carbonfox"
-require "plugins.tokyonight"
--- require "plugins.catppuccin"
-require "plugins.common"
+require "plugins.theme"
+require "plugins.statusline"
 require "plugins.undotree"
 require "plugins.surround"
 require "nvim-autopairs".setup()
