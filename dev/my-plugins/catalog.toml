@@ -1,0 +1,10 @@
+[[plugin]]
+id = "me/stopwatch"
+name = "Stopwatch"
+version = "1.0.0"
+author = "me"
+license = "MIT"
+icon = "stopwatch"
+description = "A simple stopwatch for the bar."
+plugin_api = 3
+tags = ["timer", "utility"]

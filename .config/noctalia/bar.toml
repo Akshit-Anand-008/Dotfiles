@@ -16,11 +16,9 @@ order = [ "AkshitBar" ]
     capsule_padding = 6.0
     capsule_radius = 8.0
     capsule_thickness = 1.0
-    center = [ "clock" ]
     compositor_blur = false
     concave_edge_corners = false
     contact_shadow = false
-    end = [ "network", "bluetooth", "volume", "brightness", "battery", "session" ]
     font_family = "JetBrainsMono Nerd Font Propo"
     font_scale = 1.0
     font_weight = 400
@@ -41,9 +39,12 @@ order = [ "AkshitBar" ]
     shadow = false
     show_on_workspace_switch = false
     smart_auto_hide = false
-    start = [ "workspaces", "active_window" ]
     thickness = 29
     widget_spacing = 15
+
+    start = [ "workspaces", "active_window" ]
+    center = [  "bar", "clock" ]
+    end = [ "network", "bluetooth", "volume", "brightness","stopwatch", "battery", "session" ]
 
         [bar.AkshitBar.dead_zone.actions]
         left = "notification-clear-active"
@@ -88,3 +89,10 @@ type = "session"
 [widget.volume]
 show_label = false
 type = "volume"
+
+[widget.bar]
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
+
+[widget.stopwatch]
+type = "me/stopwatch:stopwatch"

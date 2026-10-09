@@ -1,0 +1,13 @@
+id = "me/stopwatch"
+name = "Stopwatch"
+version = "1.0.0"
+plugin_api = 3
+author = "me"
+license = "MIT"
+icon = "stopwatch"
+description = "A simple stopwatch for the bar."
+tags = ["timer", "utility"]
+
+[[widget]]
+id = "stopwatch"
+entry = "widget.luau"

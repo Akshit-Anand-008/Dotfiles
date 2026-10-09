@@ -1,17 +1,19 @@
 [plugin_settings]
 
 [plugins]
-auto_update = "all"
-enabled = [ "noctalia/timer" ]
+enabled = [ "noctalia/timer", "me/stopwatch" ]
 
     [[plugins.source]]
-    enabled = true
     kind = "git"
     location = "https://github.com/noctalia-dev/official-plugins"
     name = "official"
 
     [[plugins.source]]
-    enabled = true
     kind = "git"
     location = "https://github.com/noctalia-dev/community-plugins"
     name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/akshit/dev/my-plugins"
+    name = "my-dev"
