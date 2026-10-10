@@ -32,6 +32,10 @@
       "rev": "247b2c731bf4b2c01410a08747b3fa08c3033517",
       "src": "https://github.com/jakobkhansen/journal.nvim"
     },
+    "mini.base16": {
+      "rev": "c51ba05f8902b1c6c879130f64a1aca01c8844ac",
+      "src": "https://github.com/nvim-mini/mini.base16"
+    },
     "mini.bufremove": {
       "rev": "281bb1a2c60c3618c854bef2c0933276eb2362c2",
       "src": "https://github.com/nvim-mini/mini.bufremove"
@@ -63,6 +67,10 @@
     "rainbow-delimiters.nvim": {
       "rev": "b55decda611755171bc5bf8f4c99603a75de4b41",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
+    },
+    "tokyonight.nvim": {
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
+      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
