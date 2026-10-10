@@ -8,10 +8,6 @@
       "rev": "02a5588f677970a9bc784115c62bef9e5855499b",
       "src": "https://github.com/rmagatti/auto-session"
     },
-    "catppuccin": {
-      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
-      "src": "https://github.com/catppuccin/nvim"
-    },
     "code_runner.nvim": {
       "rev": "ae11f6cb469ee5547cd0e076ecb41d74a7322cb8",
       "src": "https://github.com/CRAG666/code_runner.nvim"
@@ -21,7 +17,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "fzf-lua": {
-      "rev": "ed0e0ead1789ee349cbf025900931fb402b1e05e",
+      "rev": "48d7c3db291a2c7c1825905c227a6bc81c83b837",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -35,10 +31,6 @@
     "journal.nvim": {
       "rev": "247b2c731bf4b2c01410a08747b3fa08c3033517",
       "src": "https://github.com/jakobkhansen/journal.nvim"
-    },
-    "mini.base16": {
-      "rev": "c51ba05f8902b1c6c879130f64a1aca01c8844ac",
-      "src": "https://github.com/nvim-mini/mini.base16"
     },
     "mini.bufremove": {
       "rev": "281bb1a2c60c3618c854bef2c0933276eb2362c2",
@@ -72,20 +64,12 @@
       "rev": "b55decda611755171bc5bf8f4c99603a75de4b41",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
     },
-    "tokyodark.nvim": {
-      "rev": "659aff3c73dc2e0159314050a81671f0b2eaad01",
-      "src": "https://github.com/tiagovla/tokyodark.nvim"
-    },
-    "tokyonight.nvim": {
-      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
       "src": "https://github.com/mbbill/undotree"
     },
     "vimtex": {
-      "rev": "bbfa1501287b65e8803d5cc1007db2c2351c4453",
+      "rev": "77df16780a8a4b418c651f3a4300d59bc2dd3603",
       "src": "https://github.com/lervag/vimtex"
     }
   }
