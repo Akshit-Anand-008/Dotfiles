@@ -12,6 +12,6 @@ require('code_runner').setup({
 
 vim.keymap.set("n", "<leader>r", function()
     vim.cmd.write()
-    require("code_runner").run_code()
+    require("code_runner").run_filetype()
 end, { desc = "Save and run code" })
 vim.keymap.set("n", "<leader>R", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>w]], { remap = true })

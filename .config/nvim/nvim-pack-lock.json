@@ -4,9 +4,17 @@
       "rev": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "adwaita.nvim": {
+      "rev": "c607954f7b2cf56b24e921db0dab4749f3430a22",
+      "src": "https://github.com/Mofiqul/adwaita.nvim"
+    },
     "auto-session": {
       "rev": "02a5588f677970a9bc784115c62bef9e5855499b",
       "src": "https://github.com/rmagatti/auto-session"
+    },
+    "catppuccin": {
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
+      "src": "https://github.com/catppuccin/nvim"
     },
     "code_runner.nvim": {
       "rev": "ae11f6cb469ee5547cd0e076ecb41d74a7322cb8",
@@ -32,6 +40,10 @@
       "rev": "247b2c731bf4b2c01410a08747b3fa08c3033517",
       "src": "https://github.com/jakobkhansen/journal.nvim"
     },
+    "melange-nvim": {
+      "rev": "ce42f6b629beeaa00591ba73a77d3eeac4cf28ce",
+      "src": "https://github.com/savq/melange-nvim"
+    },
     "mini.base16": {
       "rev": "c51ba05f8902b1c6c879130f64a1aca01c8844ac",
       "src": "https://github.com/nvim-mini/mini.base16"
@@ -43,6 +55,10 @@
     "mini.statusline": {
       "rev": "127997ebef7ef632161203b960c5ef9d158f4810",
       "src": "https://github.com/nvim-mini/mini.statusline"
+    },
+    "neovim-ayu": {
+      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
+      "src": "https://github.com/Shatur/neovim-ayu"
     },
     "nightfox.nvim": {
       "rev": "4dacd3f0185a2227bdf3b6c0975a8f0bf87cac9a",
@@ -64,9 +80,17 @@
       "rev": "5c7b0263797dfd1bd6202f2b219f3b53a80b2187",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
+    "onenord.nvim": {
+      "rev": "5240bfb79bcab7e03508626c5283cfc417b79169",
+      "src": "https://github.com/rmehri01/onenord.nvim"
+    },
     "rainbow-delimiters.nvim": {
       "rev": "b55decda611755171bc5bf8f4c99603a75de4b41",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
+    },
+    "sora": {
+      "rev": "504df4913c55dd9ad658e331b172f86b0537b439",
+      "src": "https://github.com/Aejkatappaja/sora"
     },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
