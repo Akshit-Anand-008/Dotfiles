@@ -1,10 +1,9 @@
 [Document]
 ChangeColors=true
-RenderMode=InvertLightness
+RenderMode=InvertLumaSymmetric
 
 [General]
 ShellOpenFileInTabs=true
-ttsVoice=samantha
 
 [Main View]
 ShowLeftPanel=false

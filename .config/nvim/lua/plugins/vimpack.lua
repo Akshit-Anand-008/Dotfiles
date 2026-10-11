@@ -17,10 +17,9 @@ vim.pack.add({
     'https://github.com/ibhagwan/fzf-lua',
     'https://github.com/nvim-mini/mini.statusline',
     'https://github.com/nvim-mini/mini.bufremove',
-    'https://github.com/nvim-mini/mini.base16',
 })
 
--- require "plugins.theme"
+require "plugins.theme"
 require "plugins.statusline"
 require "plugins.undotree"
 require "plugins.surround"
