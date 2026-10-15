@@ -1,3 +1,18 @@
 [Default Applications]
+inode/directory=pcmanfm.desktop
+
 video/mp4=mpv.desktop
+
 application/pdf=org.kde.okular.desktop
+
+image/png=imv.desktop
+image/jpeg=imv.desktop
+
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+text/x-markdown=nvim.desktop
+text/x-shellscript=nvim.desktop
+application/json=nvim.desktop
+application/x-yaml=nvim.desktop
+text/x-python=nvim.desktop
+text/csv=nvim.desktop
