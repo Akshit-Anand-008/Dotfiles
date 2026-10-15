@@ -3,14 +3,14 @@ require('nightfox').setup({
         transparent = true,
         terminal_colors = false,
     },
-    palettes = {
-        carbonfox = { yellow = { base = "#e0af68", bright = "#ff9e64" }, },
-    },
-    groups = {
-        carbonfox = {
-            CursorLineNr = { fg = "palette.yellow.bright", style = "bold" },
-        },
-    }
+    -- palettes = {
+    --     carbonfox = { yellow = { base = "#e0af68", bright = "#ff9e64" }, },
+    -- },
+    -- groups = {
+    --     carbonfox = {
+    --         CursorLineNr = { fg = "palette.yellow.bright", style = "bold" },
+    --     },
+    -- }
 })
 vim.cmd.colorscheme("carbonfox")
 

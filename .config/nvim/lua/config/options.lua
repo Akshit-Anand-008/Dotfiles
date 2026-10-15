@@ -28,6 +28,7 @@ vim.opt.smartindent = true -- Copy indent from current line
 vim.opt.breakindent = true -- Wrapped lines keep indentation
 vim.opt.expandtab = true   -- Use spaces instead of tabs
 vim.opt.shiftround = true  -- Round indent to multiple of shiftwidth
+vim.opt.formatoptions = "j]rqtc"
 
 -- Search Behavior
 vim.opt.ignorecase = true    -- Case-insensitive search...

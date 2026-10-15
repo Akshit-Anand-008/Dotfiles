@@ -11,7 +11,7 @@ export MANPAGER="nvim +Man!"
 export FZF_DEFAULT_OPTS="--cycle"
 export NB_DIR="$HOME/NoteBooks"
 export DIARY_PATH="$NB_DIR/Diary"
-export PS1=$'\n%B%U%F{yellow}%~/%f%u%b '
+export PROMPT=$'\n%B%U%F{yellow}%~/%f%u%b '
 
 # History
 HISTFILE=~/.zsh_history

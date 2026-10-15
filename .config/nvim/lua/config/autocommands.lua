@@ -6,10 +6,22 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.spell = true
         vim.opt_local.spellcapcheck = ""
         vim.opt_local.linebreak = true
-        vim.opt_local.conceallevel = 1
         vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { buf = 0 })
         vim.keymap.set({ "n", "x" }, "j", "gj", { buf = 0 })
         vim.keymap.set({ "n", "x" }, "k", "gk", { buf = 0 })
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "markdown" },
+    callback = function()
+        vim.opt_local.conceallevel = 2
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "tex" },
+    callback = function()
         pcall(vim.keymap.del, "i", "[", { buf = 0 })
     end,
 })
@@ -41,14 +53,13 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Higlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function() vim.highlight.on_yank() end,
+    callback = function() vim.hl.on_yank() end,
 })
 
 -- Force options
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "*" },
     callback = function()
-        vim.opt.formatoptions = {
+        vim.opt_local.formatoptions = {
             t = true, c = true, r = true, o = false, q = true, ["]"] = true, j = true,
         }
     end

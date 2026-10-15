@@ -5,6 +5,12 @@ opacity = 0.9
 [selection]
 save_to_clipboard = true
 
+[colors.primary]
+background = '#000000'
+[colors.selection]
+text   = '#c0caf5'
+background = '#28344a'
+
 [[keyboard.bindings]]
 key = "V"
 mods = "Control"
@@ -32,8 +38,17 @@ style = "Bold"
 family = "JetBrainsMono NerdFont"
 style = "Bold Italic"
 
-[colors.primary]
-background = '#000000'
-[colors.selection]
-text   = '#c0caf5'
-background = '#28344a'
+# [font]
+# size = 21
+# [font.normal]
+# family = "Iosevka Term NerdFont"
+# style = "Regular"
+# [font.italic]
+# family = "Iosevka Term NerdFont"
+# style = "Italic"
+# [font.bold]
+# family = "Iosevka Term NerdFont"
+# style = "Bold"
+# [font.bold_italic]
+# family = "Iosevka Term NerdFont"
+# style = "Bold Italic"
