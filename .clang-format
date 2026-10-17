@@ -4,10 +4,10 @@ IndentWidth: 4
 TabWidth: 4
 UseTab: Never
 ColumnLimit: 600
-AllowShortBlocksOnASingleLine: Always
+# AllowShortBlocksOnASingleLine: Always
 BreakBeforeBraces: Custom
-BraceWrapping:
-  BeforeElse: true
+# BraceWrapping:
+#   BeforeElse: true
 PointerAlignment: Left
 SortIncludes: true
 SpaceBeforeParens: ControlStatements

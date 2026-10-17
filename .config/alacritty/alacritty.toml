@@ -5,8 +5,6 @@ opacity = 0.9
 [selection]
 save_to_clipboard = true
 
-[colors.primary]
-background = '#000000'
 [colors.selection]
 text   = '#c0caf5'
 background = '#28344a'
@@ -38,17 +36,26 @@ style = "Bold"
 family = "JetBrainsMono NerdFont"
 style = "Bold Italic"
 
-# [font]
-# size = 21
-# [font.normal]
-# family = "Iosevka Term NerdFont"
-# style = "Regular"
-# [font.italic]
-# family = "Iosevka Term NerdFont"
-# style = "Italic"
-# [font.bold]
-# family = "Iosevka Term NerdFont"
-# style = "Bold"
-# [font.bold_italic]
-# family = "Iosevka Term NerdFont"
-# style = "Bold Italic"
+[colors.primary]
+background = '#000000'
+foreground = '#c0caf5'
+
+[colors.bright]
+black = "#444b6a"
+blue = "#7da6ff"
+cyan = "#0db9d7"
+green = "#b9f27c"
+magenta = "#bb9af7"
+red = "#ff7a93"
+white = "#acb0d0"
+yellow = "#ff9e64"
+
+[colors.normal]
+black = "#32344a"
+blue = "#7aa2f7"
+cyan = "#449dab"
+green = "#9ece6a"
+magenta = "#ad8ee6"
+red = "#f7768e"
+white = "#787c99"
+yellow = "#e0af68"

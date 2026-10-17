@@ -8,16 +8,17 @@ vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.opt.mouse = "a"               -- Tweaking mouse
 
 -- Interface & UI
-vim.opt.scrolloff = 3         -- Keep lines of context when scrolling
-vim.opt.number = true         -- Show line numbers
-vim.opt.relativenumber = true -- Show relative line numbers for jumping
-vim.opt.cursorline = true     -- Highlight the line the cursor is on
-vim.opt.termguicolors = true  -- Enable 24-bit RGB colors
-vim.opt.splitright = true     -- Split on right instead of left
-vim.opt.splitbelow = true     -- Split on below instead of top
-vim.opt.showmode = false      -- Hide mode text
-vim.opt.signcolumn = "yes"    -- Always show the column for icons/errors
-vim.opt.virtualedit = "block" -- Allows cursor to move anywhere in V-Block mode
+vim.opt.scrolloff = 3            -- Keep lines of context when scrolling
+vim.opt.number = true            -- Show line numbers
+vim.opt.relativenumber = true    -- Show relative line numbers for jumping
+vim.opt.cursorline = true        -- Highlight the line the cursor is on
+vim.opt.cursorlineopt = "number" -- Highlight the line the cursor is on
+vim.opt.termguicolors = true     -- Enable 24-bit RGB colors
+vim.opt.splitright = true        -- Split on right instead of left
+vim.opt.splitbelow = true        -- Split on below instead of top
+vim.opt.showmode = false         -- Hide mode text
+vim.opt.signcolumn = "yes"       -- Always show the column for icons/errors
+vim.opt.virtualedit = "block"    -- Allows cursor to move anywhere in V-Block mode
 
 -- Indentation & Tabs
 vim.opt.tabstop = 4        -- 1 tab = 4 spaces
