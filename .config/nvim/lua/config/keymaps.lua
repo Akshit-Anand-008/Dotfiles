@@ -3,7 +3,7 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
-keymap({ 'n', 'x' }, "x", '"_x')
+keymap({ 'n', 'x' }, "<Del>", '"_x')
 keymap('t', "<C-q>", [[<C-\><C-n>]])
 keymap('i', "<C-c>", "<Esc>")
 keymap('i', "<C-l>", "<right>")
