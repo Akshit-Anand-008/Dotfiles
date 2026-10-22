@@ -133,10 +133,10 @@
   <Action name="view_zoom_in" priority="0"/>
   <Action name="view_fit_to_width" shortcut="S"/>
   <Action name="view_fit_to_page" shortcut="A"/>
-  <Action name="mouse_drag" shortcut="; "/>
+  <Action name="mouse_drag" shortcut="Ctrl+Shift+Space; "/>
   <Action name="mouse_zoom" shortcut="; "/>
   <Action name="mouse_select" shortcut="; "/>
-  <Action name="mouse_textselect" shortcut="; "/>
+  <Action name="mouse_textselect" shortcut="Ctrl+Space; "/>
   <Action name="mouse_tableselect" shortcut="; "/>
   <Action name="mouse_magnifier" shortcut="; "/>
   <Action name="color_mode_invert_luma_srgb" shortcut="; "/>
