@@ -1,6 +1,7 @@
 [accessibility]
 high_contrast = false
-ui_scale = 1.25
+ui_scale = 1.300000011920929
+
 
 [audio]
 enable_overdrive = false

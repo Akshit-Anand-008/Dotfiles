@@ -1,4 +1,5 @@
-[plugin_settings]
+[plugin_settings."noctalia/timer"]
+panel_placement = "floating"
 
 [plugins]
 enabled = [ "noctalia/timer", "me/stopwatch" ]
