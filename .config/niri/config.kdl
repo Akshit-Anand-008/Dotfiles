@@ -169,18 +169,18 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+WheelScrollDown      cooldown-ms=150  { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150  { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Mod+WheelScrollRight      { focus-column-left; }
-    Mod+WheelScrollLeft       { focus-column-right; }
-    Mod+Ctrl+WheelScrollRight { move-column-left; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-right; }
+    Mod+WheelScrollRight       { focus-column-left; }
+    Mod+WheelScrollLeft        { focus-column-right; }
+    Mod+Shift+WheelScrollRight { move-column-left; }
+    Mod+Shift+WheelScrollLeft  { move-column-right; }
 
-    Mod+Shift+WheelScrollDown      { focus-column-left; }
-    Mod+Shift+WheelScrollUp        { focus-column-right; }
+    Mod+Ctrl+WheelScrollDown       { focus-column-right-or-first; }
+    Mod+Ctrl+WheelScrollUp         { focus-column-left-or-last; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-left; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-right; }
 
