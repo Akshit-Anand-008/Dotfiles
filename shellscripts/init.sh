@@ -29,6 +29,7 @@ source ~/shellscripts/aliases.sh
 source ~/shellscripts/functions.sh
 source ~/shellscripts/nnn.sh
 source ~/shellscripts/lsaliases.sh
+source ~/Python/.venv/bin/activate
 
 # Other
 zvm_after_init_commands+=('source <(fzf --zsh)')

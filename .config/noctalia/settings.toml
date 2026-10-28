@@ -2,7 +2,6 @@
 high_contrast = false
 ui_scale = 1.300000011920929
 
-
 [audio]
 enable_overdrive = false
 enable_sounds = false
@@ -175,7 +174,7 @@ temperature_night = 4000
 [notification]
 background_opacity = 0.9
 border = true
-border_color = "outline"
+border_color = "outline_variant"
 border_width = 1.0
 collapse_on_dismiss = true
 enable_daemon = true
@@ -207,7 +206,7 @@ filter_order = [ "all" ]
 [osd]
 background_opacity = 0.5
 border = true
-border_color = "outline"
+border_color = "outline_variant"
 border_width = 1.0
 enabled = true
 follow_focused_output = false
