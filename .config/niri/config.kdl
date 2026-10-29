@@ -91,7 +91,7 @@ binds {
     Mod+Space repeat=false   { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+C repeat=false       { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+W repeat=false       { spawn-sh "noctalia msg panel-toggle launcher /win"; }
-    Mod+I repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/first.sh"; }
+    Mod+I repeat=false       { spawn-sh "/home/akshit/launcherscripts/first.sh"; }
     Mod+P repeat=false       { spawn-sh "noctalia msg panel-toggle control-center system"; }
 
     Mod+F repeat=false       { maximize-column; }

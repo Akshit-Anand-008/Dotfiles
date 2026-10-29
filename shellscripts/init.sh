@@ -1,14 +1,6 @@
 setopt NO_NOTIFY
 setopt INTERACTIVE_COMMENTS
 
-# ENVIRONMENT
-export FZF_DEFAULT_OPTS="--cycle"
-export FZF_DEFAULT_COMMAND='fd'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-export NB_DIR="$HOME/NoteBooks"
-export DIARY_PATH="$NB_DIR/Diary"
-
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -29,7 +21,7 @@ source ~/shellscripts/aliases.sh
 source ~/shellscripts/functions.sh
 source ~/shellscripts/nnn.sh
 source ~/shellscripts/lsaliases.sh
-source ~/Python/.venv/bin/activate
+source ~/.pyvenv/bin/activate
 
 # Other
 zvm_after_init_commands+=('source <(fzf --zsh)')
