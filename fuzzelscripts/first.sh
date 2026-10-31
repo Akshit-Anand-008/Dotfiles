@@ -39,7 +39,7 @@ case "$selection" in
 
     "$wifi")
     nmcli radio wifi on
-    "$HOME/fuzzelscripts/wifi.sh";;
+    "$HOME/launcherscripts/wifi.sh";;
 
     *)
     exit 0 ;;
