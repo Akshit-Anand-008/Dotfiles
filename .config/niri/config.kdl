@@ -230,6 +230,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="dragon" title="dragon"
+    open-maximized-to-edges false
+    open-floating true
+}
+
+window-rule {
     match app-id="Calculator"
     open-maximized-to-edges false
     // open-floating true
