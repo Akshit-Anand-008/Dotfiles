@@ -129,8 +129,8 @@
  </ToolBar>
  <ActionProperties scheme="Default">
   <Action name="show_leftpanel" priority="0" shortcut="F7; Tab"/>
-  <Action name="view_zoom_out" priority="0"/>
-  <Action name="view_zoom_in" priority="0"/>
+  <Action name="view_zoom_out" priority="0" shortcut="Ctrl+-; -"/>
+  <Action name="view_zoom_in" priority="0" shortcut="+; Ctrl+="/>
   <Action name="view_fit_to_width" shortcut="S"/>
   <Action name="view_fit_to_page" shortcut="A"/>
   <Action name="mouse_drag" shortcut="Ctrl+Shift+Space; "/>
@@ -143,6 +143,7 @@
   <Action name="color_mode_invert_luma_symmetric" shortcut="I; "/>
   <Action name="first_page" shortcut="Ctrl+Home; G"/>
   <Action name="last_page" shortcut="Ctrl+End; Shift+G"/>
+  <Action name="view_actual_size" shortcut="Ctrl+0; ="/>
  </ActionProperties>
  <ToolBar hidden="true" iconText="icononly" name="annotationToolBar" newline="true">
   <text>Annotation Toolbar</text>

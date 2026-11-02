@@ -1,4 +1,4 @@
-export NNN_PLUG='s:fzplug;e:openall;f:fzopen;d:fzcd;x:togglex;l:fzlaunch'
+export NNN_PLUG='s:fzplug;e:openall;f:fzopen;d:fzcd;x:togglex;l:fzlaunch;g:dragdrop'
 export NNN_BMS="d:$HOME/Downloads/"
 export NNN_OPTS="QAEeu"
 export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"

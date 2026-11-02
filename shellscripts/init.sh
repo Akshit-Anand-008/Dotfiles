@@ -1,26 +1,14 @@
 setopt NO_NOTIFY
 setopt INTERACTIVE_COMMENTS
-
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-
-setopt SHARE_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_SAVE_NO_DUPS
-setopt INC_APPEND_HISTORY
-setopt HIST_REDUCE_BLANKS
+export PROMPT=$'\n%B%U%F{yellow}%~/%f%u%b '
 
 # Sourcing shellscripts
 source ~/shellscripts/aliases.sh
+source ~/shellscripts/gitaliases.sh
 source ~/shellscripts/functions.sh
+source ~/shellscripts/historyrc.sh
 source ~/shellscripts/nnn.sh
-source ~/shellscripts/lsaliases.sh
+source ~/shellscripts/lsrc.sh
 source ~/.pyvenv/bin/activate
 
 # Other
