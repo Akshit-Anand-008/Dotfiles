@@ -8,7 +8,7 @@ input {
         numlock
     }
     touchpad {
-        off
+        // off
         tap
         dwt
         // dwtp
@@ -236,12 +236,12 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Calculator"
+    match app-id="Calculator" title="Alacritty"
     open-maximized-to-edges false
+    draw-border-with-background false
     // open-floating true
     // default-column-width { proportion 0.4; }
     // default-window-height { proportion 0.5; }
-    draw-border-with-background false
 }
 
 layer-rule {
