@@ -28,6 +28,13 @@ ls.add_snippets("tex",
                 [[\frac{<>}{<>}]],
                 { i(1), i(0) }
             )
+        ),
+
+        s("n",
+            fmta(
+                [[\item \textbf{<>}]],
+                { i(0) }
+            )
         )
     }
 )
