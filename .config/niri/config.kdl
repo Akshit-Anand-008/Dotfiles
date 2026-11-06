@@ -100,6 +100,7 @@ binds {
 
     Mod+Z repeat=false       { power-off-monitors; }
     Mod+X repeat=false       { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Shift+Z repeat=false { spawn-sh "systemctl suspend"; }
     Mod+Shift+X repeat=false { spawn-sh "systemctl poweroff"; }
 
     Mod+H       { focus-column-left-or-last; }
@@ -198,6 +199,7 @@ binds {
     Mod+Shift+7 { move-column-to-workspace 7; }
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
+
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
 
@@ -230,13 +232,18 @@ window-rule {
 }
 
 window-rule {
-    match app-id="dragon" title="dragon"
+    match app-id="dragon"
     open-maximized-to-edges false
     open-floating true
 }
 
 window-rule {
-    match app-id="Calculator" title="Alacritty"
+    match app-id="pcmanfm"
+    open-maximized-to-edges false
+}
+
+window-rule {
+    match app-id="Calculator"
     open-maximized-to-edges false
     draw-border-with-background false
     // open-floating true

@@ -11,8 +11,7 @@ export MANPAGER="nvim +Man!"
 export NB_DIR="$HOME/NoteBooks"
 export DIARY_PATH="$NB_DIR/Diary"
 
-export QT_QPA_PLATFORMTHEME="gtk3"
-export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=gtk3
 
 export FZF_DEFAULT_OPTS="--cycle"
 export FZF_DEFAULT_COMMAND='fd'
