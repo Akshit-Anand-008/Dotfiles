@@ -63,10 +63,8 @@ local templates = {
     javascript = 'console.log()<left>',
     go         = 'fmt.Println()<left>',
     c          = [[printf("\n");<Esc>4hi]],
-    -- cpp        = [[printf("\n");<Esc>4hi]],
     cpp        = 'std::cout <<  << std::endl;<Esc>13hi',
     tex        = '$$<left>',
-    -- markdown   = '<!--  --><Esc>3hi',
     -- markdown   = '&nbsp;'
     markdown   = '**<left>',
 }

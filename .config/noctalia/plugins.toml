@@ -2,7 +2,7 @@
 panel_placement = "floating"
 
 [plugins]
-enabled = [ "noctalia/timer", "me/stopwatch" ]
+enabled = [ "noctalia/timer" ]
 
     [[plugins.source]]
     kind = "git"
@@ -13,8 +13,3 @@ enabled = [ "noctalia/timer", "me/stopwatch" ]
     kind = "git"
     location = "https://github.com/noctalia-dev/community-plugins"
     name = "community"
-
-    [[plugins.source]]
-    kind = "path"
-    location = "/home/akshit/dev/my-plugins"
-    name = "my-dev"

@@ -214,7 +214,9 @@ hotkey-overlay {
 }
 
 animations {
-    on
+    workspace-switch {
+        off
+    }
 }
 
 window-rule {
@@ -227,19 +229,14 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
-    match app-id="dragon"
-    open-maximized-to-edges false
-    open-floating true
-}
-
-window-rule {
     match app-id="pcmanfm"
     open-maximized-to-edges false
+}
+
+window-rule {
+    match title="nnn"
+    open-maximized-to-edges false
+    open-floating true
 }
 
 window-rule {
