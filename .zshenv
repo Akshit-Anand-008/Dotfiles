@@ -13,11 +13,17 @@ export DIARY_PATH="$NB_DIR/Diary"
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 export GTK_USE_PORTAL=1
-export SAL_USE_VCLPLUGIN=gtk3
 export GDK_DEBUG=portals
 
+# FZF
 export FZF_DEFAULT_OPTS="--cycle"
 export FZF_DEFAULT_COMMAND='fd'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-source $HOME/shellscripts/nnn.sh
+# NNN
+export NNN_OPTS="QAEeu"
+export NNN_PLUG='s:fzplug;e:openall;f:fzopen;d:fzcd;x:togglex'
+export NNN_BMS="d:$HOME/Downloads/"
+export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_SEL='/tmp/.sel'
