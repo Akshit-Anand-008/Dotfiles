@@ -1,3 +1,4 @@
+# PATH
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
@@ -11,6 +12,7 @@ export MANPAGER="nvim +Man!"
 export NB_DIR="$HOME/NoteBooks"
 export DIARY_PATH="$NB_DIR/Diary"
 
+# QT & GTK
 export QT_QPA_PLATFORMTHEME=qt6ct
 export GTK_USE_PORTAL=1
 export GDK_DEBUG=portals
@@ -22,7 +24,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # NNN
 export NNN_OPTS="QAEeu"
-export NNN_PLUG='s:fzplug;e:openall;f:fzopen;d:fzcd;x:togglex'
+export NNN_PLUG='s:fzplug;e:openall;x:togglex;f:fzopen;d:fzcd'
 export NNN_BMS="d:$HOME/Downloads/"
 export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
 export NNN_FIFO='/tmp/nnn.fifo'
