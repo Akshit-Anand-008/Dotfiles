@@ -56,18 +56,3 @@ style = "Bold"
 [font.bold_italic]
 family = "JetBrainsMono NerdFont"
 style = "Bold Italic"
-
-# [font]
-# size = 21
-# [font.normal]
-# family = "IosevkaTermNerdFont"
-# style = "Regular"
-# [font.italic]
-# family = "IosevkaTermNerdFont"
-# style = "Italic"
-# [font.bold]
-# family = "IosevkaTermNerdFont"
-# style = "Bold"
-# [font.bold_italic]
-# family = "IosevkaTermNerdFont"
-# style = "Bold Italic"
