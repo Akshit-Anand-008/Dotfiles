@@ -5,7 +5,7 @@ input {
         repeat-rate 30
         repeat-delay 250
         xkb {}
-        numlock
+        // numlock
     }
     touchpad {
         off
@@ -86,7 +86,7 @@ binds {
 
     Mod+Return repeat=false  { spawn "alacritty"; }
     Mod+B repeat=false       { spawn "firefox"; }
-    Mod+E repeat=false       { spawn "pcmanfm"; }
+    Mod+E repeat=false       { spawn "thunar"; }
 
     Mod+Space repeat=false   { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+C repeat=false       { spawn-sh "noctalia msg panel-toggle clipboard"; }
@@ -230,6 +230,11 @@ window-rule {
 
 window-rule {
     match app-id="pcmanfm"
+    open-maximized-to-edges false
+}
+
+window-rule {
+    match app-id="thunar"
     open-maximized-to-edges false
 }
 

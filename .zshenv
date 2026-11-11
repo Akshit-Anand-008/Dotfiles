@@ -13,9 +13,9 @@ export NB_DIR="$HOME/NoteBooks"
 export DIARY_PATH="$NB_DIR/Diary"
 
 # QT & GTK
-export QT_QPA_PLATFORMTHEME=qt6ct
-export GTK_USE_PORTAL=1
-export GDK_DEBUG=portals
+export QT_QPA_PLATFORMTHEME=gtk3
+#export GTK_USE_PORTAL=1
+#export GDK_DEBUG=portals
 
 # FZF
 export FZF_DEFAULT_OPTS="--cycle"

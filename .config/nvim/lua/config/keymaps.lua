@@ -75,10 +75,10 @@ end
 keymap('i', "<C-j>", smart_print, { expr = true })
 
 keymap("n", "<C-c>", function()
+    vim.cmd.wall()
     if vim.bo.filetype == "help" or vim.bo.filetype == "netrw" or vim.bo.filetype == "pager" then
         vim.cmd.bdelete()
     else
-        vim.cmd.write()
         require("mini.bufremove").delete()
     end
 end)
