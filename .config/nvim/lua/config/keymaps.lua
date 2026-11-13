@@ -5,10 +5,7 @@ local keymap = vim.keymap.set
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
 keymap('x', "x", '"_x')
 keymap('t', "<C-q>", [[<C-\><C-n>]])
-keymap('i', "<C-c>", "<Esc>")
 keymap('i', "<C-l>", "<right>")
-keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.wqall)
-keymap('n', "ZZ", vim.cmd.wqall)
 keymap({ 'n', 'i', 'x', 't' }, "<C-Tab>", [[<C-\><C-n><C-w>w]])
 keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
@@ -74,6 +71,8 @@ local function smart_print()
 end
 keymap('i', "<C-j>", smart_print, { expr = true })
 
+keymap({ 'n', 'i', 'x' }, "<C-z>", vim.cmd.wqall)
+keymap('i', "<C-c>", "<Esc>")
 keymap("n", "<C-c>", function()
     vim.cmd.wall()
     if vim.bo.filetype == "help" or vim.bo.filetype == "netrw" or vim.bo.filetype == "pager" then

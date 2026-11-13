@@ -1,0 +1,56 @@
+[shell.session]
+grid = false
+grid_columns = 3
+show_shortcuts = true
+
+    [shell.session.power]
+
+    [[shell.session.actions]]
+    action = "lock"
+    command = ""
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = ""
+    label = ""
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    command = ""
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = ""
+    label = ""
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    command = ""
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = ""
+    label = ""
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    command = ""
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = ""
+    label = ""
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    command = ""
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = ""
+    label = ""
+    shortcut = "5"
+    variant = "destructive"

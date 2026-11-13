@@ -93,6 +93,3 @@ type = "volume"
 [widget.bar]
 show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
-
-[widget.stopwatch]
-type = "me/stopwatch:stopwatch"

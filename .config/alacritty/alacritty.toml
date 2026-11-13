@@ -45,16 +45,16 @@ yellow = "#ff9e64"
 # [font]
 # size = 20
 # [font.normal]
-# family = "JetBrainsMono NerdFont"
+# family = "JetBrainsMonoNerdFont"
 # style = "Regular"
 # [font.italic]
-# family = "JetBrainsMono NerdFont"
+# family = "JetBrainsMonoNerdFont"
 # style = "Italic"
 # [font.bold]
-# family = "JetBrainsMono NerdFont"
+# family = "JetBrainsMonoNerdFont"
 # style = "Bold"
 # [font.bold_italic]
-# family = "JetBrainsMono NerdFont"
+# family = "JetBrainsMonoNerdFont"
 # style = "Bold Italic"
 
 [font]

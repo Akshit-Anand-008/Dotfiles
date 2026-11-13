@@ -170,38 +170,6 @@ force = false
 temperature_day = 6500
 temperature_night = 4000
 
-[notification]
-background_opacity = 0.9
-border = true
-border_color = "outline_variant"
-border_width = 1.0
-collapse_on_dismiss = true
-enable_daemon = true
-follow_focused_output = false
-history_retention_hours = 0
-keep_dismissed_in_history = true
-layer = "top"
-max_visible = 0
-monitors = []
-offset_x = 20
-offset_y = 8
-position = "bottom_right"
-scale = 1.0
-show_actions = true
-show_app_name = true
-width = 360
-filter_order = [ "all" ]
-
-    [notification.filter.all]
-    enabled = true
-    allow_permanent = false
-    bypass_dnd = false
-    match_content = ".*"
-    override_duration = 1000
-    play_sound = true
-    save_history = true
-    show_toast = true
-
 [osd]
 background_opacity = 0.5
 border = true
@@ -351,63 +319,6 @@ umbriel_overview_type_to_launch_enabled = false
     save_to_file = true
     show_cursor = false
     skip_annotate_on_copy_save = false
-
-    [shell.session]
-    grid = false
-    grid_columns = 3
-    show_shortcuts = true
-
-        [shell.session.power]
-
-        [[shell.session.actions]]
-        action = "lock"
-        command = ""
-        countdown_seconds = 0.0
-        enabled = true
-        glyph = ""
-        label = ""
-        shortcut = "1"
-        variant = "default"
-
-        [[shell.session.actions]]
-        action = "lock_and_suspend"
-        command = ""
-        countdown_seconds = 0.0
-        enabled = true
-        glyph = ""
-        label = ""
-        shortcut = "2"
-        variant = "default"
-
-        [[shell.session.actions]]
-        action = "logout"
-        command = ""
-        countdown_seconds = 0.0
-        enabled = true
-        glyph = ""
-        label = ""
-        shortcut = "3"
-        variant = "default"
-
-        [[shell.session.actions]]
-        action = "reboot"
-        command = ""
-        countdown_seconds = 0.0
-        enabled = true
-        glyph = ""
-        label = ""
-        shortcut = "4"
-        variant = "default"
-
-        [[shell.session.actions]]
-        action = "shutdown"
-        command = ""
-        countdown_seconds = 0.0
-        enabled = true
-        glyph = ""
-        label = ""
-        shortcut = "5"
-        variant = "destructive"
 
     [shell.shadow]
     alpha = 0.0

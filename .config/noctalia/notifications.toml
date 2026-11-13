@@ -1,0 +1,31 @@
+[notification]
+background_opacity = 0.9
+border = true
+border_color = "outline_variant"
+border_width = 1.0
+collapse_on_dismiss = true
+enable_daemon = true
+follow_focused_output = false
+history_retention_hours = 0
+keep_dismissed_in_history = true
+layer = "top"
+max_visible = 0
+monitors = []
+offset_x = 20
+offset_y = 8
+position = "bottom_right"
+scale = 1.0
+show_actions = true
+show_app_name = true
+width = 360
+filter_order = [ "all" ]
+
+    [notification.filter.all]
+    enabled = true
+    allow_permanent = false
+    bypass_dnd = false
+    match_content = ".*"
+    override_duration = 1000
+    play_sound = true
+    save_history = true
+    show_toast = true
