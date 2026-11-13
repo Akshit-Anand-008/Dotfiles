@@ -1,5 +1,5 @@
 [control_center]
-hidden_tabs = [ "monitor", "system", "power", "weather", "calendar", "network", "bluetooth" ]
+hidden_tabs = [ "monitor" , "power", "weather" ]
 show_session_button = true
 show_shortcut_labels = true
 sidebar = "compact"

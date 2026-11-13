@@ -379,18 +379,8 @@ umbriel_overview_type_to_launch_enabled = false
         shortcut = "2"
         variant = "default"
 
-        # [[shell.session.actions]]
-        # action = "logout"
-        # command = ""
-        # countdown_seconds = 0.0
-        # enabled = true
-        # glyph = ""
-        # label = ""
-        # shortcut = "3"
-        # variant = "default"
-
         [[shell.session.actions]]
-        action = "reboot"
+        action = "logout"
         command = ""
         countdown_seconds = 0.0
         enabled = true
@@ -400,13 +390,23 @@ umbriel_overview_type_to_launch_enabled = false
         variant = "default"
 
         [[shell.session.actions]]
-        action = "shutdown"
+        action = "reboot"
         command = ""
         countdown_seconds = 0.0
         enabled = true
         glyph = ""
         label = ""
         shortcut = "4"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        command = ""
+        countdown_seconds = 0.0
+        enabled = true
+        glyph = ""
+        label = ""
+        shortcut = "5"
         variant = "destructive"
 
     [shell.shadow]

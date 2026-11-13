@@ -42,17 +42,32 @@ red = "#ff7a93"
 white = "#acb0d0"
 yellow = "#ff9e64"
 
+# [font]
+# size = 20
+# [font.normal]
+# family = "JetBrainsMono NerdFont"
+# style = "Regular"
+# [font.italic]
+# family = "JetBrainsMono NerdFont"
+# style = "Italic"
+# [font.bold]
+# family = "JetBrainsMono NerdFont"
+# style = "Bold"
+# [font.bold_italic]
+# family = "JetBrainsMono NerdFont"
+# style = "Bold Italic"
+
 [font]
-size = 20
+size = 21
 [font.normal]
-family = "JetBrainsMono NerdFont"
+family = "IosevkaTermNerdFont"
 style = "Regular"
 [font.italic]
-family = "JetBrainsMono NerdFont"
+family = "IosevkaTermNerdFont"
 style = "Italic"
 [font.bold]
-family = "JetBrainsMono NerdFont"
+family = "IosevkaTermNerdFont"
 style = "Bold"
 [font.bold_italic]
-family = "JetBrainsMono NerdFont"
+family = "IosevkaTermNerdFont"
 style = "Bold Italic"

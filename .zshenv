@@ -24,7 +24,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # NNN
 export NNN_OPTS="QAEeu"
-export NNN_PLUG='s:fzplug;e:openall;x:togglex;f:fzopen;d:fzcd'
+export NNN_PLUG='s:fzplug;e:openall;x:togglex;f:fzopen;d:fzcd;l:fzlaunch'
 export NNN_BMS="d:$HOME/Downloads/"
 export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
 export NNN_FIFO='/tmp/nnn.fifo'
