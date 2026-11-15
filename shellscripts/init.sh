@@ -9,7 +9,7 @@ source ~/shellscripts/gitaliases.sh
 source ~/shellscripts/functions.sh
 source ~/shellscripts/historyrc.sh
 source ~/shellscripts/lsrc.sh
-source ~/.pyvenv/bin/activate
+# source ~/.pyvenv/bin/activate
 
 # Other
 zvm_after_init_commands+=('source <(fzf --zsh)')

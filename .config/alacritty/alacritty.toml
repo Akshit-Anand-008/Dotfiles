@@ -43,7 +43,7 @@ white = "#acb0d0"
 yellow = "#ff9e64"
 
 # [font]
-# size = 20
+# size = 16
 # [font.normal]
 # family = "JetBrainsMonoNerdFont"
 # style = "Regular"

@@ -30,9 +30,9 @@ ls.add_snippets("tex",
             )
         ),
 
-        s("n",
+        s("i",
             fmta(
-                [[\item \textbf{<>}]],
+                [[\item {<>}]],
                 { i(0) }
             )
         )
