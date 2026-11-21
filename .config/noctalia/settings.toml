@@ -65,33 +65,6 @@ wifi_enabled = []
 [hot_corners]
 enabled = false
 
-[idle]
-behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
-pre_action_fade_seconds = 2.0
-    [idle.behavior.lock]
-    action = "lock"
-    command = ""
-    enabled = true
-    locked_timeout = 0.0
-    resume_command = ""
-    timeout = 600.0
-
-    [idle.behavior.lock-and-suspend]
-    action = "lock_and_suspend"
-    command = ""
-    enabled = true
-    locked_timeout = 0.0
-    resume_command = ""
-    timeout = 900.0
-
-    [idle.behavior.screen-off]
-    action = "screen_off"
-    command = ""
-    enabled = true
-    locked_timeout = 0.0
-    resume_command = ""
-    timeout = 660.0
-
 [keybinds]
 cancel = [ "Escape" ]
 copy = [ "Ctrl+c" ]
@@ -153,7 +126,6 @@ scale = 1.0
 
 [shell]
 font_family = "Atkinson Hyperlegible"
-app_icon_colorize = false
 avatar_path = ""
 button_borders = true
 card_borders = true
@@ -297,8 +269,8 @@ wallpaper_scheme = "m3-content"
     [theme.templates]
     builtin_ids = []
     community_ids = []
-    enable_builtin_templates = true
-    enable_community_templates = true
+    enable_builtin_templates = false
+    enable_community_templates = false
 
 [wallpaper]
 enabled = true
